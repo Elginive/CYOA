@@ -9,8 +9,77 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play CYOA - Iwaku.</tw-noscript></noscript></tw-story>
-<tw-storydata name="CYOA - Iwaku" startnode="1" creator="Twine" creator-version="2.7.1" format="Harlowe" format-version="3.3.7" ifid="3805DC6B-E450-4E08-B422-A6186B45CF8B" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-sidebar {
+<tw-storydata name="CYOA - Iwaku" startnode="41" creator="Twine" creator-version="2.7.1" format="Harlowe" format-version="3.3.7" ifid="3805DC6B-E450-4E08-B422-A6186B45CF8B" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">#audio-controls {
+  display: none;
+}
+
+tw-story {
+  background:url("https://retro-dragon.com/calloway-manor/images/background.jpg") top center no-repeat;
+  background-attachment: fixed;
+}
+
+tw-story[tags="black"], tw-story[tags="black2"] {
+  background:#000;
+}
+
+a:visited {
+  color:inherit;
+}
+
+tw-story {
+  font-size:20px;
+}
+
+.option-wrapper {
+  display:inline-block;
+  text-align: center;
+  width:100%;
+}
+
+tw-sidebar {
     display: none;
+}
+
+.visited, .visited:hover {
+  color: #000;
+}
+
+tw-link {
+  font-size: 25px;
+  color: #000;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 50px;
+  background-color: #555;
+  box-shadow: 0 0 10px 7px #555;
+  border: 2px solid #555;
+  line-height: 70px;
+  transition: 0.5s;
+}
+
+tw-link:hover {
+   color: #000;
+   background:#fff;
+   box-shadow: none;
+   border: none;
+}
+
+body > tw-story > tw-backdrop > tw-dialog > tw-dialog-links {
+  margin: auto;
+  padding-top: 30px;
+  display: block;
+  right: 20px;
+}  
+
+body > tw-story > tw-backdrop > tw-dialog > tw-dialog-links > tw-link:nth-child(1), body > tw-story > tw-backdrop > tw-dialog > tw-dialog-links > tw-link:nth-child(2) {
+  box-shadow: none;
+  border: none;
+  padding: 10px;
+  line-height: inherit;
+}
+
+tw-backdrop {
+  backdrop-filter: blur(4px);
 }
 
 .jitter {
@@ -19,7 +88,36 @@ color:#f06d06;
 display:inline-block;
 }
 
-@keyframes jitter{ 50%{transform:skewY(0.7deg) skewX(-0.7deg) scale(1.006);} }</style><script role="script" id="twine-user-script" type="text/twine-javascript">$(function(){
+@keyframes jitter{ 50%{transform:skewY(0.7deg) skewX(-0.7deg) scale(1.006);} }
+
+#black-cover {
+  position: absolute;
+  left: -35%;
+  top: -10%;
+  width: 150vw;
+  height: 150%;
+  background-color:#000;
+  z-index:10;
+  animation: fade-out 10s ease-out forwards;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    z-index:0;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+  
+/*/
+ </style><script role="script" id="twine-user-script" type="text/twine-javascript">$(function(){
   var $jittery = $('.jittery'),
       aText    = $jittery.text().split(''),
       letters = '';
@@ -33,7 +131,17 @@ display:inline-block;
   $.each($('span', $jittery), function(i){
     $(this).css('animation-delay', '-'+i+'70ms');
   });
-});</script><tw-passagedata pid="1" name="Start" tags="" position="2150,4175" size="100,100">&lt;p class=&quot;jitter&quot; style=&quot;color:red;&quot;&gt;Welcome to Calloway Manor&lt;/p&gt;
+});
+
+//
+
+/**
+ * Harlowe Audio Library (HAL), by Chapel, v2.3.0
+ * for Harlowe 2.1.0 and higher
+ * Released under the Unlicense, and dedicated to the public domain.
+**/
+;!function(e){(jQuery.browser=jQuery.browser||{}).mobile=/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(e)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(e.substr(0,4))}(navigator.userAgent||navigator.vendor||window.opera),function(){"use strict";window.Fast={filter:function(e,t){for(var o=e.length,n=[],a=0;a<o;a++)t(e[a],a,e)&&n.push(e[a]);return n},forEach:function(e,t){for(var o=e.length,n=0;n<o;n++)t(e[n],n,e)},map:function(e,t){for(var o=e.length,n=new Array(o),a=0;a<o;a++)n[a]=t(e[a],a,e);return n},find:function(e,t){for(var o=e.length,n=0;n<o;n++)if(t(e[n],n,e))return e[n]},findIndex:function(e,t){for(var o=e.length,n=0;n<o;n++)if(t(e[n],n,e))return n;return-1},some:function(e,t){for(var o=e.length,n=0;n<o;n++)if(t(e[n],n,e))return!0;return!1}}}(),window.Chapel=window.Chapel||{},window.Chapel.options={preload:!0,loadDelay:0,muteOnBlur:!0,startingVol:.5,persistPrefs:!0,globalA:!0,showControls:!0,sidebarStartClosed:!0,volumeDisplay:!1,trackLoadLimit:500,totalLoadLimit:8e3,debug:!1},window.Chapel.debug=function(){Chapel.options.debug&&console.log.apply(null,arguments)},function(){"use strict";var n=$("tw-storydata"),o=/(.+?):(.+)/,t=/[\r\n]+/,a=/^["']/,r=/["']$/;function e(e){return Fast.map(Fast.filter(e.split(t),function(e){return e&&e.trim()&&e.includes(":")}),function(e){return e.trim()})}function i(e){return e.trim().replace(a,"").replace(r,"").trim()}function s(e){var t=e.match(o);return t instanceof Array?{key:i(t[1]),value:i(t[2])}:e}var u,l,c,p=n.find('tw-passagedata[name="hal.tracks"]'),d=null,p=(p.length&&(p=e(p.text()),u=[],l=[],Fast.forEach(p,function(e){var e=s(e);"string"==typeof e&&l.push(e),u.push([e.key,(e=e.value,Fast.map(e.split(","),i))])}),l.length&&console.error("Some track definitions could not be parsed:\n"+l.join("\n")+"\nPlease check these definitions and try again."),d=new Map(u)),n.find('tw-passagedata[name="hal.config"]')),m=null;function f(e){var t=n.attr("format-version");if(e)return t;var e=t.split("."),t=e[0],o=e[1],e=e[2],t=Number(t),o=Number(o);return[t=(t=Number.isNaN(t)?3:t)<1?3:t,o=Number.isNaN(o)?3:o,e=Number.isNaN(e)?0:e]}function h(){var e=f();return!(3<=e[0]&&3<=e[1])}function g(t){return function(){var e=[].slice.call(arguments).slice(1),e=t.apply(null,e);return"string"==typeof e||"boolean"==typeof e||"number"==typeof e?e:""}}p.length&&(p=e(p.text()),c={},Fast.forEach(Fast.map(p,function(e){return s(e)}),function(e){c[e.key]=e.value}),m=c),m&&Fast.forEach(Object.keys(m),function(e){var t=e,o=c[e],e=typeof Chapel.options[e];"boolean"==e?"true"===o?Chapel.options[t]=!0:"false"===o&&(Chapel.options[t]=!1):"number"==e?(o=Number(o),Number.isNaN(o)||(Chapel.options[t]=o)):"string"==e&&o&&(Chapel.options[t]=o)});var y=require("macros");if(window.Chapel=window.Chapel||{},window.Chapel.Macros={add:function(o){o&&"object"==typeof o&&Fast.forEach(Object.keys(o),function(e){var t;t=o[e=e],h()?y.add(e,g(t),y.TypeSignature.zeroOrMore(y.TypeSignature.Any)):y.add(e,"Any",g(t),y.TypeSignature.zeroOrMore(y.TypeSignature.Any))})}},window.Chapel.Get=Object.freeze({version:f(),isHarlowe3OrLater:3<=f()[0],storyTitle:n.attr("name"),IFID:n.attr("ifid"),useOldMacroAPI:h(),fromPassage:d}),Chapel.debug("Harlowe Version -> ",Chapel.Get.version.join(".")),Chapel.debug("Harlowe Major Version -> ",Chapel.Get.version[0]),Chapel.debug("Story Title -> ",Chapel.Get.storyTitle),Chapel.debug("Story IFID -> ",Chapel.Get.IFID),Chapel.Get.version[0]<2)throw new Error("The Harlowe Audio Library is only designed to work with Harlowe 2 and 3; you appear to be using Harlowe 1 or an otherwise invalid story format.","get.js -> initialization",176);Chapel.options.storagekey="%%hal-"+Chapel.Get.IFID+"-{"+Chapel.Get.storyTitle+"}",Chapel.debug("Storage Key -> ",Chapel.options.storagekey)}(),function(){"use strict";var t=Chapel.options,e=function(e,t){if(window.localStorage)try{e=""+e,"string"!=typeof t&&(t=JSON.stringify(t)),window.localStorage.setItem(e,t)}catch(e){console.error(e)}},o=function(e){if(window.localStorage)try{return e=""+e,window.localStorage.getItem(e)}catch(e){console.error(e)}},n=function(e){if(window.localStorage)try{e=""+e,window.localStorage.removeItem(e)}catch(e){console.error(e)}},a={loaded:[],classes:{},master:{volume:t.startingVol,mute:!1},groups:{playing:[],looping:[],custom:{}},mute:function(e){a.master.mute=!!e,$(document).trigger({type:":master-mute",mute:!!e})},isMuted:function(){return!!a.master.mute},volume:function(e){e=Number(e),Number.isNaN(e)||(1<e?e=1:e<0&&(e=0),a.master.volume=e),$(document).trigger({type:":master-volume",volume:e})},getVolume:function(){return a.master.volume},stopAll:function(){a.classes.Track&&Fast.forEach(a.classes.Track.list,function(e){e.stop()})},audioPlaying:function(){return!!a.groups.playing.length},savePrefs:function(){e(t.storagekey,a.master)},loadPrefs:function(){var e=o(t.storagekey);e&&"object"==typeof e&&e.hasOwnProperty("volume")&&"number"==typeof e.volume&&e.hasOwnProperty("mute")&&"boolean"==typeof e.volume&&(delete a.master,a.master=e)},clearPrefs:function(){n(t.storagekey)}},r={track:[":available",":loaded",":play",":stop",":mute",":volume"],master:[":master-mute",":master-volume"]};var i=r.track.concat(r.master);function s(e,t){if(!e||"string"!=typeof e||!e.trim())return null;e=Fast.filter(Fast.map(e.split(" "),function(e){return(e=":"!==(e=e.split(".")[0])[0]?":"+e:e)+".userland"}),function(e){return(t?i:r.track).includes(e)}).join(" ");return e&&e.trim()?e:null}a.data={parseEvent:s,bail:function(e){throw new Error(e,"audio.js -> bail()",140)}},a.on=function(e,t){t&&"function"==typeof t?(e=s(e,!0))&&$(document).on(e,t):console.error("Chapel.Audio.on() -> invalid callback")},a.one=function(e,t){t&&"function"==typeof t?(e=s(e,!0))&&$(document).one(e,t):console.error("Chapel.Audio.one() -> invalid callback")},a.off=function(e){(e=s(e,!0))&&$(document).off(e)},t.persistPrefs&&($(document).on(":master-mute",a.savePrefs),$(document).on(":master-volume",a.savePrefs)),$(document).on(":play",function(e){e.track.addToGroup("playing")}),$(document).on(":stop",function(e){e.track.removeFromGroup("playing")}),t.muteOnBlur&&$(window).on("blur",function(){a.isMuted()||(a.mute(!0),$(window).one("focus",function(){a.mute(!1)}))}),a.parseEvent=s,window.Chapel=window.Chapel||{},window.Chapel.Audio=a}(),function(){"use strict";var a=Chapel.Audio,o=a.data.pareEvent,r=a.data.bail,i=Chapel.options,t=$(document.createElement("div")).attr("id","audio-container").css("display","none").appendTo(document.body),s={aac:"audio/aac",caf:"audio/x-caf","x-caf":"audio/x-caf",mp3:'audio/mpeg; codecs="mp3"',mpeg:'audio/mpeg; codecs="mp3"',m4a:"audio/mp4",mp4:"audio/mp4","x-m4a":"audio/mp4","x-mp4":"audio/mp4",oga:"audio/ogg",ogg:"audio/ogg",opus:'audio/ogg; codecs="opus"',wav:"audio/wav",wave:"audio/wav",weba:"audio/webm",webm:"audio/webm"};function u(e,t,o){this instanceof u||r("Track: called without `new` operator"),e||r("Track: no id specified"),"string"!=typeof e&&r("Track: track id is not a string"),t&&(!Array.isArray(t)||t.length)||r("Track: no sources specified"),o?t=[].slice.call(arguments).slice(1):"string"==typeof t&&(t=[t]);var n=$(document.createElement("audio"));Fast.forEach(t,function(e){$(document.createElement("source")).attr({src:e,type:(e=(e=(e=(e=(e=e).split("."))[e.length-1]).includes("?")?e.split("?")[0]:e).toLowerCase().trim(),Object.keys(s).includes(e)||r('Track: unsupported file type "'+e+'"'),s[e])}).appendTo(n)}),n.attr({"data-track":"id","data-volume":1,"data-mute":!1}).one("canplaythrough.hal",function(){a.loaded.push(e)}),i.preload&&n.attr("preload","auto"),n[0].volume=+a.master.volume,this.id=e,this.$el=n,this.unwrap=n[0],this.sources=t}Object.assign(u,{list:[],is:function(e){return e instanceof u},has:function(t){return Fast.some(u.list,function(e){return e.id===t})},emit:function(e,t){$(document).trigger({type:e,track:t}),t.emit(e)},add:function(e,t,o){var n=new u(e,t=o?[].slice.call(arguments).slice(1):t);return u.list.push(n),n.$el.on("canplay",function(){u.emit(":available",n)}),n.$el.on("canplaythrough",function(){u.emit(":loaded",n)}),n.attach(),n},renew:function(){Fast.forEach(u.list,function(e){e.mute(e.isMuted()),e.volume(e.getVolume())})},getIdx:function(t){return Fast.findIndex(u.list,function(e){return e.id===t})},get:function(t){var e=Fast.find(u.list,function(e){return e.id===t});if(e)return e;throw new ReferenceError('There is no track with the id "'+t+'". Please check your spelling and capitalization.',"track.js -> Track.get()",155)},removeFromDOM:function(e){(e="string"==typeof e?u.get(e):e)&&u.is(e)?e.unattach():t.remove()},_runOnMultiple:function(e,t,o){e instanceof Array&&u.prototype.hasOwnProperty(t)&&Fast.forEach(e,function(e){(e=u.is(e)?e:u.get(e)||null)&&e[t].apply(e,o&&o instanceof Array?o:[])})}}),Object.assign(u.prototype,{constructor:u,emit:function(e){this.$el.trigger({type:e,track:this})},clone:function(){return new u(this.id,this.sources)},isAttached:function(){return $.contains(t[0],this.unwrap)},attach:function(){return this.isAttached()||this.$el.appendTo(t),this},unattach:function(){return this.isAttached()&&this.$el.remove(),this},isPlaying:function(){return!this.unwrap.paused},play:function(){var e=this;return this.unwrap.play(),u.emit(":play",this),this.$el.on("ended",function(){e.unwrap.loop||(e.unwrap.currentTime=0,u.emit(":stop",e))}),this},playWhenPossible:function(){var t=this;return this.unwrap.play().then(function(){u.emit(":play",t),t.$el.on("ended",function(){t.unwrap.loop||(t.unwrap.currentTime=0,u.emit(":stop",t))})},function(e){$(document).one("click mousedown keydown touchstart",function(){t.play()})}).catch(function(e){console.error(e)}),this},forcePlay:function(){var e=this,t=$(document.createElement("a")).css("display","none").appendTo(document.body).on("click",function(){e.play()});setTimeout(function(){t.trigger("click")},safeAudioStart)},pause:function(){return this.unwrap.pause(),u.emit(":pause",this),this},stop:function(){return this.unwrap.pause(),this.unwrap.currentTime=0,u.emit(":stop",this),this},mute:function(e){return this.$el.attr("data-mute",e=!!e),a.master.mute?this.unwrap.muted=!0:this.unwrap.muted=e,u.emit(":mute",this),this},isMuted:function(){var e=this.$el.attr("data-mute");return"boolean"==typeof e?e:"false"!==e},toggleMute:function(){return this.mute(!this.isMuted()),this},volume:function(e){return e=Number(e),Number.isNaN(e)||(1<e?e=1:e<0&&(e=0),this.$el.attr("data-volume",e),this.unwrap.volume=e*a.master.volume),u.emit(":volume",this),this},getVolume:function(){return Number(this.$el.attr("data-volume"))},addToGroup:function(e,t){var o=this,t=(t?a.groups.custom:a.groups)[e];return Fast.some(t,function(e){return o.id===e.id})||t.push(this),this},removeFromGroup:function(e,t){var o=this,t=(t?a.groups.custom:a.groups)[e],e=Fast.findIndex(t,function(e){return e.id&&e.id===o.id});return t.splice(e,1),this},loop:function(e){return this.unwrap.loop=!!e,this.unwrap.loop?this.addToGroup("looping"):this.removeFromGroup("looping"),this},isLooping:function(){return!!this.unwrap.loop},toggleLoop:function(){return this.loop(!this.isLooping()),this},seek:function(e){return e<0?e=this.unwrap.duration-e:e>this.unwrap.duration&&(e=this.unwrap.duration),this.unwrap.currentTime=e,this},fadeIn:function(e){var t=this,o=(e=e||1,this.getVolume());return this.volume(0),this.play(),this.$el.animate({volume:o*a.master.volume},1e3*e,function(){t.volume(o),u.emit(":volume",t),u.emit(":fade",t)}),this},fadeOut:function(e){e=e||1;var t=this,o=this.getVolume();return this.$el.animate({volume:0},1e3*e,function(){t.stop(),t.volume(o),u.emit(":volume",t),u.emit(":fade",t)}),this},fadeTo:function(e,t){var o=this;if(e=e||1,t=Number(t),!Number.isNaN(t))return 1<t?t=1:t<0&&(t=0),this.$el.animate({volume:t*a.master.volume},1e3*e,function(){o.volume(t),u.emit(":volume",o),u.emit(":fade",o)}),this;alert("ivalid volume level")},delay:function(e,t){var o=this;"function"==typeof t&&(e=Number(e),(Number.isNaN(e)||e<0)&&(e=0),setTimeout(function(){t.call(o,o,e)},e))},on:function(e,t){if(!t||"function"!=typeof t)return console.error("<track>.on() -> invalid callback"),this;(e=o(e))&&this.$el.on(e,t)},one:function(e,t){if(!t||"function"!=typeof t)return console.error("<track>.one() -> invalid callback"),this;(e=o(e))&&this.$el.one(e,t)},off:function(e){(e=o(e))&&this.$el.off(e)}}),a.classes.Track=u,a.newTrack=function(){try{return u.add.apply(null,arguments)}catch(e){console.error(e.message),alert("Error in A.newTrack() -> see the console for more information.")}},a.track=function(e){try{return u.get(e)}catch(e){console.error(e.message),alert("Error in A.track() -> see the console for more information.")}},$(document).on(":master-mute",u.renew),$(document).on(":master-volume",u.renew)}(),function(){"use strict";var n=Chapel.Audio,a=n.classes.Track,o=(n.data._extend,/(play)?list:(.+)/i);n.createGroup=function(e,t,o){o=o?[].slice.call(arguments).slice(1):t;t=e,(e=o)&&Array.isArray(e)||(e=[]),n.groups.custom[t]=Fast.map(e,function(e){return a.get(e)})},n.group=function(e){if(!(this instanceof n.group))return new n.group(e);if(Object.keys(n.groups.custom).includes(e))this.members=n.groups.custom[e];else{if(!(n.groups[e]&&n.groups[e]instanceof Array))throw new ReferenceError('There is no group with the id "'+id+'". Please check your spelling and capitalization.',"group.js -> A.group()",29);this.members=n.groups[e]}var t;o.test(e)&&(t=e.match(o)[2])&&t.trim()&&(this.members=n.playlist(t).tracks),Array.isArray(this.members)||(this.members=[],console.error('Could not find members for track group "'+e+'"!'))},Object.assign(n.group,{is:function(e){return this instanceof n.group},_runOnAll:function(e,t,o,n){null!=n?o=[].slice.call(arguments).slice(2):o instanceof Array||(o=[o]);n=[e.members,t,o];a._runOnMultiple.apply(null,n)}}),Object.assign(n.group.prototype,{constructor:n.group,_run:function(){n.group._runOnAll.apply(null,[this].concat([].slice.call(arguments)))},play:function(){return this._run("play"),this},pause:function(){return this._run("pause"),this},stop:function(){return this._run("stop"),this},mute:function(e){return this._run("mute",e),this},volume:function(e){return this._run("volume",e),this},loop:function(e){return this._run("loop",e),this}})}(),function(){"use strict";var e=Chapel.Audio,a=e.classes.Track;e.data._extend;function n(e,t){if(!(this instanceof n))return new n(e,t);this.id=e,this.tracks=t.map(function(e){return a.get(e)}),this.looping=!1,this.current="",this.playing=!1}Object.assign(n,{list:{},is:function(e){return e instanceof n},add:function(e,t,o){return o&&(t=[].slice.call(arguments).slice(1)),n.list[e]=new n(e,t),n.list[e]},_runOnAll:function(e,t,o,n){null!=n?o=[].slice.call(arguments).slice(2):o instanceof Array||(o=[o]);n=[e.tracks,t,o];a._runOnMultiple.apply(null,n)}}),Object.assign(n.prototype,{constructor:n,clone:function(){return new n(this.id,this.tracks.map(function(e){return e.id}))},_run:function(){n._runOnAll.apply(null,[this].concat([].slice.call(arguments)))},volume:function(e){return this._run("volume",e),this},mute:function(e){return this._run("mute",e),this},shuffle:function(){for(var e,t,o=this.tracks,n=o.length-1;0<n;n--)e=Math.floor(Math.random()*(n+1)),t=o[n],o[n]=o[e],o[e]=t;return this.tracks=o,this},random:function(){return this.tracks[Math.floor(Math.random()*this.tracks.length)]},isPlaying:function(){return this.playing},nowPlaying:function(){return a.get(this.current)},play:function(e){var t=this;if((e=e||(t.current?Fast.findIndex(t.tracks,function(e){return e.id===t.current}):0))>=t.tracks.length&&t.looping)e=0;else if(e>=t.tracks.length)return t.current="",void(t.playing=!1);var o=t.tracks[e],n=o.isLooping();return o.loop(!1),o.play(),t.playing=!0,setTimeout(function(){o.isPlaying()||(t.playing=!1)},20),t.current=o.id,o.$el.one("ended.playlist",function(){e++,o.loop(n),t.play(e)}),t},loop:function(e){return this.looping=!!e,this},isLooping:function(){return this.looping},stop:function(){var e;return this.current&&this.isPlaying()?(e=this.nowPlaying())&&(e.stop(),e.$el.off(".playlist")):this._run("stop"),this.current="",this.playing=!1,this},pause:function(){var e;return this.current&&this.isPlaying()&&((e=this.nowPlaying())&&e.pause()),this.playing=!1,this}}),e.classes.Playlist=n,e.createPlaylist=function(){try{n.add.apply(null,arguments)}catch(e){console.error(e.message),alert("Error in A.createPlaylist() -> see the console for more information.")}},e.playlist=function(e){try{var t=n.list[e]||null;if(t)return t;throw new ReferenceError('There is no playlist with the id "'+e+'". Please check your spelling and capitalization.',"list.js -> A.playlist()",171)}catch(e){console.error(e.message),alert("Error in A.createPlaylist() -> see the console for more information.")}}}(),function(){"use strict";var t=Chapel.Audio,o=t.classes.Track,n=t.classes.Playlist;function a(t,o){if("object"!=typeof o)throw new TypeError("Invalid extension.","extensions.js -> _extend()",8);Fast.forEach(Object.keys(o),function(e){if(void 0!==t[e])throw new Error('Invalid extension: cannot clobber existing property "'+e+'".',"extensions.js -> _extend()",8);t[e]=o[e]})}t.extend=function(e){a(Audio,e)},o.extend=function(e){a(o,e)},o.extendPrototype=function(e){a(o.prototype,e)},t.extendTrack=o.extend,t.extendTrackProto=o.extendPrototype,t.group.extend=function(e){a(t.group,e)},t.group.extendPrototype=function(e){a(t.group.prototype,e)},t.extendGroup=t.group.extend,t.extendGroupProto=t.group.extendPrototype,n.extend=function(e){a(n,e)},n.extendPrototype=function(e){a(n.prototype,e)},t.extendPlaylist=n.extend,t.extendPlaylistProto=n.extendPrototype}(),function(){"use strict";var e,t,o,n,a,r,i,s=Chapel.options;s.showControls&&(e=$(document.createElement("div")).attr("id","story-menu").css("display","none"),t=$(document.createElement("span")).attr("id","vol-title").append("Volume"),s.volumeDisplay||t.css("display","none"),o=$(document.createElement("input")).attr({id:"audio-volume",type:"range",min:1,max:99,step:1,title:"Volume"}).addClass("hal"),(a=Math.trunc(100*window.Chapel.Audio.master.volume))<0?a=0:100<a&&(a=100),o.attr("value",a),n=function(e){void 0===e&&(e=o.val()),t.empty().append("Volume "+e)},o.on("input",function(){window.Chapel.Audio.volume($(this).val()/100),n($(this).val())}),a=$(document.createElement("tw-link")).attr({id:"audio-mute",title:"Mute"}).append("Mute <span></span>").on("click",function(e){e.preventDefault(),$(this).toggleClass("muted"),Chapel.Audio.mute(!Chapel.Audio.isMuted())}),Chapel.Audio.isMuted()&&a.addClass("muted"),r=$(document.createElement("tw-link")).attr("id","audio-panel-toggle").on("click",function(e){e.preventDefault(),i.toggleClass("closed")}),i=$(document.createElement("div")).attr("id","audio-controls").append(e,t,o,a,r).appendTo(document.body),s.sidebarStartClosed&&i.addClass("closed"),window.Chapel=window.Chapel||{},window.Chapel.Audio=window.Chapel.Audio||{},window.Chapel.Audio.controls={$panel:i,$volume:o,$mute:a,$user:e,close:function(){i.addClass("closed")},open:function(){i.removeClass("closed")},toggle:function(){i.toggleClass("closed")},hide:function(){i.css("display","none")},show:function(){i.css("display","block")},updateVolume:n})}(),function(){"use strict";var s=Chapel.options,t=State,e=$(document.createElement("div")).attr("id","audio-overlay").css("display","none").appendTo(document.body);function o(){e.css("display","block").append('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>')}function u(){e.fadeOut(function(){e.empty()})}window.Chapel=window.Chapel||{},window.Chapel.Audio=window.Chapel.Audio||{},window.Chapel.Audio.loadScreen={show:o,dismiss:u,kill:function(){$("#audio-overlay").remove()}},window.Chapel.Audio.$overlay=e,window.Chapel.Audio.preload=function(){var a,e,r,i;Chapel.debug("This is a mobile browser -> ",$.browser.mobile),t.pastLength||t.futureLength||$.browser.mobile||($(document).ready(function(){o()}),a=100+s.loadDelay,e=Chapel.Audio.classes.Track.list,r=Chapel.Audio.loaded,e.length?(i=Fast.map(e,function(e){return e.id}),0<s.totalLoadLimit&&setTimeout(function(){u()},s.totalLoadLimit),function e(){var t,o,n;i.length?(t=i.shift(),r.includes(t)?e():(o=Chapel.Audio.classes.Track.get(t)).unwrap.readyState<2?(n=!1,o.$el.one("canplaythrough.hal",function(){e(),n=!0}),setTimeout(function(){n||(o.$el.off("canplaythrough.hal"),e())},s.trackLoadLimit)):(r.includes(t)||r.push(t),e())):setTimeout(u,a)}()):setTimeout(u,a))}}(),function(){"use strict";var e,t,o=Chapel.options.storagekey+"_hal_restart_",n=(Chapel.debug("HAL Session Key -> ",o),window.sessionStorage?(Chapel.debug("Session Storage Available"),e=function(e,t){window.sessionStorage.setItem(o+e,t)},t=function(e){return window.sessionStorage.getItem(o+e)}):(Chapel.debug("Session Storage Unavailable"),e=function(){},t=function(){},console.warn("Session storage is unavailable...")),{save:e,load:t});window.Chapel.Audio.state={_store:n,saveTracks:function(){var e;try{e=Fast.map(Chapel.Audio.classes.Track.list,function(e){return{id:e.id,sources:e.sources}}),Chapel.debug("Session Saved (Tracks) -> ",e),e=JSON.stringify(e),n.save("tracks",e)}catch(e){console.error(e.message)}},loadTracks:function(){var e;try{e=(e=n.load("tracks"))&&JSON.parse(e),Array.isArray(e)&&e.length&&(Chapel.debug("Session Loaded (Tracks) -> ",e),Fast.forEach(e,function(e){e.id&&e.sources&&!Chapel.Audio.classes.Track.has(e.id)?Chapel.Audio.newTrack.apply(null,[e.id].concat(e.sources)):Chapel.debug("Track reloading skipped.")}))}catch(e){console.error(e.message)}},savePlaylists:function(){try{var o=Chapel.Audio.classes.Playlist.list,e=Fast.map(Object.keys(o),function(e){var t={};return t.tracks=Fast.map(o[e].tracks,function(e){return e.id}),t.id=o[e].id,t});Chapel.debug("Session Saved (Playlists) -> ",e),e=JSON.stringify(e),n.save("playlists",e)}catch(e){console.error(e.message)}},loadPlaylists:function(){var e;try{(e=(e=n.load("playlists"))&&JSON.parse(e))&&Array.isArray(e)&&e.length&&(Chapel.debug("Session Loaded (Playlists) -> ",e),Fast.forEach(e,function(e){e.id&&e.tracks&&Chapel.Audio.createPlaylist(e.id,e.tracks)}))}catch(e){console.error(e.message)}},saveGroups:function(){var t;try{t={},Fast.forEach(Object.keys(Chapel.Audio.groups.custom),function(e){t[e]=Fast.map(Chapel.Audio.groups.custom[e],function(e){return"string"==typeof e?e:e.id})}),Chapel.debug("Session Saved (Groups) -> ",t),t=JSON.stringify(t),n.save("groups",t)}catch(e){console.error(e.message)}},loadGroups:function(){var t;try{(t=(t=n.load("groups"))&&JSON.parse(t))&&"object"==typeof t&&(Chapel.debug("Session Loaded (Groups) -> ",t),Fast.forEach(Object.keys(t),function(e){Fast.map(t[e],function(e){return Chapel.Audio.classes.Track.get(e)})}),Chapel.Audio.groups.custom=t)}catch(e){console.error(e.message)}}}}(),function(){"use strict";var e=Chapel.options;e.globalA&&void 0===window.A&&(Chapel.debug("Created global A interface."),window.A=window.Chapel.Audio),Chapel.Get.fromPassage&&(Chapel.debug("Loading tracks from track def special passage -> ",Chapel.Get.fromPassage),Chapel.Get.fromPassage.forEach(function(e,t){Chapel.Audio.newTrack.apply(null,[t].concat(e))})),$(document).on("unload",function(){Chapel.debug("User Prefs Saved"),window.Chapel.Audio.savePrefs()}),Chapel.Audio.classes.Track.renew(),Chapel.Audio.controls&&Chapel.Audio.controls.updateVolume(),Chapel.Get.isHarlowe3OrLater&&($(window).on("unload",function(){Chapel.debug("HAL State Saved"),Chapel.Audio.state.saveTracks(),Chapel.Audio.state.savePlaylists(),Chapel.Audio.state.saveGroups()}),Chapel.debug("HAL State Loaded"),Chapel.Audio.state.loadTracks(),Chapel.Audio.state.loadPlaylists(),Chapel.Audio.state.loadGroups()),e.persistPrefs&&(Chapel.debug("User Prefs Loaded"),Chapel.Audio.loadPrefs())}(),function(){"use strict";var i,s,e,u,t;Chapel.options.showControls&&(i=Engine,s=Chapel.Audio.controls.$user,e=function(){return"none"!==s.css("display")},u=function(){return e()||s.css("display","block"),s},t=function(){return e()&&s.css("display","none"),s},Chapel.Audio.menu={hide:t,show:u,isShown:e,links:{add:function(e,t,o){var n,a;if(!e||"string"!=typeof e)return r="undefined",alert(r),void console.error(r);o||"function"!=typeof t?(t&&"string"==typeof t&&(n=t),o&&"function"==typeof o&&(a=o)):(a=t,n=null);var r=$(document.createElement("tw-link")).append(e).attr({tabindex:"0",name:e.toLowerCase().trim()}).on("click",function(){n&&i.goToPassage(n),a&&a()}).addClass("story-menu").appendTo(s);return u(),r},clear:function(){return s.empty(),t()},hide:function(e){e=e.toLowerCase().trim(),$('tw-link.story-menu[name="'+e+'"]').addClass("hide")},show:function(e){e=e.toLowerCase().trim(),$('tw-link.story-menu[name="'+e+'"]').removeClass("hide")},toggle:function(e){e=e.toLowerCase().trim(),$('tw-link.story-menu[name="'+e+'"]').toggleClass("hide")},remove:function(e){e=e.toLowerCase().trim(),$('tw-link.story-menu[name="'+e+'"]').remove()}}})}(),function(){"use strict";var n=Chapel.Audio;function o(e){return e&&"function"==typeof e}function a(e,t){if(!e||"string"!=typeof e)return null;switch(e=e.toLowerCase().trim()){case"isplaying":e="isPlaying";break;case"playwhenpossible":e="playWhenPossible";break;case"ismuted":e="isAMuted";break;case"togglemute":e="toggleMute";break;case"getvolume":e="getVolume";break;case"islooping":e="isLooping";break;case"toggleloop":e="toggleLoop";break;case"fadein":e="fadeIn";break;case"fadeout":e="fadeOut";break;case"fadeto":e="fadeTo";break;case"stopall":e="stopAll"}if("isPlaying"===e&&"master"===t&&(e="audioPlaying"),"group"===t){if(o(n.group.prototype[e]))return e}else if("master"===t){if(o(n[e]))return e}else if(o(n.classes[t].prototype[e]))return e;throw new ReferenceError('Cannot run the command: "'+e+'" on the API "'+t+'". The command may be invalid, or this may be a bug in HAL.',"macros.js -> getCommand()",10)}window.Chapel.Macros.add({newtrack:function(){var e=[].slice.call(arguments);try{return n.newTrack.apply(null,e)}catch(e){alert("Error in the (newtrack:) macro: "+e.message)}},newplaylist:function(e,t){t=[].slice.call(arguments).slice(1);try{return n.createPlaylist(e,t)}catch(e){alert("Error in the (newplaylist:) macro: "+e.message)}},newgroup:function(e,t){t=[].slice.call(arguments).slice(1);try{return n.createGroup(e,t)}catch(e){alert("Error in the (newgroup:) macro: "+e.message)}},masteraudio:function(e){try{return e=a(e,"master"),n[e].apply(null,[].slice.call(arguments).slice(1))}catch(e){alert("Error in the (masteraudio:) macro: "+e.message)}},track:function(e,t){try{var o=n.track(e);return o[t=a(t,"Track")].apply(o,[].slice.call(arguments).slice(2))}catch(e){alert("Error in the (track:) macro: "+e.message)}},playlist:function(e,t){try{var o=n.playlist(e);return o[t=a(t,"Playlist")].apply(o,[].slice.call(arguments).slice(2))}catch(e){alert("Error in the (playlist:) macro: "+e.message)}},group:function(e,t){try{var o=n.group(e);return o[t=a(t,"group")].apply(o,[].slice.call(arguments).slice(2))}catch(e){alert("Error in the (group:) macro: "+e.message)}}})}();
+/** End of HAL code */</script><tw-passagedata pid="1" name="Start" tags="black2" position="2150,4175" size="100,100">&lt;div id=&quot;black-cover&quot;&gt;&lt;/div&gt;
 
 Heavy clouds rest low against the dark sky. Pregnant with rain yet not yet releasing its weight to drench the earth. Merely threatening while adding an all too cliché ambience to the looming presence of the house.
 
@@ -49,7 +157,12 @@ While you aren’t exactly thrilled to have the constant reminder that your agre
 
 Stepping forward to lay hands upon the stereotypical creaky iron gate that stands between you, Tim and the infamous (text-colour:(hsl:0,0.6517,0.349,0.95))[(text-style:&quot;fade-in-out&quot;)[Calloway House]].
 
-[[Front Porch]]</tw-passagedata><tw-passagedata pid="2" name="Front Porch" tags="" position="2350,4175" size="100,100">The pathway towards the house is noticeably uneven. Stray stones that once lined a path forward are now no more than pockmarked wannabe sidewalks. One misstep and you’d be twisting your ankle while Tim would have to drag you back by your jacket. Likely to complain the whole way. 
+
+&lt;div class=&quot;option-wrapper&quot;&gt;
+(link-repeat: &#39;Front Porch&#39;)[(track: &#39;gate&#39;, &#39;play&#39;)(goto: &#39;Front Porch&#39;)]
+&lt;/div&gt;
+
+&lt;audio src=&quot;https://retro-dragon.com/calloway-manor/audio/spooky-keys.ogg&quot;   autoplay&gt;</tw-passagedata><tw-passagedata pid="2" name="Front Porch" tags="" position="2350,4175" size="100,100">The pathway towards the house is noticeably uneven. Stray stones that once lined a path forward are now no more than pockmarked wannabe sidewalks. One misstep and you’d be twisting your ankle while Tim would have to drag you back by your jacket. Likely to complain the whole way. 
 
 Along the sides leading upwards to the decrepit porch is nothing more than long tall grass. Yellowed from the late fall season. Likely a perfect hiding spot for stray animals and various thrown items that the older kids like to throw into the yard. You wouldn’t be surprised to find a wayward shopping cart here. 
 
@@ -67,10 +180,11 @@ You pause. “Are we really going to do this?” Tim whines as he nervously wrin
 
 Considering this a moment, you stare at the other kid.
 
+&lt;div class=&quot;option-wrapper&quot;&gt;
 [[Go back. Leave and Never Return]]
 [[Foyer]]
 [[Check the left side of the house]]
-</tw-passagedata><tw-passagedata pid="3" name="Foyer" tags="" position="2650,4175" size="100,100">As you both stand before the door –still questioning why it is so new looking compared to the rest of the place- your hand reaches out. Taking a firm grip of that cool metal handle with one final look at Tim. Whom is emphatically shaking his head (text-style:&quot;sway&quot;)[no] while aggressively pointing towards the gate. Taking a final moment to consider the choice merely to entertain the hopes of your friend. However, the door itself is pushed inwards.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Foyer" tags="" position="2650,4175" size="100,100">As you both stand before the door –still questioning why it is so new looking compared to the rest of the place- your hand reaches out. Taking a firm grip of that cool metal handle with one final look at Tim. Whom is emphatically shaking his head (text-style:&quot;sway&quot;)[no] while aggressively pointing towards the gate. Taking a final moment to consider the choice merely to entertain the hopes of your friend. However, the door itself is pushed inwards.
 
 Bearing witness to the drop of Tim’s face, you step inside. With a very loudly complaining Tim behind you.
 
@@ -89,22 +203,15 @@ His cheeks are red from exhaustive efforts, but he rummages around in his pocket
 Dry wringing hands once more, he looks at you. His expression is a mix of irritation, fear and depressive hope. That last one seems to cut you a little deeper than you care to admit. “How do I let you get me into these things, $name! We are literally stuck in this place.” Tim seems to steal a glance away only to complete a double take. His mouth falls agape and his eyes widen, rounding around the room to take in the very same things you noticed. “H-how… what the f—” He stops. Clamping mouth shut with hands shortly rising to do much the same. Leaving only his gaze to zip back and forth in rising confusion!
 
 You decide to let Tim take it all in at his own leisure.
-
-Stepping forward, you peer towards your left to a grand staircase that leads upstairs. As one would think a staircase would. It is covered with an ornate rug to protect the stairs itself from excessive foot traffic, while the wall leading upwards is adorned with paintings. Nothing too terrifying unless you considered a vase of roses frightening. Yet as you look up that way, you feel an unusual pulling - an invitation that you take those steps upward.
-
-Giving your head a shake in hopes to dismiss that feeling, eyes draw down to the path in front of you. The foyer opens up widely into an expansive floor space that seems like it would have been used to welcome guests who were not standing at the door. The walls here appear to be wood paneling all the way to the roof. No paintings, portraits or any wall decorations are  present. Only a small table adorning the left and right side. Clearly they were meant to mirror the other, for they were nearly identical. And seemingly of no importance either save for being another room.
-
-Yet, you can see that on the tail end is a hallway that branches off in two other directions.
-
-Considering this while Tim appears to be finally getting himself back into a functional fashion, your eyes tilt towards your right. To a singular hallway that looks as if it also separates into two ways, but from where you stand, it is impossible to tell where each direction may lead.
- 
-At this point you take in a large breath.  Exhaling just as quickly as you motion to the three options to Tim. In turn, he stares at you. “What? You think I’m going to choose where we go next? No way. You got us into this, you get us out.” Stubbornly he throws his arms over in a cross, looking more on par with an upset toddler than a teenager!
-With some annoyance you consider your three options once more. Where do you go?
+&lt;div class=&quot;option-wrapper&quot;&gt;
+&lt;center&gt;page 1/2&lt;/center&gt;[[Next Page|Foyer2]]
 
 
 [[Upstairs]]
 [[Main Floor]]
-[[Hallway 7]]</tw-passagedata><tw-passagedata pid="4" name="Upstairs" tags="" position="2900,3950" size="100,100">Once more, you consider your initial draw to the staircase. Still it beckons you. Perhaps the second level can give you a vantage point that you don’t have currently. Whatever your reasoning, you decide to take the staircase leading to the second floor. On par for an old creepy mansion, each step has the floor creaking beneath your weight, and you’re pretty sure you can feel Tim’s stuttering breath at your neck with how close he is tailing you. 
+[[Hallway 7]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="4" name="Upstairs" tags="" position="2900,3950" size="100,100">Once more, you consider your initial draw to the staircase. Still it beckons you. Perhaps the second level can give you a vantage point that you don’t have currently. Whatever your reasoning, you decide to take the staircase leading to the second floor. On par for an old creepy mansion, each step has the floor creaking beneath your weight, and you’re pretty sure you can feel Tim’s stuttering breath at your neck with how close he is tailing you. 
 
 With a sigh, you continue. 
 
@@ -113,10 +220,11 @@ Your fingers glide over the smooth wooden bannister, and you gain a temporary vi
 To your left, all the way down the hallway makes a bend, cutting off your vision to see any further. Also to your left, there is a flickering light, casting shadows upon a door that seems… oddly out of place. Finally, to your left, the hallway continued downward past uninteresting wooden drawers, intricate vases, and random ornate looking chairs. That was popular in that era wasn’t it? Having random accent chairs in long stretches of hallway. You wonder if they were placed there in case the lord of the house grew tired from having to traverse their own home! It seemed as though it could take an hour to get where one would want to go in this place. 
 
 So, it looks like you have three options. 
-
+&lt;div class=&quot;option-wrapper&quot;&gt;
 [[Hallway 4]]
 [[Investigate the Creepy Ass Door]]
-[[Foyer]]</tw-passagedata><tw-passagedata pid="5" name="Main Floor" tags="" position="3350,4250" size="100,100">At this point you are starting to believe that Tim is a living embodiment of a sigh, since he keeps doing it. Loudly he does this but quickly tags close to your heels. He might not be happy to be here but there was no way you two are about to be separated. You’ve seen horror movies! When you split up, you die! Not that you are intending on dying, but it&#39;s the principle that matters.
+[[Foyer]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Main Floor" tags="" position="3350,4250" size="100,100">At this point you are starting to believe that Tim is a living embodiment of a sigh, since he keeps doing it. Loudly he does this but quickly tags close to your heels. He might not be happy to be here but there was no way you two are about to be separated. You’ve seen horror movies! When you split up, you die! Not that you are intending on dying, but it&#39;s the principle that matters.
 
 With Tim having declared that he was not about to take leadership of this bad idea, you step forward. Leading both of yourself along that as you step into the main floor, you get this uncomfortable feeling bubbling up from your stomach. “(text-style:&quot;rumble&quot;)[Ugh].” Tim adds to that measure. Earning a glance that tells you he feels that same sensation.
 
@@ -130,13 +238,19 @@ Or you could go to your right into another hallway that from a distance looks li
 
 Hands reach over to grab your arm, squeezing it tightly. Tim’s face is a few inches from yours then, “Whatever you pick, it better be good.” No pressure, huh.
 
+&lt;div class=&quot;option-wrapper&quot;&gt;
 [[Dining Room]]
 [[Foyer]]
 [[Hallway 3]]
-</tw-passagedata><tw-passagedata pid="6" name="Hallway 2" tags="" position="3000,3675" size="100,100">[[Attic]]
-[[Dining Room]] </tw-passagedata><tw-passagedata pid="7" name="Hallway 4" tags="" position="2450,3525" size="100,100">[[Bedroom 3]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="6" name="Hallway 2" tags="" position="3000,3675" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Attic]]
+[[Dining Room]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="Hallway 4" tags="" position="2450,3525" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Bedroom 3]]
 [[Bedroom 4]]
-[[Portrait Room]]</tw-passagedata><tw-passagedata pid="8" name="Bedroom 3" tags="" position="2450,3350" size="100,100">You wrinkle your nose as a musty aroma filters out of this room, as though it hasn’t been opened for a good decade. Like ripping off a bandaid, you figure you’re better off thrusting the door open. Rather than add to the creepy ambience to open it with a slow creak! Tim squeaks behind you at the initial thud of the door against the wall, but then you’re both left staring in the threshold at what greets you within. 
+[[Portrait Room]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="Bedroom 3" tags="" position="2450,3350" size="100,100">You wrinkle your nose as a musty aroma filters out of this room, as though it hasn’t been opened for a good decade. Like ripping off a bandaid, you figure you’re better off thrusting the door open. Rather than add to the creepy ambience to open it with a slow creak! Tim squeaks behind you at the initial thud of the door against the wall, but then you’re both left staring in the threshold at what greets you within. 
 
 Glassy glinting orbs sparkle at you in the darkness. Facial features frozen in time, and yet the wear and tear is plenty visible upon those faces of the many dolls that litter this room. You wish they weren’t! Many of the dolls are broken. Missing limbs… eyes… with the fragile material that was supposed to make their features so fair; cracking.
 
@@ -144,7 +258,9 @@ And you can’t help but feel like every single one of those eyeballs is watchin
 
 “Nope. Nope! Hard nope. I draw the line at creepy dolls!!” Tim promptly turns upon his heels to venture down the hall, and you quickly shut the door. While you ignored Tim’s suggestion about leaving before ever entering this horror house, you’re listening to him now. This room seems like it would be better left undisturbed.
 
-Leave Back to [[Hallway 4]] </tw-passagedata><tw-passagedata pid="9" name="Bedroom 4" tags="" position="2450,3675" size="100,100">This is just a house, you keep telling yourself. Just a big, old, dusty house. Where the biggest danger was misstepping to fall through loose planks in the wooden floor! There had to be a reasonable explanation to the kooky things you had experienced so far. 
+&lt;div class=&quot;option-wrapper&quot;&gt;
+Leave Back to [[Hallway 4]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="Bedroom 4" tags="" position="2450,3675" size="100,100">This is just a house, you keep telling yourself. Just a big, old, dusty house. Where the biggest danger was misstepping to fall through loose planks in the wooden floor! There had to be a reasonable explanation to the kooky things you had experienced so far. 
 
 With that thought in mind, you open up the next door and take a peek inside. How bad could it really be… 
 
@@ -157,7 +273,9 @@ Tim catches on immediately and jumps up, looking down at himself and swiping han
 Tim exits the room so fast you’re pretty sure you see an afterimage of him still standing by the bed. And you’re not far behind him as you promptly shut the door with your exit, cutting off a cackle of laughter from within that nearly has your hair standing on end. 
 
 Leave back to [[Hallway 4]]
-</tw-passagedata><tw-passagedata pid="10" name="Portrait Room" tags="" position="2250,3525" size="100,100">[[Hallway 4]] </tw-passagedata><tw-passagedata pid="11" name="Crypt" tags="" position="3425,3575" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="12" name="Dining Room" tags="" position="3600,4075" size="100,100">Regardless whether your stomach is leading you on by the smell alone or out of morbid curiosity, the two of you decide –you decide rather- to go towards what shortly becomes evident as a dining room! Although it is like no dining room you’ve ever seen before.
+</tw-passagedata><tw-passagedata pid="10" name="Portrait Room" tags="" position="2250,3525" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Hallway 4]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="Crypt" tags="" position="3425,3575" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="12" name="Dining Room" tags="" position="3600,4075" size="100,100">Regardless whether your stomach is leading you on by the smell alone or out of morbid curiosity, the two of you decide –you decide rather- to go towards what shortly becomes evident as a dining room! Although it is like no dining room you’ve ever seen before.
 
 Large bay windows in a row of four align the west side of the wall, with a singular short hall that separates them into pairs. Each prepped with gossamer thin curtains of a pale blue colour. Allowing the ease of looking outside to be had though any moonlight that could have been passing through is still blocked by the thick rain clouds outside. You aren’t sure if you appreciate the lack of light or if you would prefer it.
 
@@ -185,12 +303,16 @@ Now you sigh at him. He’s clearly scared but the dramatics were a little much.
 
 “Fine. Just know if we die here tonight, I am going to annoy you when we are ghosts. I will be relentless.” That was supposed to be a threat, just it really wasn’t much of one. “Which way then, captain beardless.”
 
+&lt;div class=&quot;option-wrapper&quot;&gt;
 [[Banquet Hall]]
 [[Kitchen]]
 [[Hallway 1]] 
 [[Hallway 2]]
-</tw-passagedata><tw-passagedata pid="13" name="Banquet Hall" tags="" position="3600,3900" size="100,100">[[Courtyard]]
-[[Garden]]</tw-passagedata><tw-passagedata pid="14" name="Courtyard" tags="" position="3525,3750" size="100,100">The heavy doors creak open with a grating push, creating an intense draft that blows at your hair and teases your cheeks. You realize, for the first time since entering this nightmare, the air is fresh. “It’s about time!” Tim nearly bolts past you to excitedly explore the courtyard that the pair of you come to find yourselves in. The stone pathways have long since been overgrown with green. Grasses, moss, and rogue growing plants litter the ground and cover the walls. Swiftly agreeing with Tim, that out of all the places visited so far in this manor, this one takes the cake!. 
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="13" name="Banquet Hall" tags="" position="3600,3900" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Courtyard]]
+[[Garden]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="Courtyard" tags="" position="3525,3750" size="100,100">The heavy doors creak open with a grating push, creating an intense draft that blows at your hair and teases your cheeks. You realize, for the first time since entering this nightmare, the air is fresh. “It’s about time!” Tim nearly bolts past you to excitedly explore the courtyard that the pair of you come to find yourselves in. The stone pathways have long since been overgrown with green. Grasses, moss, and rogue growing plants litter the ground and cover the walls. Swiftly agreeing with Tim, that out of all the places visited so far in this manor, this one takes the cake!. 
 
  “I was starting to feel claustrophobic in that house,” Tim complained, rubbing at his arms to aid with the renewed chill in the air. “Feels nice not breathing in all that dust!” That you could also agree with as you wander out into the courtyard, tilting your head back to glimpse up at the dark clouds beyond the leafy tree branches. Tim makes his way to one of the soggy wooden pieces of furniture and settles himself upon it. You leave him to it, he deserves to take a load off. 
 
@@ -205,13 +327,20 @@ You spring upward and catch your fingers into the vines of the crawling ivy… b
 Peeking back towards the stone path, you notice the moss and grass appears to branch off around the corner. While straight ahead lies an eerie looking iron gate while further along the bend, you see the courtyard expand into a larger area. 
 
 Well… now what? 
-
+&lt;div class=&quot;option-wrapper&quot;&gt;
 Return to the [[Banquet Hall]] 
-Venture forth to the [[Crypt]] </tw-passagedata><tw-passagedata pid="15" name="Garden" tags="" position="3800,3700" size="100,100">[[Courtyard]] 
+Venture forth to the [[Crypt]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="15" name="Garden" tags="" position="3800,3700" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Courtyard]] 
 [[Creepy Gate]]
 [[Shed]]
-[[Stables]]</tw-passagedata><tw-passagedata pid="16" name="Shed" tags="" position="4350,4000" size="100,100">[[Garden]] 
-[[Cellar]] </tw-passagedata><tw-passagedata pid="17" name="Stables" tags="" position="4025,4025" size="100,100">[[Garden]] </tw-passagedata><tw-passagedata pid="18" name="Kitchen" tags="" position="3800,4050" size="100,100">Against all better judgment –by the way Tim is looking at you- the decision is made. Going towards the scraping sounds of knives being slid back and forth across the sharpening stone. This is surely not even in your top ten best ideas, however, if there is someone else here then you might be able to properly leave this place.
+[[Stables]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="Shed" tags="" position="4350,4000" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Garden]] 
+[[Cellar]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="Stables" tags="" position="4025,4025" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Garden]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="18" name="Kitchen" tags="" position="3800,4050" size="100,100">Against all better judgment –by the way Tim is looking at you- the decision is made. Going towards the scraping sounds of knives being slid back and forth across the sharpening stone. This is surely not even in your top ten best ideas, however, if there is someone else here then you might be able to properly leave this place.
 
 This is one hell of a gamble!
 
@@ -250,44 +379,69 @@ Dirt… floor.
 Well you must be in some sort of cool-floor that is meant to keep said meat in. Which apparently is you two because it seems you both are now on some sort of haunted menu!
 
 For a minute or so, you are all just staring at another. If you could call staring at skulls; that. “Close it.” The chef points to the door being held open by the accompanying other to seal you both down here. You’ve got to think fast on what to do. Although you might be able to use your hands to dig out of here, it’s a pretty big risk! But as far as you can tell, you’ve only got two options. That or, start talking!
-
+&lt;div class=&quot;option-wrapper&quot;&gt;
 [[Dig out!]]
 [[Hey, Captain Ugly!]]
-</tw-passagedata><tw-passagedata pid="19" name="Hallway 5" tags="" position="3700,4250" size="100,100">[[Kitchen]]
-[[Hallway 6]]</tw-passagedata><tw-passagedata pid="20" name="Hallway 6" tags="" position="4000,4250" size="100,100">[[Hallway 5]] 
-[[Cellar]]</tw-passagedata><tw-passagedata pid="21" name="Cellar" tags="" position="4000,4400" size="100,100">[[Hallway 6]] 
-[[Bedroom 2]] </tw-passagedata><tw-passagedata pid="22" name="Hallway 3" tags="" position="3500,4400" size="100,100">[[Main Floor]] 
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="19" name="Hallway 5" tags="" position="3700,4250" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Kitchen]]
+[[Hallway 6]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="Hallway 6" tags="" position="4000,4250" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Hallway 5]] 
+[[Cellar]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="Cellar" tags="" position="4000,4400" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Hallway 6]] 
+[[Bedroom 2]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="Hallway 3" tags="" position="3500,4400" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Main Floor]] 
 [[Bedroom 1]]
 [[Bedroom 2]]
-[[Master Bedroom]]</tw-passagedata><tw-passagedata pid="23" name="Bedroom 2" tags="" position="3700,4400" size="100,100">Pushing open the creaky door, cautiously you step into the room. Looking about and feeling an immense amount of relief wash over you. Daring a look back to Tim hot on your heels, you nod. Smiling to show that currently there is nothing to fear.
+[[Master Bedroom]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="Bedroom 2" tags="" position="3700,4400" size="100,100">Pushing open the creaky door, cautiously you step into the room. Looking about and feeling an immense amount of relief wash over you. Daring a look back to Tim hot on your heels, you nod. Smiling to show that currently there is nothing to fear.
 
 The room is no more than a pretty average looking bedroom. Well for whatever time period this weird house was built in.
 
 It has a small rocking chair that has one side broken. Not a very good rocker but at this point that is not something you are going to be upset about. Just that you spend a moment looking around and feeling absolutely nothing. Though it doesn’t appear to be an exit either which means that you wasted the effort of coming in here at all. That little nugget of thought is enough to make you turn around quickly. Shooing Tim to back step back into the hallway.
-
+&lt;div class=&quot;option-wrapper&quot;&gt;
 [[Hallway 3]] 
-</tw-passagedata><tw-passagedata pid="24" name="Master Bedroom" tags="" position="3500,4600" size="100,100">[[Hallway 3]] </tw-passagedata><tw-passagedata pid="25" name="Bedroom 1" tags="" position="3325,4400" size="100,100">You pull open the door and discover that it’s a bedroom. Entirely unremarkable unless you consider the absurd amount of dust and cobwebs something to write home about with unchained enthusiasm. Still you entered this far, you decide to take a quick look.
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="24" name="Master Bedroom" tags="" position="3500,4600" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Hallway 3]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="Bedroom 1" tags="" position="3325,4400" size="100,100">You pull open the door and discover that it’s a bedroom. Entirely unremarkable unless you consider the absurd amount of dust and cobwebs something to write home about with unchained enthusiasm. Still you entered this far, you decide to take a quick look.
 
 Merely to surmise that the room is in fact ordinary. Compared to the rest of this house, there is nothing here. Not even a mattress on the old iron bed. There’s no rugs, no curtains and the wallpaper is a questionable choice of pure ugly. In fact the peeling wallpaper may be the only thing doing justice for the entire space.
 
 Shaking your head, you leave the room. Crossing it off your list of things that don’t need to be investigated again. Unless you really want to check to see that it is in fact just a bedroom.
 
-[[Hallway 3]] </tw-passagedata><tw-passagedata pid="26" name="Hallway 7" tags="" position="2650,4375" size="100,100">[[Foyer]] 
+&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Hallway 3]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Hallway 7" tags="" position="2650,4375" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Foyer]] 
 [[Hallway 8]]
-[[Séance Room]]</tw-passagedata><tw-passagedata pid="27" name="Hallway 8" tags="" position="2650,4575" size="100,100">[[Living Room]]
+[[Séance Room]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="Hallway 8" tags="" position="2650,4575" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Living Room]]
 [[Bedroom 5]]
-</tw-passagedata><tw-passagedata pid="28" name="Séance Room" tags="" position="2450,4375" size="100,100">[[Hallway 7]] 
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="28" name="Séance Room" tags="" position="2450,4375" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Hallway 7]] 
 [[Library]]
-[[Living Room]]</tw-passagedata><tw-passagedata pid="29" name="Library" tags="" position="2475,4575" size="100,100">[[Séance Room]]
+[[Living Room]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="Library" tags="" position="2475,4575" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Séance Room]]
 [[Hallway 8]] 
-</tw-passagedata><tw-passagedata pid="30" name="Living Room" tags="" position="2300,4575" size="100,100">[[Hallway 8]] 
-[[Séance Room]] </tw-passagedata><tw-passagedata pid="31" name="Go back. Leave and Never Return" tags="" position="2150,4375" size="100,100">This may be your wisest choice yet. You agree with Tim and decide to turn back now. Honestly, you have nothing to prove nor should either of you risk your necks just to prove yourselves to some other goobers. 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="30" name="Living Room" tags="" position="2300,4575" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Hallway 8]] 
+[[Séance Room]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="31" name="Go back. Leave and Never Return" tags="" position="2150,4375" size="100,100">This may be your wisest choice yet. You agree with Tim and decide to turn back now. Honestly, you have nothing to prove nor should either of you risk your necks just to prove yourselves to some other goobers. 
 
 You steal one look back at the house as you both walk back the way you came. 
 
 Considering; your options still before you feel a surge of confidence. Yes, this was the right choice!
 
+&lt;div class=&quot;option-wrapper&quot;&gt;
 (text-colour:#1a931a)[ &#39;&#39;LIVE TO SEE ANOTHER DAY - END&#39;&#39;]
+&lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="32" name="Check the left side of the house" tags="" position="2350,3975" size="100,100">Pursing lips into a long thin line, you give Tim a point towards the left side. “What?” The guy turns to look the way you motioned with only his head. Making himself look like a strange urban giraffe, looking for back alley lions or something. It’s enough of an image to make you chuckle while taking charge once more. Offering a pat to Tim’s shoulder but insisting by its grip that you wanted him to follow along. Inviting the sound of unhappy groans once more.
 
 Shoes scuff across the wooden plains of the porch before hopping off. Giving a momentary look at the sighing wood but daring not to stall your steps.
@@ -300,8 +454,10 @@ Along the top you can see it’s been aptly caked with more bird droppings than 
 
 Spanning the entire left side of the yard, it is clear. You aren’t coming in or out this way. “Has this always been here?” A good question. One you can’t honestly answer. So in good favour, you shrug. But it’s clear you have two choices here. Go back to the front of the house or leave.
 
+&lt;div class=&quot;option-wrapper&quot;&gt;
 [[Walk back to the front porch]]
 [[Go Home]]
+&lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="33" name="Walk back to the front porch" tags="" position="2550,3975" size="100,100">Turning to consider your singular ally at the moment, Tim similarly does the same. Looking hopeful for a moment till his face drops and brows crunch up beside another. “We aren’t going to go home now, are we?” You shake your head causing an explosive sigh to erupt from him. “[Character Name]! Seriously!” Offering your best apologetic look, you know after this night it will be likely that Tim will be making sure you owe him countless favours. Likely into the unforeseeable future.
 
 Still if that’s the price to pay then you suppose there are worse things.
@@ -310,32 +466,37 @@ Quickly with a head tip back to the front door, you lead that march back. Trompi
 
 “Some tells me that if we go inside, we won’t be able to leave. Are you sure you want to do this?” The voice of reason, asked. Looking hopeful once more.
  
+ &lt;div class=&quot;option-wrapper&quot;&gt;
  [[Time to say toodles!]]
  [[Foyer]]
+ &lt;/div&gt;
  </tw-passagedata><tw-passagedata pid="34" name="Go Home" tags="" position="2150,3975" size="100,100">This may be your wisest choice yet. You agree with Tim and decide to turn back now. Honestly, you have nothing to prove nor should either of you risk your necks just to prove yourselves to some other goobers. 
 
 You steal one look back at the house as you both walk back the way you came. 
 
 Considering; your options still before you feel a surge of confidence. Yes, this was the right choice!
 
+&lt;div class=&quot;option-wrapper&quot;&gt;
 (text-colour:#1a931a)[ &#39;&#39;LIVE TO SEE ANOTHER DAY - END&#39;&#39;]
-</tw-passagedata><tw-passagedata pid="35" name="Time to say toodles!" tags="" position="2150,3775" size="100,100">With that detour sufficiently under your belt, you decide that maybe this isn’t such a good idea. Clearly with that large odd wall, you aren’t supposed to be here. And, momma didn’t raise no dummy! 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="35" name="Time to say toodles!" tags="" position="2150,3775" size="100,100">With that detour sufficiently under your belt, you decide that maybe this isn’t such a good idea. Clearly with that large odd wall, you aren’t supposed to be here. And, momma didn’t raise no dummy! 
 
 Grabbing Tim’s shoulder with a bit of a shake, he stares at you for just a split second. Turning quickly to relief as he exhales loudly. “Oh thank god.” Putting a palm to his head, it only lasts a moment. Till he is madly sprinting while looking over his shoulder, “Hurry up would you!”
 
 You both leave, safe and sound once more.
-
-(text-colour:#1a931a)[&#39;&#39;Safety First - END&#39;&#39;]</tw-passagedata><tw-passagedata pid="36" name="Investigate the Creepy Ass Door" tags="" position="3075,3850" size="100,100">Curiosity gets the better of you. Upon approaching the door where the light flickers overhead, you can’t help but notice this door seems different than all the others. Instead of being ornately decorated with a polished brass handle, the wood looks decrepit. Parched even, as though it has withstood many years in the sunlight. 
+&lt;div class=&quot;option-wrapper&quot;&gt;
+(text-colour:#1a931a)[&#39;&#39;Safety First - END&#39;&#39;]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="36" name="Investigate the Creepy Ass Door" tags="" position="3075,3850" size="100,100">Curiosity gets the better of you. Upon approaching the door where the light flickers overhead, you can’t help but notice this door seems different than all the others. Instead of being ornately decorated with a polished brass handle, the wood looks decrepit. Parched even, as though it has withstood many years in the sunlight. 
 
 As you lean closer, there are also specklings of dried fungus in the wood. And even a bug or two wriggle out through the tiny cracks and begin crawling around. Blegh-! You wrinkle your nose and quickly take a step back, wondering if even abundant curiosity will have your hand opening this door. Tim, of course, is adamant with his own decision. “You’re kidding. You want to go through this door?  Out of aaall the other doors. This one is the one you choose, [Character Name]?” Tim gives you a long stern look. “You. are. nuts.” Maybe you are, you don’t have any evidence to prove otherwise! 
 
 Still you contemplate the rusty handle where a spider lingers in wait. Perhaps that is the final straw to ward you away from opening this door. Yet, if any remaining urge remains within you, Tim tries one final time to convince you. “[Character name], if you’re serious about going this way, then go. But I’m staying right here. You may not have intuition, but I do. This door is bad news.”  
 
 But ultimately, the choice is up to you. 
+&lt;div class=&quot;option-wrapper&quot;&gt;
 [[Open the door and go inside alone]]- Head to Crypt: Version 1
 Ignore the door and head to [[Hallway 4]]
 Ignore the door and head to [[Hallway 1]]
-</tw-passagedata><tw-passagedata pid="37" name="Open the door and go inside alone" tags="" position="3200,3675" size="100,100">&#39;&#39;Well fine&#39;&#39;. If Tim is going to be a whiny baby, then he can stay behind while you go explore and  do what you have to. If either of you want to get out of this place, then wouldn’t it be better if you give every room a once over at least? You frown and cast a salty look back at your friend who mirrors your expression. Then, with a sudden defiance you grasp the rusty handle and thrust it open. 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="37" name="Open the door and go inside alone" tags="" position="3200,3675" size="100,100">&#39;&#39;Well fine&#39;&#39;. If Tim is going to be a whiny baby, then he can stay behind while you go explore and  do what you have to. If either of you want to get out of this place, then wouldn’t it be better if you give every room a once over at least? You frown and cast a salty look back at your friend who mirrors your expression. Then, with a sudden defiance you grasp the rusty handle and thrust it open. 
 
 You don’t know what death smells like, but upon opening the door, the acrid aroma reaching your nostrils is undeniably clear. Defensively, a forearm comes to your nose to try and block the smell as you take that first step downward. 
 
@@ -352,9 +513,12 @@ That alone is enough to make the hair at the back of your neck stand on end. Yet
 Despite how eerie this entire room feels, you can’t help but wonder if there is anything of value within that coffin. Anything that might aid in your attempts to escape, but maybe even something you can take with you to rub in all those snobbish noses as evidence that you and Tim are braver than any one of them! 
 
 Aaand you’ve never seen a real life skeleton before… just the fake ones in science class
-
+&lt;div class=&quot;option-wrapper&quot;&gt;
 (text-colour:(hsl:0,0.6517,0.349,0.95))[(text-style:&quot;shudder&quot;)[ [[Step Toward the Coffin]]]]
-</tw-passagedata><tw-passagedata pid="38" name="Hallway 1" tags="" position="3250,3975" size="100,100">[[Dining Room]] </tw-passagedata><tw-passagedata pid="39" name="Hey, Captain Ugly!" tags="" position="3900,4750" size="100,100">The door is about to close and you aren’t even sure how this is going to work but instinctively you yell up. Calling one of them Captain Ugly –they could decide who it was! Honestly, why this works at all is beyond  you but is it worth looking a gifted horse in the mouth? Probably not.
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="38" name="Hallway 1" tags="" position="3250,3975" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Dining Room]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="39" name="Hey, Captain Ugly!" tags="" position="3900,4750" size="100,100">The door is about to close and you aren’t even sure how this is going to work but instinctively you yell up. Calling one of them Captain Ugly –they could decide who it was! Honestly, why this works at all is beyond  you but is it worth looking a gifted horse in the mouth? Probably not.
 
 Taking a few steps forward while thrusting a finger up at the two ghouls, you absently notice Tim inching closer. Tucking himself somewhat behind you to be the living meat shield in this predicament.  “What.” Flatly the apparent chef of the duo spoke up. Unfortunately from this angle, there’s a lot to see in the sense of what isn’t there. The whiskered beast that made its home in the sous chef decided now is the time to scuttle out from its hole to make a loop around the fiend’s head. Unbothered, that they only reach up to scratch their bony chin. In an attempt to ignore that, focus drifts back to the former.
 
@@ -372,8 +536,9 @@ The  head chef however doesn’t appear to be as slow. But there is something in
 “Alright. We could use some entertainment before you are made into gruel.” Bony fingers snapped and the hatch was thrown backwards. Slapping against the tile floor with a wooden clatter. Blinking rapidly, you aren’t sure how you did it considering it felt a little too easy but at this point, are you going to start griping? “But I pick the game.” Ah, there it was. That clincher.  
 
 If a face made of just bone could have grinned, you are certain that the view the pair of you have was exactly that. “Tug them out.” Indicating to the sous chef to do the menial labour, “I will prepare the game.”
-
-A Dinner to Remember [[Next page]]</tw-passagedata><tw-passagedata pid="40" name="Dig out!" tags="" position="3800,4750" size="100,100">Before you can muster up any sort of sound, let alone word, the door closes! Sealing you both in here with a sounding scrape of a lock being put into place. With a loud curse on your part and Tim making his best wailing moan possible, you decide that the only way out now is to dig!
+&lt;div class=&quot;option-wrapper&quot;&gt;
+A Dinner to Remember [[Next page]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="40" name="Dig out!" tags="" position="3800,4750" size="100,100">Before you can muster up any sort of sound, let alone word, the door closes! Sealing you both in here with a sounding scrape of a lock being put into place. With a loud curse on your part and Tim making his best wailing moan possible, you decide that the only way out now is to dig!
 
 Elbowing Tim in the dark, -not sure where you elbowed him of course- he gives you a swift slap back! “This is your fault!”
 
@@ -386,13 +551,16 @@ Just, did you really think this would work?
 It’s unclear how long you both were at it but the hatch opens once more and the more fleshy of the ghouls hops in. Wielding a mean looking knife with that grisly smile upon its face! Before you can even think of moving, it leaps upon you. Plunging down the sharp point into your back, over and over again! Where the only thing you can hear now is its cackling, Tim’s shrieking paired with your own!
 
 Seems this was a poor choice in the end
-
+&lt;div class=&quot;option-wrapper&quot;&gt;
 (text-colour:#8c2626)[&#39;&#39;Would you like Some Human with Your Soup?- END&#39;&#39;]
-</tw-passagedata><tw-passagedata pid="41" name="The Calloway Manor" tags="" position="1950,4175" size="100,100">(set: $name to (prompt: &quot;What is your name?&quot;, &quot;&quot;))
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="41" name="Calloway Manor" tags="" position="1800,4175" size="100,100">&lt;center&gt;&lt;p class=&quot;jitter&quot; style=&quot;color:red;font-weight:bold;font-size:30px;&quot;&gt;Welcome to Calloway Manor&lt;/p&gt;&lt;/center&gt;
 
-Welcome $name, shall we continue?
+&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Enter The Manor|Enter Name]]
+&lt;/div&gt;
 
-[[Start]]</tw-passagedata><tw-passagedata pid="42" name="Next page" tags="" position="3900,4875" size="100,100"></tw-passagedata><tw-passagedata pid="43" name="Creepy Gate" tags="" position="3900,3350" size="100,100">A creepy gate seems on par for a creepy mansion… and you can’t help but take steps toward it to get a closer look. It is made of black iron, rusted in places where rain and moisture seeped in. The hinges in particular look rough, and it will take a bit of force to open this thing up if you choose to head this way. However, through the bars of the gate, you see what lies beyond, and it has you second guessing any thoughts about continuing this way. 
+</tw-passagedata><tw-passagedata pid="42" name="Next page" tags="" position="3900,4875" size="100,100"></tw-passagedata><tw-passagedata pid="43" name="Creepy Gate" tags="" position="3900,3350" size="100,100">A creepy gate seems on par for a creepy mansion… and you can’t help but take steps toward it to get a closer look. It is made of black iron, rusted in places where rain and moisture seeped in. The hinges in particular look rough, and it will take a bit of force to open this thing up if you choose to head this way. However, through the bars of the gate, you see what lies beyond, and it has you second guessing any thoughts about continuing this way. 
 
 Tim seems hesitant to go this way too, but that wasn’t exactly new. “What is that place..?” Your friend is referring to what awaited down a short overgrown pathway that led to steps upward, and then finally a large chained up door. One that was guarded by a devilish looking gargoyle overhead. Its eyeless sockets stare you both down, as though warding you both away if the chains were not enough to tell you that what was beyond was off limits. 
 
@@ -403,9 +571,10 @@ You reach out to place your hand upon the rusted handle of the gate, but a squea
 Of course you weren’t, but if fear was going to keep you from going to places that might be a means of escape, then you might as well get comfortable in the mansion. Maybe pick out a room for yourself and make friends with your ghostly roommates. 
 
 “Just… please don’t make another hasty decision. But if you’re sure you wanna do this, I’m with you.” A loyal friend till the end is what Tim was, and it warms your chest pleasantly as you once more glimpse through the bars to consider the space beyond. 
-
+&lt;div class=&quot;option-wrapper&quot;&gt;
 [[Force the Gate Open]]
 Head to the [[Garden]]
+&lt;/div&gt;
 
 </tw-passagedata><tw-passagedata pid="44" name="Force the Gate Open" tags="" position="3900,3225" size="100,100"></tw-passagedata><tw-passagedata pid="45" name="Step Toward the Coffin" tags="" position="3150,3475" size="100,100">You step toward the coffin, but suddenly the floor doesn’t feel so solid. The ground… it’s falling apart!! Your weight must have made something unstable! Pinwheeling your arms; you attempt to step backwards before you are swallowed up in the growing hole! Instead, you trip, and your rapid beating heart jumps up to your throat as you’re falling… falling… falling… 
 
@@ -431,30 +600,76 @@ But a glimpse at your phone shows you don’t have much battery left.
 
 You (text-style:&quot;bold&quot;,&quot;underline&quot;)[have] to get out of here. And (text-style:&quot;bold&quot;,&quot;double-underline&quot;)[fast]! 
 
+&lt;div class=&quot;option-wrapper&quot;&gt;
 [[Forward!]]
-</tw-passagedata><tw-passagedata pid="46" name="Forward!" tags="" position="3150,3275" size="100,100">[[Chamber 3]]
-[[Chamber 5]]
-[[Chamber 2]]</tw-passagedata><tw-passagedata pid="47" name="Chamber 3" tags="" position="3300,3275" size="100,100">[[Chamber 4]]
-[[Forward!]] </tw-passagedata><tw-passagedata pid="48" name="Chamber 2" tags="" position="2975,3275" size="100,100">[[Forward!]]
-[[Chamber 6]]
-</tw-passagedata><tw-passagedata pid="49" name="Chamber 4" tags="" position="3300,3125" size="100,100">[[Chamber 5]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="46" name="Forward!" tags="" position="3150,3275" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
 [[Chamber 3]]
+[[Chamber 5]]
+[[Chamber 2]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="47" name="Chamber 3" tags="" position="3300,3275" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Chamber 4]]
+[[Forward!]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="48" name="Chamber 2" tags="" position="2975,3275" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Forward!]]
+[[Chamber 6]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="49" name="Chamber 4" tags="" position="3300,3125" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Chamber 5]]
+[[Chamber 3]]
+&lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="50" name="Chamber 5" tags="" position="3150,3125" size="100,100">[[Forward!]]
+</tw-passagedata><tw-passagedata pid="50" name="Chamber 5" tags="" position="3150,3125" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Forward!]]
 [[Chamber 4]] 
 [[Chamber 8]]
-</tw-passagedata><tw-passagedata pid="51" name="Chamber 8" tags="" position="3150,2950" size="100,100">[[Chamber 11]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="51" name="Chamber 8" tags="" position="3150,2950" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Chamber 11]]
 [[Chamber 7]]
-</tw-passagedata><tw-passagedata pid="52" name="Chamber 11" tags="" position="3150,2775" size="100,100">[[Chamber 8]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="52" name="Chamber 11" tags="" position="3150,2775" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Chamber 8]]
 [[Chamber 10]]
-[[Chamber 12]] </tw-passagedata><tw-passagedata pid="53" name="Chamber 7" tags="" position="2975,2950" size="100,100">[[Chamber 12]]
+[[Chamber 12]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="53" name="Chamber 7" tags="" position="2975,2950" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Chamber 12]]
 [[Chamber 6]] 
 [[Chamber 8]] 
-</tw-passagedata><tw-passagedata pid="54" name="Chamber 6" tags="" position="2975,3125" size="100,100">[[Chamber 2]]
-[[Chamber 7]]</tw-passagedata><tw-passagedata pid="55" name="Chamber 12" tags="" position="2975,2775" size="100,100">[[Chamber 7]] 
-[[Chamber 11]] </tw-passagedata><tw-passagedata pid="56" name="Chamber 10" tags="" position="3300,2775" size="100,100">[[Chamber 9]]
-[[Chamber 11]] </tw-passagedata><tw-passagedata pid="57" name="Chamber 9" tags="" position="3300,2950" size="100,100">[[Chamber 10]]
-[[What&#39;s this?]]</tw-passagedata><tw-passagedata pid="58" name="What&#39;s this?" tags="" position="3450,2950" size="100,100"></tw-passagedata><tw-passagedata pid="59" name="Bedroom 5" tags="" position="2850,4575" size="100,100"></tw-passagedata><tw-passagedata pid="60" name="Attic" tags="" position="2875,3450" size="100,100"></tw-passagedata></tw-storydata>
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="54" name="Chamber 6" tags="" position="2975,3125" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Chamber 2]]
+[[Chamber 7]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="55" name="Chamber 12" tags="" position="2975,2775" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Chamber 7]] 
+[[Chamber 11]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="56" name="Chamber 10" tags="" position="3300,2775" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Chamber 9]]
+[[Chamber 11]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="57" name="Chamber 9" tags="" position="3300,2950" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Chamber 10]]
+[[What&#39;s this?]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="58" name="What&#39;s this?" tags="" position="3450,2950" size="100,100"></tw-passagedata><tw-passagedata pid="59" name="Bedroom 5" tags="" position="2850,4575" size="100,100"></tw-passagedata><tw-passagedata pid="60" name="Attic" tags="" position="2875,3450" size="100,100"></tw-passagedata><tw-passagedata pid="61" name="Foyer2" tags="" position="2750,4175" size="100,100">Stepping forward, you peer towards your left to a grand staircase that leads upstairs. As one would think a staircase would. It is covered with an ornate rug to protect the stairs itself from excessive foot traffic, while the wall leading upwards is adorned with paintings. Nothing too terrifying unless you considered a vase of roses frightening. Yet as you look up that way, you feel an unusual pulling - an invitation that you take those steps upward.
+
+Giving your head a shake in hopes to dismiss that feeling, eyes draw down to the path in front of you. The foyer opens up widely into an expansive floor space that seems like it would have been used to welcome guests who were not standing at the door. The walls here appear to be wood paneling all the way to the roof. No paintings, portraits or any wall decorations are  present. Only a small table adorning the left and right side. Clearly they were meant to mirror the other, for they were nearly identical. And seemingly of no importance either save for being another room.
+
+Yet, you can see that on the tail end is a hallway that branches off in two other directions.
+
+Considering this while Tim appears to be finally getting himself back into a functional fashion, your eyes tilt towards your right. To a singular hallway that looks as if it also separates into two ways, but from where you stand, it is impossible to tell where each direction may lead.
+ 
+At this point you take in a large breath.  Exhaling just as quickly as you motion to the three options to Tim. In turn, he stares at you. “What? You think I’m going to choose where we go next? No way. You got us into this, you get us out.” Stubbornly he throws his arms over in a cross, looking more on par with an upset toddler than a teenager!
+With some annoyance you consider your three options once more. Where do you go?
+&lt;div class=&quot;option-wrapper&quot;&gt;
+&lt;center&gt;page 2/2&lt;/center&gt;[[Previous Page|Foyer]]
+
+[[Upstairs]]
+[[Main Floor]]
+[[Hallway 7]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="62" name="Enter Name" tags="black" position="1950,4175" size="100,100">
+(set: $name to (prompt: &quot;What is your name?&quot;, &quot;&quot;))
+
+&lt;div class=&quot;option-wrapper&quot;&gt;
+(live: 0s)[(goto: &quot;Start&quot;)]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="63" name="hal.tracks" tags="" position="1800,4400" size="100,100">gate: https://retro-dragon.com/calloway-manor/audio/metal-gate.ogg</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim

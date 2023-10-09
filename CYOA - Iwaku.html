@@ -162,7 +162,9 @@ Stepping forward to lay hands upon the stereotypical creaky iron gate that stand
 (link-repeat: &#39;Front Porch&#39;)[(track: &#39;gate&#39;, &#39;play&#39;)(goto: &#39;Front Porch&#39;)]
 &lt;/div&gt;
 
-&lt;audio src=&quot;https://retro-dragon.com/calloway-manor/audio/spooky-keys.ogg&quot;   autoplay&gt;</tw-passagedata><tw-passagedata pid="2" name="Front Porch" tags="" position="1500,4300" size="100,100">The pathway towards the house is noticeably uneven. Stray stones that once lined a path forward are now no more than pockmarked wannabe sidewalks. One misstep and you’d be twisting your ankle while Tim would have to drag you back by your jacket. Likely to complain the whole way. 
+&lt;audio src=&quot;https://retro-dragon.com/calloway-manor/audio/spooky-keys.ogg&quot;   autoplay&gt;
+
+(set:$hallway to false)</tw-passagedata><tw-passagedata pid="2" name="Front Porch" tags="" position="1500,4300" size="100,100">The pathway towards the house is noticeably uneven. Stray stones that once lined a path forward are now no more than pockmarked wannabe sidewalks. One misstep and you’d be twisting your ankle while Tim would have to drag you back by your jacket. Likely to complain the whole way. 
 
 Along the sides leading upwards to the decrepit porch is nothing more than long tall grass. Yellowed from the late fall season. Likely a perfect hiding spot for stray animals and various thrown items that the older kids like to throw into the yard. You wouldn’t be surprised to find a wayward shopping cart here. 
 
@@ -242,8 +244,7 @@ Hands reach over to grab your arm, squeezing it tightly. Tim’s face is a few i
 [[Dining Room]]
 [[Foyer]]
 [[Hallway 3]]
-&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="6" name="Hallway 2 (No Access)" tags="" position="2325,3275" size="100,100">As you leave the dining room you, the hallway proves to be rather short. Coming to an abrupt dead end. With a single window that stepping closer to attempt to open it is met with stubborn refusal. There is no escape this way. However you notice the roof has a door on it.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="Hallway 2 (No Access)" tags="" position="2325,3275" size="100,100">As you leave the dining room you, the hallway proves to be rather short. Coming to an abrupt dead end. With a single window that stepping closer to attempt to open it is met with stubborn refusal. There is no escape this way. However you notice the roof has a door on it.
 
 An entrance to an attic. Just missing the chain that would hang down so someone could open and let the stairs slide down. If you want to reach here, it looks like you will need something long and strong enough to pull it down.
 
@@ -387,7 +388,7 @@ Stepping forward, you can smell the dampness through the door. Making your nose 
 [[Bedroom 2]] 
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="Hallway 3" tags="" position="2600,4500" size="100,100">Immediately as you step down the narrow corridor, there is a portrait on either side of the wall. Looking at you with a strong discomfort that it truly is looking at you. “Why are paintings always creepy?” Tim asks rhetorically, “Pick a way okay, I don’t like how they are looking at us.”
 
-You agree. You can go to the left [[Bedroom-&gt;Bedroom 1]], to your right to another [[Bedroom-&gt;Bedroom 2]] or forward to the [[Master Bedroom]]
+You agree. You can go to the left (if: $hallway is false)[ [[Bedroom-&gt;Bedroom 1]] ] (else:) [ [[Bedroom-&gt;Bedroom 1 (END)]] ], to your right to another [[Bedroom-&gt;Bedroom 2]] or forward to the [[Master Bedroom]]
 
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
@@ -636,7 +637,8 @@ So despite Tim’s squawking, your expression says it all.
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Step Towards the Coffin]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="44" name="Step Toward the Coffin" tags="" position="2675,3250" size="100,100">You step toward the coffin, but suddenly the floor doesn’t feel so solid. The ground… it’s falling apart!! Your weight must have made something unstable! Pinwheeling your arms; you attempt to step backwards before you are swallowed up in the growing hole! Instead, you trip, and your rapid beating heart jumps up to your throat as you’re falling… falling… falling… 
+
+(set: $counter to 60)</tw-passagedata><tw-passagedata pid="44" name="Step Toward the Coffin" tags="" position="2675,3250" size="100,100">You step toward the coffin, but suddenly the floor doesn’t feel so solid. The ground… it’s falling apart!! Your weight must have made something unstable! Pinwheeling your arms; you attempt to step backwards before you are swallowed up in the growing hole! Instead, you trip, and your rapid beating heart jumps up to your throat as you’re falling… falling… falling… 
 
 Only to crash hard on the ground. Your body takes a hard tumble over stone and… dirt? Tim’s warning flashes through your mind, and you wonder if you ought to have listened to him and never opened that door. Spitting out years of dust and grime, you blink your eyes open, but there are no self activating sconces or lanterns down here. Instead, darkness is the only thing that is greeting. Aching all over, it does little to stop you from scrambling to your knees. Awkwardly fumbling for your phone!
 
@@ -663,24 +665,47 @@ You (text-style:&quot;bold&quot;,&quot;underline&quot;)[have] to get out of here
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Foward-&gt;Chamber 1]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="45" name="Chamber 1" tags="" position="2650,3075" size="100,100">You skid to a stop. You have three paths to choose in front of you!
+(set: $counter to 60)</tw-passagedata><tw-passagedata pid="45" name="Chamber 1" tags="" position="2650,3075" size="100,100">You skid to a stop. You have three paths to choose in front of you!
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Right-&gt;Chamber 3]]
 [[Left-&gt;Chamber 5]]
 [[Forward-&gt;Chamber 2]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="46" name="Chamber 3" tags="" position="2800,3075" size="100,100">There’s a bend to the left. Heart pounding violently against your ribs, there are only two ways to go. 
+&lt;/div&gt;
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="46" name="Chamber 3" tags="" position="2800,3075" size="100,100">There’s a bend to the left. Heart pounding violently against your ribs, there are only two ways to go. 
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Forward-&gt;Chamber 4]]
 [[Left-&gt;Chamber 1]] 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="47" name="Chamber 2" tags="" position="2475,3075" size="100,100">You feel like the specter is right on your tail. Blindingly, you flash your light behind your shoulder, and hear an ungodly screech. You’ve bought yourself some time! And as you nearly run face first into a wall, it’s apparent there’s only two ways to go!
+&lt;/div&gt;
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="47" name="Chamber 2" tags="" position="2475,3075" size="100,100">You feel like the specter is right on your tail. Blindingly, you flash your light behind your shoulder, and hear an ungodly screech. You’ve bought yourself some time! And as you nearly run face first into a wall, it’s apparent there’s only two ways to go!
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Right-&gt;Chamber 1]]
 [[Forward-&gt;Chamber 6]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="48" name="Chamber 4" tags="" position="2800,2925" size="100,100">Your phone chirps at you and you glance at the lighted screen. It warns you of your draining battery. You have an unsettling theory that as soon as your battery goes dead, you’re going to be in the same boat! 
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="48" name="Chamber 4" tags="" position="2800,2925" size="100,100">Your phone chirps at you and you glance at the lighted screen. It warns you of your draining battery. You have an unsettling theory that as soon as your battery goes dead, you’re going to be in the same boat! 
 
 Which way should you go??
 
@@ -689,7 +714,13 @@ Which way should you go??
 [[Down-&gt;Chamber 3]]
 &lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="49" name="Chamber 5" tags="" position="2650,2925" size="100,100">A pause in your steps has you huffing and puffing. You can’t help but think of Tim. You hope he is faring better than you… 
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="49" name="Chamber 5" tags="" position="2650,2925" size="100,100">A pause in your steps has you huffing and puffing. You can’t help but think of Tim. You hope he is faring better than you… 
 
 Choose a path. (text-style:&quot;bold&quot;,&quot;tall&quot;,&quot;shudder&quot;)[Quick]!  
 
@@ -699,7 +730,14 @@ Choose a path. (text-style:&quot;bold&quot;,&quot;tall&quot;,&quot;shudder&quot;
 [[Right-&gt;Chamber 4]] 
 [[Down-&gt;Chamber 8]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="50" name="Chamber 8" tags="" position="2650,2750" size="100,100">Three ways to choose and so little time! Everything is starting to look the same. You don’t remember where you’ve been or if you’re just running in circles. But if you just &#39;&#39;stand&#39;&#39; here, you know you’re (text-style:&quot;bold&quot;,&quot;condense&quot;,&quot;tall&quot;)[dead]! 
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="50" name="Chamber 8" tags="" position="2650,2750" size="100,100">Three ways to choose and so little time! Everything is starting to look the same. You don’t remember where you’ve been or if you’re just running in circles. But if you just &#39;&#39;stand&#39;&#39; here, you know you’re (text-style:&quot;bold&quot;,&quot;condense&quot;,&quot;tall&quot;)[dead]! 
 
 Time to choose! 
 
@@ -707,7 +745,15 @@ Time to choose!
 [[Forward-&gt;Chamber 11]]
 [[Left-&gt;Chamber 7]]
 [[Down-&gt;Chamber 5]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="51" name="Chamber 11" tags="" position="2650,2575" size="100,100">You begin to wonder if this place is bigger than it seems, or if you’ve just been running about in circles. There’s nothing that pops out at you for being familiar, but at the same time, you are standing in a singular place long enough to give it a good inspection. Why would you when there was a maniacal spook with a lantern full of heads chasing after you?! 
+&lt;/div&gt;
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="51" name="Chamber 11" tags="" position="2650,2575" size="100,100">You begin to wonder if this place is bigger than it seems, or if you’ve just been running about in circles. There’s nothing that pops out at you for being familiar, but at the same time, you are standing in a singular place long enough to give it a good inspection. Why would you when there was a maniacal spook with a lantern full of heads chasing after you?! 
 
 Even now you think you’ve stood still for too long. Time to choose another way to go! 
 
@@ -716,7 +762,15 @@ Even now you think you’ve stood still for too long. Time to choose another way
 [[Down-&gt;Chamber 8]]
 [[Right-&gt;Chamber 10]]
 [[Left-&gt;Chamber 12]] 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="52" name="Chamber 7" tags="" position="2475,2750" size="100,100">Is it getting hot in here or is it just you? As though your thoughts were being read, a sudden chill clamps upon the back of your neck! Goosebumps prickle over your arms and legs, daring another flash behind your shoulder! The ghost howls as though the light truly burns, and you try not to think about how you managed another close call… 
+&lt;/div&gt;
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="52" name="Chamber 7" tags="" position="2475,2750" size="100,100">Is it getting hot in here or is it just you? As though your thoughts were being read, a sudden chill clamps upon the back of your neck! Goosebumps prickle over your arms and legs, daring another flash behind your shoulder! The ghost howls as though the light truly burns, and you try not to think about how you managed another close call… 
 
 Now which way to go? You’ve (text-style:&quot;double-underline&quot;)[gotta] get out! 
 
@@ -725,24 +779,56 @@ Now which way to go? You’ve (text-style:&quot;double-underline&quot;)[gotta] g
 [[Right-&gt;Chamber 6]] 
 [[Down-&gt;Chamber 8]] 
 &lt;/div&gt;
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]
 </tw-passagedata><tw-passagedata pid="53" name="Chamber 6" tags="" position="2475,2925" size="100,100">Pumping your legs and arms with your forward motion, you quickly discern that again, there are only two ways to go!!
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Down-&gt;Chamber 2]]
 [[Forward-&gt;Chamber 7]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="54" name="Chamber 12" tags="" position="2475,2575" size="100,100">Still no way out!! You huff your frustration, and take a moment to cough out the years old dust that you must be inhaling as you run. If there was a way to wash out your insides after you get out of this place, you’d gladly do so! But you have to get out first, don’t you? 
+&lt;/div&gt;
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="54" name="Chamber 12" tags="" position="2475,2575" size="100,100">Still no way out!! You huff your frustration, and take a moment to cough out the years old dust that you must be inhaling as you run. If there was a way to wash out your insides after you get out of this place, you’d gladly do so! But you have to get out first, don’t you? 
 
 You gotta keep moving!  
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Down-&gt;Chamber 7]] 
 [[Right-&gt;Chamber 11]] 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="55" name="Chamber 10" tags="" position="2800,2575" size="100,100">It feels like you’ve been down here for hours rather than minutes. You’re (text-style:&quot;underline&quot;,&quot;flat&quot;)[exhausted]. And the exertion of running about aimlessly is making you uncomfortably sticky. But you have to press on. There has to be an exit around &#39;&#39;here&#39;&#39; somewhere! 
+&lt;/div&gt;
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="55" name="Chamber 10" tags="" position="2800,2575" size="100,100">It feels like you’ve been down here for hours rather than minutes. You’re (text-style:&quot;underline&quot;,&quot;flat&quot;)[exhausted]. And the exertion of running about aimlessly is making you uncomfortably sticky. But you have to press on. There has to be an exit around &#39;&#39;here&#39;&#39; somewhere! 
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Down-&gt;Chamber 9]]
 [[Left-&gt;Chamber 11]] 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="56" name="Chamber 9" tags="" position="2800,2750" size="100,100">Immediately, you feel a faint brush of air caress your cheek. A quick investigation by grappling fingers upon the nearby wall has you discovering a wide crack. Could this possibly be your exit?? With the last remaining moments that you have with the light from your phone, you take a closer look. The wall is weak here. With multiple stomps being made with your foot, more and more of the brick is starting to come loose! Again. Again. Again! Your foot will be feeling that tomorrow, but it’s better than staying in this place any longer! You can feel the eyes of the specter watching you, but it seems to know better than to approach, knowing it will be burned by the sun if it dares to drift too close. 
+&lt;/div&gt;
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="56" name="Chamber 9" tags="" position="2800,2750" size="100,100">Immediately, you feel a faint brush of air caress your cheek. A quick investigation by grappling fingers upon the nearby wall has you discovering a wide crack. Could this possibly be your exit?? With the last remaining moments that you have with the light from your phone, you take a closer look. The wall is weak here. With multiple stomps being made with your foot, more and more of the brick is starting to come loose! Again. Again. Again! Your foot will be feeling that tomorrow, but it’s better than staying in this place any longer! You can feel the eyes of the specter watching you, but it seems to know better than to approach, knowing it will be burned by the sun if it dares to drift too close. 
 
 Good riddance!! 
 
@@ -798,15 +884,37 @@ From where you stand there are three options.
 [[Left-&gt;Room 5]]
 [[Back-&gt;Room 2]]
 &lt;/div&gt;
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]
 </tw-passagedata><tw-passagedata pid="62" name="Room 12" tags="" position="3175,2825" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
 [[Left-&gt;Room 7]] 
 [[Back-&gt;Room 11]] 
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="63" name="Room 10" tags="" position="3175,2475" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="63" name="Room 10" tags="" position="3175,2475" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
 [[Right-&gt;Room 9]]
 [[Back-&gt;Room 11]] 
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="64" name="Room 8" tags="" position="3350,2650" size="100,100">Your feet take a momentary pause so you can gauge your next move. But you’re swiftly distracted by the glow of that eerie lantern being toted by the ghoulish hand. It blinds you as the monster appears from between a stack of long forgotten possessions, and that hand reaches out to take another grab at you!! With valiant action, Tim steps between you, wielding that bright beacon of light for a final time. 
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="64" name="Room 8" tags="" position="3350,2650" size="100,100">Your feet take a momentary pause so you can gauge your next move. But you’re swiftly distracted by the glow of that eerie lantern being toted by the ghoulish hand. It blinds you as the monster appears from between a stack of long forgotten possessions, and that hand reaches out to take another grab at you!! With valiant action, Tim steps between you, wielding that bright beacon of light for a final time. 
 
 The creature shrieks, slipping back quickly into the junk like an eel of the deep. But you too are swiftly swallowed into darkness when Tim’s light abruptly goes out. “Shit… shit shit-!! No!! You can’t go out-!!” But Tim wasn’t going to be able to bargain with the battery drained on his phone. 
 
@@ -819,6 +927,14 @@ Luckily enough, you have yours as well. While there still isn’t much battery, 
 [[Back-&gt;Room 7]]
 [[Right-&gt;Room 5]]
 &lt;/div&gt;
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]
 </tw-passagedata><tw-passagedata pid="65" name="Room 9" tags="" position="3350,2475" size="100,100">You rush into an area that at first glance appears just the same as everywhere else you’ve been. But it is a sudden brush of something upon your cheek that catches your attention. That felt like… a breeze. “What is it??” Tim asks, eyes widening in fright, as though you’re about to share some bad news. Instead of going into detail about what might not be true, you reach to take the phone from Tim’s hand and use it to take a closer look at the nearest wall. 
 
 It appears generously cracked. How old was this place anyway?! However, instead of allowing thoughts to wander needlessly, the last remaining moments you have with the light from your phone has you taking a closer look. The wall is weak here. Without hesitation you begin kicking at the wall! With multiple stomps, more and more of the brick is starting to come loose! Again. Again. Again! No doubt you’ll be feeling this tomorrow but it’s better than staying in this place a second longer! You can feel the eyes of the specter watching you, but it seems to know better than to approach, knowing it will be burned by the outside light if it dares to drift too close. 
@@ -848,7 +964,14 @@ Tim laughs, and you both agree it’s about time to go home. Tim complains that 
 [[Right-&gt;Room 6]] 
 [[Forward-&gt;Room 8]] 
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="67" name="Room 5" tags="" position="3525,2650" size="100,100">“Doesn’t this way seem familiar??” Tim asks in a panic. You can’t tell. There are no landmarks, just a bunch of junk that wasn’t even distinguishable as you run by. Most of it is covered with sheets to give the place an even creepier vibe that wasn’t needed. 
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="67" name="Room 5" tags="" position="3525,2650" size="100,100">“Doesn’t this way seem familiar??” Tim asks in a panic. You can’t tell. There are no landmarks, just a bunch of junk that wasn’t even distinguishable as you run by. Most of it is covered with sheets to give the place an even creepier vibe that wasn’t needed. 
 
 Even if you have been here before, you can’t stop. You have to keep pushing forward! 
 
@@ -857,6 +980,14 @@ Even if you have been here before, you can’t stop. You have to keep pushing fo
 [[Forward-&gt;Room 4]] 
 [[Left-&gt;Room 8]]
 &lt;/div&gt;
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]
 </tw-passagedata><tw-passagedata pid="68" name="Room 4" tags="" position="3525,2475" size="100,100">You hack up some dust and gunk from your lungs… but spin upon your heels as you hear a startled scream from Tim! Whirling around, you see Tim twisting to shine the light in the ghoul’s face, and briefly, you gain a sight of the monster that you wish you hadn’t. An unnaturally parted maw is littered with needle sharp teeth, eagerly displayed behind a lipless mouth in eternal glee. Likely because there hasn’t been anyone stupid enough to come down here and play for quite some time!! But just as quickly as it was there, the ghoul vanishes into the dark in order to hide from the light. 
 
 “Go, go!!” Tim cries and whirls back around so you both can continue on in search of the exit you both are desperately needing. “Which way now?!” Tim wheezes. 
@@ -866,30 +997,66 @@ Even if you have been here before, you can’t stop. You have to keep pushing fo
 [[Left-&gt;Room 5]]
 [[Back-&gt;Room 3]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="69" name="Room 6" tags="" position="3525,2825" size="100,100">Left, or right??? You hate the fifty percent chance that you may already be choosing the wrong way. Not to mention you can’t remember ever having great luck with anything! Regardless, you have to make a decision. Ol’ creepy and ugly has to be right on your tail!
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="69" name="Room 6" tags="" position="3525,2825" size="100,100">Left, or right??? You hate the fifty percent chance that you may already be choosing the wrong way. Not to mention you can’t remember ever having great luck with anything! Regardless, you have to make a decision. Ol’ creepy and ugly has to be right on your tail!
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Right-&gt;Room 2]]
 [[Left-&gt;Room 7]]
-&lt;/div&gt; </tw-passagedata><tw-passagedata pid="70" name="Room 3" tags="" position="3700,2475" size="100,100">You haven’t run that far, but still you’re huffing and puffing. Tim is doing the same. You peer back to see the fear gleaming in the whites of his eyes. Surely yours are no better. Where should you go now?? Before that ghoul comes to add both of your heads to his collection!
+&lt;/div&gt; 
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="70" name="Room 3" tags="" position="3700,2475" size="100,100">You haven’t run that far, but still you’re huffing and puffing. Tim is doing the same. You peer back to see the fear gleaming in the whites of his eyes. Surely yours are no better. Where should you go now?? Before that ghoul comes to add both of your heads to his collection!
 
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Left-&gt;Room 4]]
 [[Back-&gt;Room 1]] 
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="71" name="Room 11" tags="" position="3175,2650" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="71" name="Room 11" tags="" position="3175,2650" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
 [[Back-&gt;Room 8]]
 [[Right-&gt;Room 10]]
 [[Left-&gt;Room 12]] 
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="72" name="Room 2" tags="" position="3700,2825" size="100,100">Zipping around a corner, your shoe slips, but Tim’s dedicated aid snags your hand and you pop back up to your feet! Only two choices here. 
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="72" name="Room 2" tags="" position="3700,2825" size="100,100">Zipping around a corner, your shoe slips, but Tim’s dedicated aid snags your hand and you pop back up to your feet! Only two choices here. 
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Forward-&gt;Room 1]]
 [[Left-&gt;Room 6]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="73" name="Chamber 9 Pg 2" tags="" position="2925,2750" size="100,100">
+
+&lt;center&gt;You have |amount&gt;[$counter] seconds left!&lt;/center&gt;
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Next Passage&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="73" name="Chamber 9 Pg 2" tags="" position="2925,2750" size="100,100">
 
 You bolt upright. Every sore muscle inside of you complains at the movement, but you can’t stop. Tim is still stuck in the mansion!! You ended up somewhere at the back of the mansion, where you see the crumbling crypt and hope to forever bid it farewell. And after chopping through tall grasses and whatever else like you are some jungle explorer, you make it back to the front of the mansion. Running up the steps two at a time, you believe with all your heart the door will open from the outside. Just like it did before! 
 
@@ -948,7 +1115,9 @@ A glance at Tim shows the horror on his face. You wish to question him, but he s
 You both have to get out of here. And fast! 
  
 [[Forward|Room 6]]
-&lt;center&gt;page 2/2&lt;/center&gt;[[Previous Page|Step Towards the Coffin]]</tw-passagedata><tw-passagedata pid="78" name="Hallway 2 (Attic Access)" tags="" position="2200,3400" size="100,100">If the player has all the key times – Looking up at the attic, you motion for the fire poker for Tim to pull out the firepoker from the backpack. Once in hand, you ask him for a boost up. Naturally he complains about how again all of this is a bad idea but you are so used to it that you ignore the griping. With a hand up, you manage to hook the poker into the notch where the chain would be. Pulling down with your weight, the door creeps. Groans and sighs as it parts wide open. Sliding down old spiderwebbed stairs to the very floor. Revealing that the only way now is up.
+&lt;center&gt;page 2/2&lt;/center&gt;[[Previous Page|Step Towards the Coffin]]
+
+</tw-passagedata><tw-passagedata pid="78" name="Hallway 2 (Attic Access)" tags="" position="2200,3400" size="100,100">If the player has all the key times – Looking up at the attic, you motion for the fire poker for Tim to pull out the firepoker from the backpack. Once in hand, you ask him for a boost up. Naturally he complains about how again all of this is a bad idea but you are so used to it that you ignore the griping. With a hand up, you manage to hook the poker into the notch where the chain would be. Pulling down with your weight, the door creeps. Groans and sighs as it parts wide open. Sliding down old spiderwebbed stairs to the very floor. Revealing that the only way now is up.
 
 You are compelled by some unknown force to enter only towards the [[Attic]]. Looks like this is the only way forward.</tw-passagedata><tw-passagedata pid="79" name="Kitchen Pg 2" tags="" position="3400,4175" size="100,100">“Yes chef.” Its grip somehow tightens further. Tugging you along against your will! Scrapping your sneakers feebly across the tile as if that was going to stop this unnatural monster! In an attempt to wrestle yourself free from being drugged across the floor, you try to dig your own fingers into its wrist. Scratching and clawing like a feral cat only for the ghoul to give you a rather hard shake. Making your head bobble around like one of those dashboard dolls! Swearing even your eyeballs are knocking around like dice!
 
@@ -1042,6 +1211,8 @@ Squatted down on the floor was a person. Arms looped around knees with eyes far 
 Turning and grabbing Tim by the scruff of his collar, you ignore his protests as you both zip out of this room like your rumps are on fire!
 
 This was the room of HELL NO! You just hope that thing can’t open doors. Maybe it would be wise for you to get out of here, pronto.
+
+(set:$hallway to true)
 
 Escape back to the [[Hallway-&gt;Hallway 3]]
 

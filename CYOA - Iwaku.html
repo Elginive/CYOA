@@ -9,11 +9,39 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play CYOA - Iwaku.</tw-noscript></noscript></tw-story>
-<tw-storydata name="CYOA - Iwaku" startnode="40" creator="Twine" creator-version="2.7.1" format="Harlowe" format-version="3.3.7" ifid="3805DC6B-E450-4E08-B422-A6186B45CF8B" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">#audio-controls {
+<tw-storydata name="CYOA - Iwaku" startnode="40" creator="Twine" creator-version="2.7.1" format="Harlowe" format-version="3.3.7" ifid="3805DC6B-E450-4E08-B422-A6186B45CF8B" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story[tags="Home"] {
+	background:url("https://retro-dragon.com/calloway-manor/images/main-splash.png") bottom left repeat-x;
+  background-attachment: fixed;
+  background-size: 150%;
+}
+
+#title-screen {
+  display: block;
+  position: relative;
+  z-index: 10;
+  margin: auto;
+  
+}
+
+.logo {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: -100px auto 0 auto;
+}
+
+img.main-splash {
+  position: fixed;
+  bottom: -10%;
+  left: 0;
+  max-width: 80%;
+  }
+
+#audio-controls {
   display: none;
 }
 
-tw-story {
+tw-story, body {
   background:url("https://retro-dragon.com/calloway-manor/images/background.jpg") top center no-repeat;
   background-attachment: fixed;
 }
@@ -115,9 +143,7 @@ display:inline-block;
     opacity: 0;
     display: none;
   }
-  
-/*/
- </style><script role="script" id="twine-user-script" type="text/twine-javascript">$(function(){
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">$(function(){
   var $jittery = $('.jittery'),
       aText    = $jittery.text().split(''),
       letters = '';
@@ -572,13 +598,14 @@ Seems this was a poor choice in the end
 &lt;div class=&quot;option-wrapper&quot;&gt;
 (text-colour:#8c2626)[&#39;&#39;Would you like Some Human with Your Soup?- END&#39;&#39;]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="40" name="Calloway Manor" tags="" position="875,4300" size="100,100">&lt;center&gt;&lt;p class=&quot;jitter&quot; style=&quot;color:red;font-weight:bold;font-size:30px;&quot;&gt;Welcome to Calloway Manor&lt;/p&gt;&lt;/center&gt;
+</tw-passagedata><tw-passagedata pid="40" name="Calloway Manor" tags="Home" position="875,4300" size="100,100">&lt;div id=&quot;title-screen&quot;&gt;
+&lt;center&gt;&lt;p class=&quot;jitter&quot; style=&quot;color:red;font-weight:bold;font-size:30px;&quot;&gt;Welcome to&lt;/p&gt;&lt;/center&gt;
+&lt;img src=&quot;https://retro-dragon.com/calloway-manor/images/title.png&quot; class=&quot;logo&quot; /&gt;
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Enter The Manor|Enter Name]]
 &lt;/div&gt;
-
-</tw-passagedata><tw-passagedata pid="41" name="Hey Ugly Pg 2" tags="" position="3450,4650" size="100,100">Unkindly and rather literally, the two of you are tugged out of the hold. Feeling much like a fish would on a baited hook. Flailing uselessly in that of the creatures grasp till you are flat footed on the ground once more. Giving the not so helpful hand, a scathing look!  “You,” A skeletal hand is holding that of a wooden spoon directly at your nose. Inching closer till there is barely any space left. Touching the tip of it to your nose, eyes direct along that of the held item. Up and up till there’s that same unpleasant wash of ick as focus settles on the empty sockets. “Since you want to play this game, you will be the one to answer.”
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="41" name="Hey Ugly Pg 2" tags="" position="3450,4650" size="100,100">Unkindly and rather literally, the two of you are tugged out of the hold. Feeling much like a fish would on a baited hook. Flailing uselessly in that of the creatures grasp till you are flat footed on the ground once more. Giving the not so helpful hand, a scathing look!  “You,” A skeletal hand is holding that of a wooden spoon directly at your nose. Inching closer till there is barely any space left. Touching the tip of it to your nose, eyes direct along that of the held item. Up and up till there’s that same unpleasant wash of ick as focus settles on the empty sockets. “Since you want to play this game, you will be the one to answer.”
 
 Tim, for all intents and purposes, doesn’t look upset by this decision. Actually, it almost seems like he approves of it. Most likely due to the fact that this was in fact your fault. Coming here to the manor after numerous attempts of saying you shouldn’t. Still, he could be a little more on your side!
 

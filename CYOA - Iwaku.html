@@ -72,7 +72,7 @@ tw-sidebar {
   color: #000;
 }
 
-tw-link {
+tw-link, .enchantment-link {
   font-size: 25px;
   color: #000;
   padding: 10px;
@@ -85,7 +85,7 @@ tw-link {
   transition: 0.5s;
 }
 
-tw-link:hover {
+tw-link:hover, .enchantment-link:hover {
    color: #000;
    background:#fff;
    box-shadow: none;
@@ -221,7 +221,9 @@ Considering this a moment, you stare at the other kid.
 [[Foyer]]
 [[Go back. Leave and Never Return]]
 [[Check the left side of the house]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Foyer" tags="" position="1700,4300" size="100,100">As you both stand before the door –still questioning why it is so new looking compared to the rest of the place- your hand reaches out. Taking a firm grip of that cool metal handle with one final look at Tim. Whom is emphatically shaking his head (text-style:&quot;sway&quot;)[no] while aggressively pointing towards the gate. Taking a final moment to consider the choice merely to entertain the hopes of your friend. However, the door itself is pushed inwards.
+&lt;/div&gt;
+
+(set:$showFooter to true)</tw-passagedata><tw-passagedata pid="3" name="Foyer" tags="" position="1700,4300" size="100,100">As you both stand before the door –still questioning why it is so new looking compared to the rest of the place- your hand reaches out. Taking a firm grip of that cool metal handle with one final look at Tim. Whom is emphatically shaking his head (text-style:&quot;sway&quot;)[no] while aggressively pointing towards the gate. Taking a final moment to consider the choice merely to entertain the hopes of your friend. However, the door itself is pushed inwards.
 
 Bearing witness to the drop of Tim’s face, you step inside. With a very loudly complaining Tim behind you.
 
@@ -292,14 +294,16 @@ Fire poker passage here
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Attic]]
 [[Banquet Hall]]
-&lt;/div&gt;]
+&lt;/div&gt;
+]
 
 
 (else: $firepoker and $cypher and $sage and $enchantment is true)[
 
 If the player has all the key times – Looking up at the attic, you motion for the fire poker for Tim to pull out the firepoker from the backpack. Once in hand, you ask him for a boost up. Naturally he complains about how again all of this is a bad idea but you are so used to it that you ignore the griping. With a hand up, you manage to hook the poker into the notch where the chain would be. Pulling down with your weight, the door creeps. Groans and sighs as it parts wide open. Sliding down old spiderwebbed stairs to the very floor. Revealing that the only way now is up.
 
-You are compelled by some unknown force to enter only towards the [[Attic]]. Looks like this is the only way forward.]</tw-passagedata><tw-passagedata pid="7" name="Hallway 4" tags="" position="1400,3400" size="100,100">It feels as if you’ve been walking this hall for an hour. Never getting any closer to the doors in the distance. Rather it keeps stretching and stretching out, as though trying to tease you by thinking you’ll get there but never would.
+You are compelled by some unknown force to enter only towards the [[Attic]]. Looks like this is the only way forward.
+]</tw-passagedata><tw-passagedata pid="7" name="Hallway 4" tags="" position="1400,3400" size="100,100">It feels as if you’ve been walking this hall for an hour. Never getting any closer to the doors in the distance. Rather it keeps stretching and stretching out, as though trying to tease you by thinking you’ll get there but never would.
 
 Giving his wrist a shake then a tap to the fitbit on his wrist, Tim puzzles out loud. “How long have we been walking?” It is as though the hallway itself heard you for that next step you take while looking at Tim, has you smacking face first into the south facing door. “Ha!” Bursting out in a fit of giggles, the other snorts and barely manages to cup a hand over his mouth. “Smooth move,”
 
@@ -383,7 +387,7 @@ Now you sigh at him. He’s clearly scared but the dramatics were a little much.
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Banquet Hall]]
-[[Kitchen]]
+(if: $dinnertest is true)[[[Kitchen|KitchenA]]] (else:)[[Kitchen]]
 [[Hallway|Hallway 2]]
 &lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="12" name="Banquet Hall" tags="" position="3175,3825" size="100,100">Regardless whether your stomach is leading you on by the smell alone or out of morbid curiosity, the two of you decide –you decide rather- to go towards what shortly becomes evident as a dining room! Although it is like no dining room you’ve ever seen before.
@@ -454,7 +458,7 @@ You hear a growl, and see a pair of gold glowing eyes lingering in the dark of a
 [[Let Tim approach the doghouse]]
 [[Keep Tim back]]
 [[Courtyard]] 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="15" name="Stables" tags="" position="4300,4000" size="100,100">Curiosity gets the better of you as well as the fact that you kinda want to stay outside for however long. Hoping that the itty bitty voice in the back of your head reminding you every so often, that you didn’t have to do any of this, will calm down. Maybe it would stop talking if you weren’t inside. At least, that’s the hope.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="15" name="Stables" tags="" position="4300,3975" size="100,100">Curiosity gets the better of you as well as the fact that you kinda want to stay outside for however long. Hoping that the itty bitty voice in the back of your head reminding you every so often, that you didn’t have to do any of this, will calm down. Maybe it would stop talking if you weren’t inside. At least, that’s the hope.
 
 Moreover, the idea that there is an actual stable in this yard has piqued your interest. As far as you can remember, Calloway Manor didn’t have a stable. Pretty sure the town would have made some sort of comment about this. Or something. Regardless, this appears to be a one way direction which may be for the benefit of you both. Especially if it has no walls around it like the house did originally. Honestly at this point, it would probably be safe to say neither you or Tim are exactly in the same town anymore. Would you be surprised if you ended up being spirited away to another world? It might be the only logical explanation to this which wasn’t very logical at all!
 
@@ -764,7 +768,8 @@ Seems this was a poor choice in the end
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Enter The Manor|Enter Name]]
 &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="40" name="Hey Ugly Pg 2" tags="" position="3450,4650" size="100,100">Unkindly and rather literally, the two of you are tugged out of the hold. Feeling much like a fish would on a baited hook. Flailing uselessly in that of the creatures grasp till you are flat footed on the ground once more. Giving the not so helpful hand, a scathing look!  “You,” A skeletal hand is holding that of a wooden spoon directly at your nose. Inching closer till there is barely any space left. Touching the tip of it to your nose, eyes direct along that of the held item. Up and up till there’s that same unpleasant wash of ick as focus settles on the empty sockets. “Since you want to play this game, you will be the one to answer.”
+&lt;/div&gt;
+(set:$showFooter to false)</tw-passagedata><tw-passagedata pid="40" name="Hey Ugly Pg 2" tags="" position="3450,4650" size="100,100">Unkindly and rather literally, the two of you are tugged out of the hold. Feeling much like a fish would on a baited hook. Flailing uselessly in that of the creatures grasp till you are flat footed on the ground once more. Giving the not so helpful hand, a scathing look!  “You,” A skeletal hand is holding that of a wooden spoon directly at your nose. Inching closer till there is barely any space left. Touching the tip of it to your nose, eyes direct along that of the held item. Up and up till there’s that same unpleasant wash of ick as focus settles on the empty sockets. “Since you want to play this game, you will be the one to answer.”
 
 Tim, for all intents and purposes, doesn’t look upset by this decision. Actually, it almost seems like he approves of it. Most likely due to the fact that this was in fact your fault. Coming here to the manor after numerous attempts of saying you shouldn’t. Still, he could be a little more on your side!
 
@@ -1349,25 +1354,35 @@ For a minute or so, you are all just staring at another. If you could call stari
 
 &lt;center&gt;page 2/2&lt;/center&gt;[[Previous Page|Kitchen]]</tw-passagedata><tw-passagedata pid="78" name="Knife Drawer" tags="" position="3600,4950" size="100,100">&quot;In the Knife drawer, bring me the Fish Knife&quot;
  
-[One that is wide with a flat spatula blade and sharp point] *
-[A long slightly curved blade with small serrated edge]
-[With a flat spatula smooth blade that is rounded on the tip]
-</tw-passagedata><tw-passagedata pid="79" name="Utensil Drawer" tags="" position="3300,4950" size="100,100">Pulling open the utensil drawer, you are met with //quite// the mess. There is no organization to this at all! Various cultery is strew about although you don&#39;t have to worry about pricking yourself on a sharp knife. It appears this drawer is only full of forks, spoons and some butter knifes. At least they //look// like butter knifes.
+[One that is wide with a flat spatula blade and sharp point]&lt;correct|
+[[A long slightly curved blade with small serrated edge|Utensil Caddy]]
+[[With a flat spatula smooth blade that is rounded on the tip|Utensil Caddy]]
+
+(click: ?correct)[
+(set: $dinnerCorrect to $dinnerCorrect +1)
+(go-to: &quot;Utensil Caddy&quot;)
+]</tw-passagedata><tw-passagedata pid="79" name="Utensil Drawer" tags="" position="3300,4950" size="100,100">Pulling open the utensil drawer, you are met with //quite// the mess. There is no organization to this at all! Various cultery is strew about although you don&#39;t have to worry about pricking yourself on a sharp knife. It appears this drawer is only full of forks, spoons and some butter knifes. At least they //look// like butter knifes.
 
 &quot;Within the utensil drawer, find me a spoon that is small and meant to be used for stirring and sipping coffee.&quot;
 
-[Tea Spoon]
-[Coffee Spoon] *
-[ Serving Spoon]
+[[Tea Spoon|Knife Drawer]]
+[Coffee Spoon]&lt;correct|
+[[ Serving Spoon|Knife Drawer]]
 
+(click: ?correct)[
+(set: $dinnerCorrect to $dinnerCorrect +1)
+(go-to: &quot;Knife Drawer&quot;)
+]</tw-passagedata><tw-passagedata pid="80" name="Utensil Caddy" tags="" position="3450,4950" size="100,100">&quot;Now I need an implement that can scoop and stab at the same time. It will be in the Utensil Caddy&quot;
 
-</tw-passagedata><tw-passagedata pid="80" name="Utensil Caddy" tags="" position="3450,4950" size="100,100">&quot;Now I need an implement that can scoop and stab at the same time. It will be in the Utensil Caddy&quot;
+[[Ice Cream Spoon|Utensil Drawer A]]
+[[Dessert Fork|Utensil Drawer A]]
+[[Sugar Spoon|Utensil Drawer A]]
+[Salad Fork]&lt;correct|
 
-[Ice Cream Spoon]
-[Dessert Fork]
-[Sugar Spoon]
-[Salad Fork]*
-</tw-passagedata><tw-passagedata pid="81" name="A Dinner to Remember" tags="" position="3450,4800" size="100,100">With a slight snap of bony fingers, the sous chef reacts. Reaching out to grab Tim by the arms. Startling an unpleasant cry from your friend. You don’t need it to be explained that Tim was not allowed to help in anyway possible. If so, well, then the ghouls would assure you both pay the price.
+(click: ?correct)[
+(set: $dinnerCorrect to $dinnerCorrect +1)
+(go-to: &quot;Utensil Drawer A&quot;)
+]</tw-passagedata><tw-passagedata pid="81" name="A Dinner to Remember" tags="" position="3450,4800" size="100,100">With a slight snap of bony fingers, the sous chef reacts. Reaching out to grab Tim by the arms. Startling an unpleasant cry from your friend. You don’t need it to be explained that Tim was not allowed to help in anyway possible. If so, well, then the ghouls would assure you both pay the price.
 
 Dryly swallowing, you look back to the Chef. “I won’t make it too difficult. As I said, I’ll tell you which place it is in the kitchen but you must bring me back or tell me the correct answer. You fail, you both are mine. You win, then lucky for you both. You get to live. Not that it will make a //difference//.” His words are intending to be ominous and you aren’t in any mood to try to pick apart what he means.
 
@@ -1377,20 +1392,18 @@ Once more, he grins in a way that no skull ought too.
 
 &quot;Within the [[utensil drawer|Utensil Drawer]], find me a spoon that is small and meant to be used for stirring and sipping coffee.&quot;
 
-&quot;In the [[knife drawer|Knife Drawer]], bring me the Fish Knife
+(set: $dinnerCorrect to 0)</tw-passagedata><tw-passagedata pid="82" name="Utensil Drawer A" tags="" position="3300,5075" size="100,100">&quot;In the Utensil drawer again, tell me what the difference is between a Dinner Fork and a Dessert Fork&quot;
 
-&quot;Now I need an implement that can scoop and stab at the same time. It will be in the [[utensil caddy|Utensil Caddy]]&quot;
 
-&quot;In the [[utensil drawer|Utensil Drawer A]]again, tell me what the difference is between a Dinner Fork and a Dessert Fork&quot;
+[[A dessert fork is exactly the same as a dinner fork|Flatware]]
+[[The dessert fork tines are slightly curved but never broader compared to a dinner fork|Flatware]]
+[The dessert fork tines are slightly curved and often broader compared to a dinner fork]&lt;correct|
+[[The dessert fork tines are not curved and often broader compared to a dinner fork|Flatware]]
 
-&quot;Now for the final question, in which you can just answer. How many types of flatware is there?&quot;
-</tw-passagedata><tw-passagedata pid="82" name="Utensil Drawer A" tags="" position="3300,5075" size="100,100">&quot;In the Utensil drawer again, tell me what the difference is between a Dinner Fork and a Dessert Fork&quot;
-
-[A dessert fork is exactly the same as a dinner fork]
-[The dessert fork tines are slightly curved but never broader compared to a dinner fork]
-[The dessert fork tines are slightly curved and often broader compared to a dinner fork]*
-[The dessert fork tines are not curved and often broader compared to a dinner fork]
-</tw-passagedata><tw-passagedata pid="83" name="Success" tags="" position="3300,5300" size="100,100">&#39;&#39;If the player gets 3 or more right - Key Item Sage Given&#39;&#39;
+(click: ?correct)[
+(set: $dinnerCorrect to $dinnerCorrect +1)
+(go-to: &quot;Flatware&quot;)
+]</tw-passagedata><tw-passagedata pid="83" name="Success" tags="" position="3275,5300" size="100,100">&#39;&#39;If the player gets 3 or more right - Key Item Sage Given&#39;&#39;
 
 With an air of confidence you aren’t entirely sure is justified, the chef shoulders sage with an odd amount of respect. He looks –uh as much as a skeleton could- at you and nods. “Impressive. Really impressive. Not bad for a meat bag.” You’ll take that as a compliment. Going so far as to look at Tim with a wiggle to shoulders.
 
@@ -1403,10 +1416,11 @@ Parting mouth to ask him a question, suddenly and rather rudely, you both are gi
 “Let’s just get out of here.” Tim grabs your shoulders just in case you decide to push your luck by asking something you shouldn’t. “Which way now, preferably the nearest exit from this house of horrors.”
 
 (set:$sage to true)
+(set:$dinnertest to true)
 
 [[Dining Room]]
 [[Hallway|Hallway 5]]
-</tw-passagedata><tw-passagedata pid="84" name="Failure" tags="" position="3500,5300" size="100,100">Uncomfortably you stand there. Unbreathing once again. Listening to the sounds of bubbling pot on the stove dance. Yet there is this unsettling feeling going down your spine. Like icy water is using it as a waterfall now. Waiting as the means of failure rises up and grabs you! 
+</tw-passagedata><tw-passagedata pid="84" name="Failure" tags="" position="3475,5300" size="100,100">Uncomfortably you stand there. Unbreathing once again. Listening to the sounds of bubbling pot on the stove dance. Yet there is this unsettling feeling going down your spine. Like icy water is using it as a waterfall now. Waiting as the means of failure rises up and grabs you! 
 
 “Throw them in the hole.” The chef barks with a wicked cackle! Even before you can protest, the sous chef grabs you by the back of the neck. Tim and  you both start to shriek like banshee’s as once more you are thrown down into the pit. Hitting the ground hard and the lid comes crashing down in turn. Being bolted shut behind you as darkness and Tim’s nonsensical cries are your only friend.
 
@@ -1526,7 +1540,7 @@ Neither of you have a good answer for that but you loop around the reins into ha
 [[Séance Room]]
 [[Hallway|Hallway 8]] 
 &lt;center&gt;page 2/2&lt;/center&gt;[[Previous Page|Library]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="89" name="Dog House - Bone" tags="" position="3775,3600" size="100,100">(if: $shovel is false)[
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="89" name="Dog House - Bone" tags="" position="3850,3575" size="100,100">(if: $shovel is false)[
 Tim has let you make your own decisions so far and everything has turned out relatively okay… despite the whole, being stuck in a creepy manor, thing. Certainly you can allow Tim to make one little decision? Crossing your arms, you give a nonchalant shrug as Tim looks back at you, appearing to want direction. A flutter of your hand for him to shoo; was all he needed for permission to get up and prance over to the doghouse. 
 
 “Come out little pupper, we won’t hurt you!” As everyone spoke to either babies or animals, Tim cooed at the hound as he leaned down to peer into the little doorway. 
@@ -1671,7 +1685,7 @@ Stamping your feet a little with a complaint of your own, begrudgingly you get d
 It’s your only way forward.
 
 Into the [[Kitchen|KitchenA]]
-</tw-passagedata><tw-passagedata pid="98" name="KitchenA" tags="" position="3425,4025" size="100,100"></tw-passagedata><tw-passagedata pid="99" name="CellarA" tags="" position="3700,4600" size="100,100"></tw-passagedata><tw-passagedata pid="100" name="Stables Pg2" tags="" position="4300,4125" size="100,100">“Put yer finger away. Less you wanna lose it, boy.” One of the horses stamp impatiently, “I’m comin, I’m comin!” Dumbly, you continue to stare in awe at this figure. “Yah kids may be a bit brain dead eh? Not wise steppin’ along here. Less yer lookin’ to be part of the scenery yerselves.” The ghost moved forward floating through them. Leaving you with an unpleasant frigid chill as the stableman sets down the two items he had. “But since yer here, guess you’ve come lookin’ for some help. Yer lucky… I might be the only one around here that isn’t wantin’ to make yer life hell.”
+</tw-passagedata><tw-passagedata pid="98" name="KitchenA" tags="" position="3275,4175" size="100,100"></tw-passagedata><tw-passagedata pid="99" name="CellarA" tags="" position="3700,4600" size="100,100"></tw-passagedata><tw-passagedata pid="100" name="Stables Pg2" tags="" position="4300,4125" size="100,100">“Put yer finger away. Less you wanna lose it, boy.” One of the horses stamp impatiently, “I’m comin, I’m comin!” Dumbly, you continue to stare in awe at this figure. “Yah kids may be a bit brain dead eh? Not wise steppin’ along here. Less yer lookin’ to be part of the scenery yerselves.” The ghost moved forward floating through them. Leaving you with an unpleasant frigid chill as the stableman sets down the two items he had. “But since yer here, guess you’ve come lookin’ for some help. Yer lucky… I might be the only one around here that isn’t wantin’ to make yer life hell.”
 
 Slowly you come to realize that this ghost isn’t actually bad. “Though, I can’t exactly let yah leave now either. We’ve got a bit of a problem here. You’ve gotta do somethin’ for me. Part of them rules, yah know.”
 
@@ -1683,30 +1697,84 @@ Tim is still on the fritz so you decide to ask what he means. “Rules. Yah ente
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Play the Game|Horsing Around]]
 [[Leave|Running is not an Option]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="101" name="Horsing Around" tags="" position="4300,4250" size="100,100">“We’ll make this quick. No one likes anticipation, hmm.” The man reaches up to pet the nose of the one horse. A dark chestnut colour with a long white stripe down its face. “You’ll just have to answer some questions for me, alright. If yah get the majority right, then yah can go. But if yah get them wrong—” He trailed off, looking over his shoulder at the pair of you. Having no reason to actually detail the fact that if you messed up, well… you’d be likely stuck here forever.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="101" name="Horsing Around" tags="" position="4300,4250" size="100,100">(set: $horsingCorrect to 0)
+[“We’ll make this quick. No one likes anticipation, hmm.” The man reaches up to pet the nose of the one horse. A dark chestnut colour with a long white stripe down its face. “You’ll just have to answer some questions for me, alright. If yah get the majority right, then yah can go. But if yah get them wrong—” He trailed off, looking over his shoulder at the pair of you. Having no reason to actually detail the fact that if you messed up, well… you’d be likely stuck here forever.
 
 It had no appeal to you. This place was hell and honestly, you want to leave sooner than later.
 
 “Let’s just get this started hmm.” Rolling shoulders and cracking fingers, the ghost turns towards you both. Inching a bit closer but makes no effort to suddenly grab you –if you were afraid of that.
 
 “This here is Lyrikai.” He pointed to the horse, “She wants to be groomed but I need a brush that has stiff bristles that will remove dead hair, dirt and whatever else sort of nonsense she has up in her coat. I want to know what the brush is called for that.” And he points to you, “Yer up, kid.”
-&#39;&#39;[Dandy Brush]&#39;&#39;
-[Happy Brush]
-[Nifty Brush]
+[Dandy Brush]&lt;correctbrush|
+[Happy Brush]&lt;brush|
+[Nifty Brush]&lt;brush|
+]&lt;question1|
 
-Without a pause, the master continues. Pointing to the next stall and horse inside. Noting that this equine seems to be splattered with paint. Favouring black and white with one eye that was rather blue. It’s a bit unnerving but the horse itself doesn’t seem to care. Just that it&#39;s impatient.  “Now with Astaroth here, I’ve gotta work on his hooves. But I need to shape them up real nice, so I need a specific tool for that. But it has a name, so what it is?”
-[Horse Wasp]
-&#39;&#39;[Horse Rasp]&#39;&#39;
-[Horse Crust]
+(click: ?correctbrush)[
+	(replace: ?question1)[
+[Without a pause, the master continues. Pointing to the next stall and horse inside. Noting that this equine seems to be splattered with paint. Favouring black and white with one eye that was rather blue. It’s a bit unnerving but the horse itself doesn’t seem to care. Just that it&#39;s impatient.  “Now with Astaroth here, I’ve gotta work on his hooves. But I need to shape them up real nice, so I need a specific tool for that. But it has a name, so what it is?”
+[Horse Wasp]&lt;tool|
+[Horse Rasp]&lt;correcttool|
+[Horse Crust]&lt;tool|
+]&lt;question2|
+]
+    (set: $horsingCorrect to $horsingCorrect +1)
+]
+  
+(click: ?brush)[
+	(replace: ?question1)[
+[Without a pause, the master continues. Pointing to the next stall and horse inside. Noting that this equine seems to be splattered with paint. Favouring black and white with one eye that was rather blue. It’s a bit unnerving but the horse itself doesn’t seem to care. Just that it&#39;s impatient.  “Now with Astaroth here, I’ve gotta work on his hooves. But I need to shape them up real nice, so I need a specific tool for that. But it has a name, so what it is?”
+[Horse Wasp]&lt;tool|
+[Horse Rasp]&lt;correcttool|
+[Horse Crust]&lt;tool|
+]&lt;question2|
+]
+]
 
+(click: ?correcttool)[
+	(replace: ?question2)[
+[The man seems to consider your response but shrugs. Not exactly showing if you are right or wrong. Which seems to make Tim grumble under his breath. Saying that this seemed rigged. Still, the ghost hasn’t done anything bad to either of you, so you’re holding on that you have answered correctly so far.
+
+As he outstretches his hand to reach and scratch at the ear of a palomino. It was taller than the rest but seemed to be the one that favoured attention the most. “Kroyote loves to go trotting about the yard with its tact all on. Fanciest stuff yah may ever see and they favour the western style saddle. But I need to do up one more strap, that goes over their belly near the back of the saddle. Do yah know what strap needs to be tightened to finish their tact?”
+[Back Billet]&lt;strap|
+[Flank Billet]&lt;strap|
+[Back Cinch]&lt;strap|
+[Billet Strap]&lt;correctstrap|
+]&lt;question3|
+]
+ (set: $horsingCorrect to $horsingCorrect +1)
+]
+
+(click: ?tool)[
+	(replace: ?question2)[
 The man seems to consider your response but shrugs. Not exactly showing if you are right or wrong. Which seems to make Tim grumble under his breath. Saying that this seemed rigged. Still, the ghost hasn’t done anything bad to either of you, so you’re holding on that you have answered correctly so far.
 
 As he outstretches his hand to reach and scratch at the ear of a palomino. It was taller than the rest but seemed to be the one that favoured attention the most. “Kroyote loves to go trotting about the yard with its tact all on. Fanciest stuff yah may ever see and they favour the western style saddle. But I need to do up one more strap, that goes over their belly near the back of the saddle. Do yah know what strap needs to be tightened to finish their tact?”
+[Back Billet]&lt;strap|
+[Flank Billet]&lt;strap|
+[Back Cinch]&lt;strap|
+[Billet Strap]&lt;correctstrap|
+]
+]
 
-[Back Billet]
-[Flank Billet]
-[Back Cinch]
-&#39;&#39;[Billet Strap]&#39;&#39;
+(click: ?correctstrap)[
+	(set: $horsingCorrect to $horsingCorrect +1)
+    (if: $horsingCorrect &gt;= 2)[
+    (go-to: &quot;Stable Success&quot;)
+    ]
+    (else:)[
+     (go-to: &quot;Stable Failure&quot;)
+    ]
+]
+
+(click: ?strap)[
+    (if: $horsingCorrect &gt;= 2)[
+    (go-to: &quot;Stable Success&quot;)
+    ]
+    (else:)[
+     (go-to: &quot;Stable Failure&quot;)
+    ]
+]
 </tw-passagedata><tw-passagedata pid="102" name="Running is not an Option" tags="" position="4600,4200" size="100,100">Immediately features draw up into a tight scowl. Crossing arms over another as you decide to stand your ground! At this point, you’re both tired. Cranky and want to leave this place! Stating rather loudly that it would just be easier for this ghost to simply let you guys out! Evidently no one wants trouble but you’re also at your wits end. Being badgered, harassed and tormented seemingly all night long, really does make people irritable!
 
 Slowly the stablemaster turns to look at you both. Brows are knitted together with cautionary glint in his eye. “I beg yer pardon?” His tone suggests that what you just said, wasn’t the right answer. Still, you aren’t about to relent. Knuckling down to express a bit louder that you and Tim want to go home.
@@ -2026,9 +2094,11 @@ The eyes of your reflection flash a dastardly green, and a thunderous clap of la
 Use?? What was it talking about… what was this thing?!
 
 (If: $firepoker and $cypher and $sage and $enchantment)[
-&lt;center&gt;page 1/2&lt;/center&gt;[[Next Page|TRUE]]]
+&lt;center&gt;page 1/2&lt;/center&gt;[[Next Page|TRUE]]
+]
 (else:)[
-&lt;center&gt;page 1/2&lt;/center&gt;[[Next Page|Taking Off]]]
+&lt;center&gt;page 1/2&lt;/center&gt;[[Next Page|Taking Off]]
+]
 
 </tw-passagedata><tw-passagedata pid="124" name="Taking Off" tags="" position="2150,2750" size="100,100">It’s laughter rumbles your ribs, and finally your hand comes down from the mirror, but you can do nothing else. The only thing you can do is peer out your eyes as though windows to the outside world. Y-you’re… no longer you. 
 
@@ -2113,7 +2183,41 @@ Tim immediately thrusts the doors shut, and even goes into the effort of locking
 
 Time to go home. 
 
-(text-colour:green)[&#39;&#39;ALL’S WELL THAT ENDS WELL! TRUE ENDING&#39;&#39;]</tw-passagedata></tw-storydata>
+(text-colour:green)[&#39;&#39;ALL’S WELL THAT ENDS WELL! TRUE ENDING&#39;&#39;]</tw-passagedata><tw-passagedata pid="128" name="Flatware" tags="" position="3450,5075" size="100,100">Now for the final question, in which you can just answer. How many types of flatware is there?
+[11 Spoons, 4 Knives and 5 Forks]&lt;correct-testcomplete|
+[9 Spoons, 4 Knives and 5 Forks]&lt;testcomplete|
+[10 Spoons, 5 Knives and 6 Forks]&lt;testcomplete|
+[1 Spoon, 1 Knife and 1 Fork]&lt;testcomplete|
+
+(click: ?correct-testcomplete)[
+	(set: $dinnerCorrect to $dinnerCorrect +1)
+    (if: $dinnerCorrect &gt;= 4)[
+    (go-to: &quot;Success&quot;)
+    ]
+    (else:)[
+     (go-to: &quot;Failure&quot;)
+    ]
+]
+
+
+(click: ?testcomplete)[
+    (if: $dinnerCorrect &gt;= 4)[
+    (go-to: &quot;Success&quot;)
+    ]
+    (else:)[
+     (go-to: &quot;Failure&quot;)
+    ]
+]</tw-passagedata><tw-passagedata pid="129" name="Inventory" tags="footer" position="875,4550" size="100,100">(if: $showFooter)[
+&lt;center&gt;(text-style:&quot;underline&quot;)[ITEMS]&lt;/center&gt;
+&lt;ul&gt;
+&lt;li&gt;(if: $firepoker)[FIREPOKER]&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim

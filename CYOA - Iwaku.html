@@ -9,7 +9,26 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play CYOA - Iwaku.</tw-noscript></noscript></tw-story>
-<tw-storydata name="CYOA - Iwaku" startnode="39" creator="Twine" creator-version="2.7.1" format="Harlowe" format-version="3.3.7" ifid="3805DC6B-E450-4E08-B422-A6186B45CF8B" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">ul {
+<tw-storydata name="CYOA - Iwaku" startnode="39" creator="Twine" creator-version="2.7.1" format="Harlowe" format-version="3.3.7" ifid="3805DC6B-E450-4E08-B422-A6186B45CF8B" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">#inventory-box {
+  background: rgba(0,0,0,0.3);
+  border-radius: 15px;
+  padding: 10px;
+}
+
+#items {
+  margin-top: -80px;
+}
+
+.img-margin {
+  margin: -40px;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+
+ul {
   padding: 0;
   margin: 0;
 }
@@ -277,7 +296,11 @@ Stepping forward to lay hands upon the stereotypical creaky iron gate that stand
 (set:$portraittest to false)
 (set:$bedroomtest to false)
 (set:$kitchentest to false)
-</tw-passagedata><tw-passagedata pid="2" name="Front Porch" tags="" position="1075,4300" size="100,100">The pathway towards the house is noticeably uneven. Stray stones that once lined a path forward are now no more than pockmarked wannabe sidewalks. One misstep and you’d be twisting your ankle while Tim would have to drag you back by your jacket. Likely to complain the whole way. 
+(set:$foyervisit to false)
+(set:$mainvisit to false)
+(set:$diningvisit to false)
+(set:$banquetvisit to false)
+(set:$secondvisit to false)</tw-passagedata><tw-passagedata pid="2" name="Front Porch" tags="" position="1075,4300" size="100,100">The pathway towards the house is noticeably uneven. Stray stones that once lined a path forward are now no more than pockmarked wannabe sidewalks. One misstep and you’d be twisting your ankle while Tim would have to drag you back by your jacket. Likely to complain the whole way. 
 
 Along the sides leading upwards to the decrepit porch is nothing more than long tall grass. Yellowed from the late fall season. Likely a perfect hiding spot for stray animals and various thrown items that the older kids like to throw into the yard. You wouldn’t be surprised to find a wayward shopping cart here. 
 
@@ -301,7 +324,8 @@ Considering this a moment, you stare at the other kid.
 [[Check the left side of the house]]
 &lt;/div&gt;
 
-(set:$showFooter to true)</tw-passagedata><tw-passagedata pid="3" name="Foyer" tags="" position="1275,4300" size="100,100">As you both stand before the door –still questioning why it is so new looking compared to the rest of the place- your hand reaches out. Taking a firm grip of that cool metal handle with one final look at Tim. Whom is emphatically shaking his head (text-style:&quot;sway&quot;)[no] while aggressively pointing towards the gate. Taking a final moment to consider the choice merely to entertain the hopes of your friend. However, the door itself is pushed inwards.
+(set:$showFooter to true)</tw-passagedata><tw-passagedata pid="3" name="Foyer" tags="" position="1275,4300" size="100,100">(if: $foyervisit is false)[
+As you both stand before the door –still questioning why it is so new looking compared to the rest of the place- your hand reaches out. Taking a firm grip of that cool metal handle with one final look at Tim. Whom is emphatically shaking his head (text-style:&quot;sway&quot;)[no] while aggressively pointing towards the gate. Taking a final moment to consider the choice merely to entertain the hopes of your friend. However, the door itself is pushed inwards.
 
 Bearing witness to the drop of Tim’s face, you step inside. With a very loudly complaining Tim behind you.
 
@@ -324,6 +348,19 @@ You decide to let Tim take it all in at his own leisure.
 &lt;div class=&quot;option-wrapper&quot;&gt;
 &lt;center&gt;page 1/2&lt;/center&gt;[[Next Page|Foyer Pg 2]]
 &lt;/div&gt;
+]
+(else:)[
+It is probably very unlikely to actually work but there was no harm in trying. Stomping on over to the front door, you try the handle. With a twist one way and the other in hopes it would be magically unlocked, it is still shut up tighter than Fort Knox! Once you enter this place, you weren’t allowed to leave!
+
+At least not without doing whatever sort of adventure quest this place and denizens wanted. Just why couldn’t it have been like being transported to some cool medieval fantasy town that you and Tim become epic knights! Not poorly trained, poorly equipped, not even qualified Ghost Busters! 
+
+Releasing the handle and looking at Tim&#39;s enthusiastic face, you shake your own head. Watching that child like hope melt off. Replaced with a saddened irritation. “I’d kick that door if I wasn’t afraid that the house might try to eat me.” Nervously he gave a swooping pass of eyes to the ceiling. Likely checking to make sure there weren’t any teeth growing in. “Well, where do we go next?”
+&lt;div class=&quot;option-wrapper&quot;&gt;
+Into [[Foyer Hallway|Hallway 7]]
+Back to [[Main Floor]]
+Go [[Upstairs]]
+&lt;/div&gt;
+]
 </tw-passagedata><tw-passagedata pid="4" name="Upstairs" tags="" position="2100,3800" size="100,100">Once more, you consider your initial draw to the staircase. Still it beckons you. Perhaps the second level can give you a vantage point that you don’t have currently. Whatever your reasoning, you decide to take the staircase leading to the second floor. On par for an old creepy mansion, each step has the floor creaking beneath your weight, and you’re pretty sure you can feel Tim’s stuttering breath at your neck with how close he is tailing you. 
 
 With a sigh, you continue. 
@@ -337,7 +374,9 @@ So, it looks like you have three options.
 [[Unusual Hallway|Hallway 4]]
 [[Door|Investigate the Creepy Ass Door]]
 Back Downstairs [[Foyer]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Main Floor" tags="" position="2125,5325" size="100,100">At this point you are starting to believe that Tim is a living embodiment of a sigh, since he keeps doing it. Loudly he does this but quickly tags close to your heels. He might not be happy to be here but there was no way you two are about to be separated. You’ve seen horror movies! When you split up, you die! Not that you are intending on dying, but it&#39;s the principle that matters.
+&lt;/div&gt;
+(set: $foyervisit to true)</tw-passagedata><tw-passagedata pid="5" name="Main Floor" tags="" position="2125,5325" size="100,100">(if: $mainvisit is false)[
+At this point you are starting to believe that Tim is a living embodiment of a sigh, since he keeps doing it. Loudly he does this but quickly tags close to your heels. He might not be happy to be here but there was no way you two are about to be separated. You’ve seen horror movies! When you split up, you die! Not that you are intending on dying, but it&#39;s the principle that matters.
 
 With Tim having declared that he was not about to take leadership of this bad idea, you step forward. Leading both of yourselves along that as you step into the main floor, you get this uncomfortable feeling bubbling up from your stomach. “(text-style:&quot;rumble&quot;)[Ugh].” Tim adds to that measure. Earning a glance that tells you he feels that same sensation.
 
@@ -355,7 +394,23 @@ Hands reach over to grab your arm, squeezing it tightly. Tim’s face is a few i
 [[Dining Room]]
 [[Foyer]]
 [[Chamber Hallway|Hallway 3]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="Hallway 2" tags="" position="1675,2900" size="100,100">(if: $firepoker is false)[
+&lt;/div&gt;
+(set: $mainvisit to true)
+]
+(else:)[
+Out of curiosity to see if anything has altered, Tim lets out a breath of pure relief. Pressing a hand to his forehead, “I can’t believe I am glad this place hasn’t changed.” Actually everything is in fact the very same. Right down to the original details that you both noticed when you first came into this house of the damned. 
+
+It’s worth appreciating too. Knowing that something could have changed and maybe neither of you may have noticed, as if you were playing a game of Observation Duty. Just you could do without any rogue intruders appearing, or tables violently shaking.
+
+“So, come on. Pick a way.” Tim issues the desire to keep moving, “The sooner you pick, the sooner we can get out of here.” Well, that’s the hope anyway!
+&lt;div class=&quot;option-wrapper&quot;&gt;
+Towards the [[Dining Room]]
+Into [[Kitchen|KitchenA]]
+Back to the [[Foyer]]
+Or to the [[Chamber Hallway|Hallway 3]]
+&lt;/div&gt;
+]
+(set: $foyervisit to true)</tw-passagedata><tw-passagedata pid="6" name="Hallway 2" tags="" position="1675,2900" size="100,100">(if: $firepoker is false)[
 
 As you leave the dining room you, the hallway proves to be rather short. Coming to an abrupt dead end. With a single window that stepping closer to attempt to open it is met with stubborn refusal. There is no escape this way. However you notice the roof has a door on it.
 
@@ -442,7 +497,8 @@ Pulling in a deep breath to hold in your lungs, while reaching around to grab Ti
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Portrait Room|Trade Places]]
-&lt;/div&gt;]</tw-passagedata><tw-passagedata pid="11" name="Dining Room" tags="" position="2775,4500" size="100,100">Regardless whether your stomach is leading you on by the smell alone or out of morbid curiosity, the two of you decide –you decide rather- to go towards what shortly becomes evident as a dining room! Although it is like no dining room you’ve ever seen before.
+&lt;/div&gt;]</tw-passagedata><tw-passagedata pid="11" name="Dining Room" tags="" position="2775,4500" size="100,100">(if: $diningvisit is false)[
+Regardless whether your stomach is leading you on by the smell alone or out of morbid curiosity, the two of you decide –you decide rather- to go towards what shortly becomes evident as a dining room! Although it is like no dining room you’ve ever seen before.
 
 Large bay windows in a row of four align the west side of the wall, with a singular short hall that separates them into pairs. Each prepped with gossamer thin curtains of a pale blue colour. Allowing the ease of looking outside to be had though any moonlight that could have been passing through is still blocked by the thick rain clouds outside. You aren’t sure if you appreciate the lack of light or if you would prefer it.
 
@@ -476,7 +532,22 @@ Now you sigh at him. He’s clearly scared but the dramatics were a little much.
 [[Attic Hallway|Hallway 2]]
 [[Main Floor]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="12" name="Banquet Hall" tags="" position="3225,4050" size="100,100">As you enter the grand room, your gaze alongside Tim’s lifts immediately. Not due to any particular item or object but rather because the room itself is housing guests. A variety of them in fact!
+(set: $diningvisit to true)
+]
+(else:)[
+Out of curiosity do you wander over to the arranged table. Trying to see if anything has changed or if there was suddenly a guest present. Waiting for whomever else to join.
+
+But, nothing has changed. It’s still the same dining hall you seen originally just now the sound of sharpening knife is blissfully absent. Something that Tim seems to also notice with an approving nod. Exhaling in such a relieved sound that it’s almost worth standing here to appreciate the remaining aroma. 
+
+“Which way, $name?” Seems Tim isn’t about to let you forget the mission of getting out of this nightmare house! Making an obvious look to each exit, in case you couldn’t remember. 
+&lt;div class=&quot;option-wrapper&quot;&gt;
+[[Banquet Hall]]
+(if: $dinnertest is true)[[[Kitchen|KitchenA]]] (else:)[[Kitchen]]
+Back towards the [[Main Floor]]
+Or up to the [[Attic Hallway|Hallway 2]]
+&lt;/div&gt;
+]</tw-passagedata><tw-passagedata pid="12" name="Banquet Hall" tags="" position="3200,3875" size="100,100">(if: $banquetvisit is false)[
+As you enter the grand room, your gaze alongside Tim’s lifts immediately. Not due to any particular item or object but rather because the room itself is housing guests. A variety of them in fact!
 
 Each one of them is devoid of any material form as they sway and swing their beings through the hall unaware of anything but themselves. There is no sound of merriment or even the chatter of voices even while their mouths move! It is almost as if they and you are on two different planes of existence! Tim and yourself aren’t even blips on a radar to these masquerading event goers. Faces adored in colourful but grisly appearing masks. Eyes empty and features tugged into the eternal merriment of ghostly death.
 
@@ -501,7 +572,40 @@ The choice is yours once more!
 [[Dining Room]]
 [[Courtyard]]
 [[Unusual Hallway-&gt;Hallway 1]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="Courtyard" tags="" position="3175,3000" size="100,100">The heavy doors creak open with a grating push, creating an intense draft that blows at your hair and teases your cheeks. You realize, for the first time since entering this nightmare, the air is fresh. “It’s about time!” Tim nearly bolts past you to excitedly explore the courtyard that the pair of you come to find yourselves in. The stone pathways have long since been overgrown with green. Grasses, moss, and rogue growing plants litter the ground and cover the walls. Swiftly agreeing with Tim, that out of all the places visited so far in this manor, this one takes the cake!. 
+&lt;/div&gt;
+(set: $banquetvisit to true)
+]
+(else-if: $secondvisit is false)[
+As you return to the hall, naturally your eyes gravitate to where you had seen that ghost in the mask. They haven’t returned. “So we can backtrack around the inside of the manor. I guess.” Tim sounds off trying to be helpful but his innate personality of being a bit of a worry wart is showing through. Fiddling nervously with the cuffs of his hoodie and idly bouncing foot to foot. Making his backpack shuffle audibly. 
+
+“Obviously, it would be &#39;&#39;nice&#39;&#39; to avoid anything or uh… anyone.” Reluctantly, you agree. Warranting Tim to give you a look that isn’t much too pleased. “Dude, you are starting to really worry me. At this rate, we’ll find an oujii board and you’ll tell me it’s a cheese platter.” The absurdity to such a statement is just enough to make you burst out laughing. Snorting and sniggering, going still blissfully unaware to the ghosts that were making this place their hang out zone. They were clearly part of the ambience and not something that overly cared about you two. 
+
+“So what are doing, $name?” 
+
+Once more you look to that same spot. Just, unfortunately for you, the ghost is present. Beckoning you to come closer, if you wish. Perfectly in time for Tim to also notice and audibly gasp. Sparing no remorse when his hand darts out and slaps you incredibly hard across the arm! “I swear to whatever greater being is out there, &#39;&#39;do not&#39;&#39; go to that uh… uhh? Ghost?” He isn’t certain but that’s hardly the point right now. In fact, Tim takes charge. Grabbing you by the arm as though you were a particularly unruly child in a supermarket and tugs you along. “Pick a way already that isn’t stupid. Or stupider than what has already been happening.”
+
+&lt;div class=&quot;option-wrapper&quot;&gt;
+Back to the [[Courtyard]]
+Towards the [[Dining Room]]
+Into the [[Kitchen]] once more
+Or, talk to the [[Ghost]]
+&lt;/div&gt;
+(set: $secondvisit to true)
+]
+(else:)[
+Once more the pair of you have come to the room where the party ghosts are present. Still blissfully unaware that either of you exist. Content to make merry with another while allowing Tim and yourself to be unhindered.
+
+Out of habit now, you cautiously steal a pick to that corner. Where the ghost had tried to make a deal with you. Thankfully, Jonathan hasn’t returned and you aren’t about to start crying over it. 
+
+“Well, it’s pretty much the same here. So let’s keep moving.” Tim insists with a point to the directions you both can go.
+
+&lt;div class=&quot;option-wrapper&quot;&gt;
+Out to the [[Courtyard]]
+To the [[Unusual Hallway|Hallway 1]]
+Towards the [[Dining Room]]
+Into the [[Kitchen]]
+&lt;/div&gt;
+]</tw-passagedata><tw-passagedata pid="13" name="Courtyard" tags="" position="3175,3000" size="100,100">The heavy doors creak open with a grating push, creating an intense draft that blows at your hair and teases your cheeks. You realize, for the first time since entering this nightmare, the air is fresh. “It’s about time!” Tim nearly bolts past you to excitedly explore the courtyard that the pair of you come to find yourselves in. The stone pathways have long since been overgrown with green. Grasses, moss, and rogue growing plants litter the ground and cover the walls. Swiftly agreeing with Tim, that out of all the places visited so far in this manor, this one takes the cake!. 
 
  “I was starting to feel claustrophobic in that house,” Tim complained, rubbing at his arms to aid with chill in the air. “Feels nice not breathing in all that dust!” That, you could also agree with, as the pair of you wander out into the courtyard. Tilting your head back to glimpse up at the dark clouds through the leafy tree branches. Tim makes his way to one of the soggy wooden pieces of furniture and settles upon it. Leaving him to it, he deserves to take a load off. 
 
@@ -521,7 +625,7 @@ Well… now what?
 Return to the [[Banquet Hall]] 
 Venture forth to the [[Gate|Creepy Gate]] 
 Walk to the [[Garden]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="Garden" tags="" position="3750,3550" size="100,100">You’ve managed to ignore the lure of the gate, deciding that if you really want to you can always come back to check it out later. Instead, you walk out into a space that was probably once grand. You can visualize it now. Lush bushes of green and a sprinkling of color in Spring when the flowers were in bloom. Now, the area that was likely once teeming with life was full of death instead. Barren soil besides weeds that were abundantly growing within flowerbeds, grass, and crackling the stone path you were attempting to walk. Tall grass like you saw surrounding the house at the entrance was here as well, and you fathom you could get lost in that grass as though you were on a jungle safari rather than the remnants of someone’s backyard garden. 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="Garden" tags="" position="3750,3525" size="100,100">You’ve managed to ignore the lure of the gate, deciding that if you really want to you can always come back to check it out later. Instead, you walk out into a space that was probably once grand. You can visualize it now. Lush bushes of green and a sprinkling of color in Spring when the flowers were in bloom. Now, the area that was likely once teeming with life was full of death instead. Barren soil besides weeds that were abundantly growing within flowerbeds, grass, and crackling the stone path you were attempting to walk. Tall grass like you saw surrounding the house at the entrance was here as well, and you fathom you could get lost in that grass as though you were on a jungle safari rather than the remnants of someone’s backyard garden. 
 
 You give a look back to Tim. He looks nervous, but not as nervous as he’d been about that iron gate you left behind. That seemed like progress to you. Keeping to the stone path as much as possible, you begin to sift your way through to the other side of the garden, in hopes to find anything to aid in your escape.
 
@@ -650,7 +754,8 @@ Thanking Tim for his generous acceptance, your feet quickly step over to the doo
 </tw-passagedata><tw-passagedata pid="24" name="Hallway 7" tags="" position="825,5250" size="100,100">Taking that immediate dip from the foyer into the hallway, it has a pungent smell of flowers in the air. Not fresh but that sort of dirty smell that comes from dried grass and leaves in the middle of fall. “Ew.” Seems your nervous companion also agrees that it is not something you enjoy smelling. Otherwise the hall is rather unimpressive. Looking very similar to the style choices of the foyer with its paneled walls and lack of pictures on the wall the only notable difference is a singular sign!
 
 Boldly pointing towards the south. Where the reek of grimy flowers is far stronger. Meaning you could go this way towards the [[Séance Room]] or perhaps straight towards the adjoining [[Library Hallway-&gt;Hallway 8]].  there is always going back to the [[Foyer]]
-as well.</tw-passagedata><tw-passagedata pid="25" name="Hallway 8" tags="" position="825,5525" size="100,100">As you enter, it&#39;s apparent that this hallway is not like any other one. Not only does it have four normal ways to go but there’s a corner here! With a door that looks like it is only one way! How does that even work?
+as well.
+(set: $foyervisit to true)</tw-passagedata><tw-passagedata pid="25" name="Hallway 8" tags="" position="825,5525" size="100,100">As you enter, it&#39;s apparent that this hallway is not like any other one. Not only does it have four normal ways to go but there’s a corner here! With a door that looks like it is only one way! How does that even work?
 
 And why are you even asking? This place has already proven that it makes no sense! Less you want to make your brain hurt for days, it seems you better select your next way to go!
 Do you go back to the [[Living Room]] or forward to the first [[Foyer Hallway-&gt;Hallway 7]]? Maybe you try the door in that weird [[Mystery Door|Séance RoomA]]. However the other [[Bedroom-&gt;Bedroom 5]] looks just as interesting!
@@ -707,7 +812,7 @@ Brows furrow up as you simply decide to leave Tim to his madness. Declaring that
 Leaving you the choice once more, do you go back or forward?
 
 (set:$firepoker to true)
-
+&lt;center&gt;&lt;img class=&quot;img-margin&quot; src=&quot;https://retro-dragon.com/calloway-manor/images/firepoker.png&quot; width=&quot;500&quot; /&gt;&lt;/center&gt;
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Library Hallway|Hallway 8]] 
 [[Séance Room]] 
@@ -1141,7 +1246,6 @@ At this point you take in a large breath.  Exhaling just as quickly as you motio
 With some annoyance you consider your three options once more. Where do you go?
 &lt;div class=&quot;option-wrapper&quot;&gt;
 &lt;center&gt;page 2/2&lt;/center&gt;[[Previous Page|Foyer]]
-
 [[Upstairs]]
 [[Main Floor]]
 [[Foyer Hallway-&gt;Hallway 7]]
@@ -1151,7 +1255,29 @@ With some annoyance you consider your three options once more. Where do you go?
 &lt;div class=&quot;option-wrapper&quot;&gt;
 (if: $name is &quot;&quot;)[ (live: 0s)[(goto: &quot;Calloway Manor&quot;)] ]
 (else:)[ (live: 0s)[(goto: &quot;Start&quot;)] ]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="59" name="hal.tracks" tags="" position="450,4425" size="100,100">gate: https://retro-dragon.com/calloway-manor/audio/metal-gate.ogg</tw-passagedata><tw-passagedata pid="60" name="Room 1" tags="" position="3775,1725" size="100,100">Keep going… gotta keep going! Some part of you understand that if the ghoul with his collection of heads catches up to you and Tim, you’re both goners. And just as Tim said, you got him into this mess, so now you had to get them both out! There has to be an exit. But where?! 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="59" name="hal.tracks" tags="" position="450,4425" size="100,100">blop: https://retro-dragon.com/calloway-manor/audio/blop.ogg
+chains: https://retro-dragon.com/calloway-manor/audio/chains.ogg
+midnight: https://retro-dragon.com/calloway-manor/audio/clock-strike-twelve.ogg
+creakingdoor: https://retro-dragon.com/calloway-manor/audio/creaking-door.ogg
+creepylaugh: https://retro-dragon.com/calloway-manor/audio/creepy-laugh.ogg
+eerie: https://retro-dragon.com/calloway-manor/audio/eerie.ogg
+evillaugh: https://retro-dragon.com/calloway-manor/audio/evil-laugh.ogg
+glass-breaking: https://retro-dragon.com/calloway-manor/audio/glass-breaking.ogg
+growlingdog: https://retro-dragon.com/calloway-manor/audio/growling-dog.ogg
+heartbeat: https://retro-dragon.com/calloway-manor/audio/heartbeat.ogg
+horse: https://retro-dragon.com/calloway-manor/audio/horse.ogg
+metaldoor: https://retro-dragon.com/calloway-manor/audio/metal-door.ogg
+gate: https://retro-dragon.com/calloway-manor/audio/metal-gate.ogg
+night: https://retro-dragon.com/calloway-manor/audio/nighttime.ogg
+raven: https://retro-dragon.com/calloway-manor/audio/raven.ogg
+knifesharpen: https://retro-dragon.com/calloway-manor/audio/sharpening-knife.ogg
+shoveldirt: https://retro-dragon.com/calloway-manor/audio/shovel-dirt.ogg
+spookykeys: https://retro-dragon.com/calloway-manor/audio/spooky-keys.ogg
+stab: https://retro-dragon.com/calloway-manor/audio/stab.ogg
+strangehappen: https://retro-dragon.com/calloway-manor/audio/strange-happening.ogg
+tollingbell: https://retro-dragon.com/calloway-manor/audio/tolling-bell.ogg
+walking: https://retro-dragon.com/calloway-manor/audio/walking.ogg
+water-drops: https://retro-dragon.com/calloway-manor/audio/water-drops.ogg</tw-passagedata><tw-passagedata pid="60" name="Room 1" tags="" position="3775,1725" size="100,100">Keep going… gotta keep going! Some part of you understand that if the ghoul with his collection of heads catches up to you and Tim, you’re both goners. And just as Tim said, you got him into this mess, so now you had to get them both out! There has to be an exit. But where?! 
 
 From where you stand there are three options. 
 
@@ -1473,13 +1599,13 @@ For a minute or so, you are all just staring at another. If you could call stari
 (go-to: &quot;Utensil Drawer A&quot;)
 ]</tw-passagedata><tw-passagedata pid="81" name="A Dinner to Remember" tags="" position="3575,5450" size="100,100">With a slight snap of bony fingers, the sous chef reacts. Reaching out to grab Tim by the arms. Startling an unpleasant cry from your friend. You don’t need it to be explained that Tim was not allowed to help in anyway possible. If so, well, then the ghouls would assure you both pay the price.
 
-Dryly swallowing, you look back to the Chef. “//(text-colour:(hsl:29,1,0.5843,0.8))[I won’t make it too difficult. As I said, I’ll tell you which place it is in the kitchen but you must bring me back or tell me the correct answer. You fail, you both are mine. You win, then lucky for you both. You get to live. Not that it will make a //&#39;&#39;difference&#39;&#39;//]//.” His words are intending to be ominous and you aren’t in any mood to try to pick apart what he means.
+Dryly swallowing, you look back to the Chef. “I won’t make it too difficult. As I said, I’ll tell you which place it is in the kitchen but you must bring me back or tell me the correct answer. You fail, you both are mine. You win, then lucky for you both. You get to live. Not that it will make a &#39;difference.” His words are intending to be ominous and you aren’t in any mood to try to pick apart what he means.
 
 Rather, you gesture restlessly for the chef to get this started. 
 
 Once more, he grins in a way that no skull ought too.
 
-&quot;(text-colour:(hsl:29,1,0.5843,0.8))[//Within the [[utensil drawer|Utensil Drawer]], find me a spoon that is small and meant to be used for stirring and sipping coffee//].&quot;
+&quot;Within the [[utensil drawer|Utensil Drawer]], find me a spoon that is small and meant to be used for stirring and sipping coffee.&quot;
 
 (set: $dinnerCorrect to 0)</tw-passagedata><tw-passagedata pid="82" name="Utensil Drawer A" tags="" position="3425,5725" size="100,100">&quot;//(text-colour:(hsl:29,1,0.5843,0.8))[In the Utensil drawer again, tell me what the difference is between a Dinner Fork and a Dessert Fork!]//&quot;
 
@@ -1502,7 +1628,7 @@ In a matter of seconds there is a small bundled up object offered to the chef! T
 Parting mouth to ask him a question, suddenly and rather rudely, you both are given shoves forward. “(text-colour:(hsl:29,1,0.5843,0.8))[//Now get out of my kitchen. I’ve got work to do//]!&quot;
 
 “Let’s just get out of here.” Tim grabs your shoulders just in case you decide to push your luck by asking something you shouldn’t. “Which way now, preferably the nearest exit from this house of horrors.”
-
+&lt;center&gt;&lt;img class=&quot;img-margin&quot; src=&quot;https://retro-dragon.com/calloway-manor/images/sage.png&quot; width=&quot;500&quot; /&gt;&lt;/center&gt;
 (set:$sage to true)
 (set:$dinnertest to true)
 &lt;div class=&quot;option-wrapper&quot;&gt;
@@ -1627,7 +1753,7 @@ Long leather bands fall freely down to the ground while still being attached to 
 After a moment, you see what he means. But that doesn’t answer the next question. “Why is there a bridle in a locked book?”
 
 Neither of you have a good answer for that but you loop around the reins into hand and hold out the very object to Tim. Insisting that you may need it for something. “I guess. I don’t know why.” Again, you only shrug. You aren’t sure either but at this point it seems like you could do well with it.
-
+&lt;center&gt;&lt;img class=&quot;img-margin&quot; src=&quot;https://retro-dragon.com/calloway-manor/images/bridle.png&quot; width=&quot;500&quot; /&gt;&lt;/center&gt;
 (set:$silverbridle to true)
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
@@ -1665,7 +1791,7 @@ Approach the [[Shiny Door|Portal Door]]
 &lt;/div&gt;]
 
 (else-if: $shovel is true)[
-[With the stablemaster’s sagely advice still fresh in yours heads -you know the one that he said that the thing you need is nearby now that you had the shovel- the pair of you come to the garden shed. Allowing a smug grin to take proper placement on your features. Waiting till Tim notices, much to his annoyance, making a point to the ratty looking yard. “Don’t look so confident. We wouldn’t have to do any of this, if it wasn’t for you getting goaded into this stupid bet.”
+With the stablemaster’s sagely advice still fresh in yours heads -you know the one that he said that the thing you need is nearby now that you had the shovel- the pair of you come to the garden shed. Allowing a smug grin to take proper placement on your features. Waiting till Tim notices, much to his annoyance, making a point to the ratty looking yard. “Don’t look so confident. We wouldn’t have to do any of this, if it wasn’t for you getting goaded into this stupid bet.”
 
 What a way to deflate your ego! 
 
@@ -1722,7 +1848,7 @@ Quickly you flap your hand while calling at Tim to come over here. While he spar
 Blankly you stare Tim right in the eye and drop the bottle to the floor! Shattering immediately against the stone ground, he turns a little bit bashful. “Duh.” Answering the question, that really wasn’t that hard. “Well grab it and put it into the backpack. We don’t need to be here anymore then! Those casks are too heavy to open and I really don’t want to try.”
 
 The sentiment in that is pretty on point and you waste no effort. Stooping down to be careful of the glass so you can grab the rather ornate looking key from the fragments so it can be put into the backpack. Commenting that you are grateful that Tim brought it. Who knew it was going to be so handy!
-
+&lt;center&gt;&lt;img class=&quot;img-margin&quot; src=&quot;https://retro-dragon.com/calloway-manor/images/ornatekey.png&quot; width=&quot;500&quot; /&gt;&lt;/center&gt;
 (set:$ornatekey to true)
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
@@ -1877,6 +2003,7 @@ So you nod. Stepping over to where the item stood against the side of the stall 
 Actually that’s a really good thing to note and you thank the ghost for his insight. Watching as he gives you a rather content nod before pointing out the door. Indicating that it was time to leave. Which you both decide it’s probably smart to take! With a quick wave and a trot to the open door of the barn with your new item, Tim sighs. “Guess we gotta go back the way we came.”
 
 It would seem so.
+&lt;center&gt;&lt;img class=&quot;img-margin&quot; src=&quot;https://retro-dragon.com/calloway-manor/images/shovel.png&quot; width=&quot;500&quot; /&gt;&lt;/center&gt;
 (set:$shovel to true)
 (set:$stabletest to true)
 &lt;div class=&quot;option-wrapper&quot;&gt;
@@ -1916,6 +2043,7 @@ You sigh with a low fine, before giving the man the bridle. Watching it turn fro
 “Be safe now.”
 
 What a weird thing for a ghost to say!
+&lt;center&gt;&lt;img class=&quot;img-margin&quot; src=&quot;https://retro-dragon.com/calloway-manor/images/shovel.png&quot; width=&quot;500&quot; /&gt;&lt;/center&gt;
 (set:$shovel to true)
 (set:$silverbridle to false)
 &lt;div class=&quot;option-wrapper&quot;&gt;
@@ -2026,7 +2154,7 @@ Offering you one final twist of unpleasant grin, the monstrous wight fades away.
 You feel the same.
 
 Nodding in agreement less the room decide to try to trap you both again, you hastily exit back to the hallway.
-
+&lt;center&gt;&lt;img class=&quot;img-margin&quot; src=&quot;https://retro-dragon.com/calloway-manor/images/cypher.png&quot; width=&quot;500&quot; /&gt;&lt;/center&gt;
 (set:$cypher to true)
 (set:$portraittest to true)
 &lt;div class=&quot;option-wrapper&quot;&gt;
@@ -2145,7 +2273,7 @@ Her once pleasant visage turns horrific as her speech morphs into a demonic pitc
 You both fall upon your knees onto the hardwood floor, huffing and puffing, and you feel like you’re covered in a cold sweat after that last interaction!! “Remind me never to get married to an axe murderer…” Tim chokes out. Dumbly you nod your head as you stare at the iron key still grasped tightly in your hand. You wonder what it could open… and whether or not it would actually help you. That ghost didn’t seem terribly trustworthy! Either way, you both slowly rise to your feet and you hand Tim the key for safekeeping in his backpack. 
 
 And now that you’ve met a dead end with this hallway, you’ve got a couple places you can go. 
-
+&lt;center&gt;&lt;img class=&quot;img-margin&quot; src=&quot;https://retro-dragon.com/calloway-manor/images/portraitkey.png&quot; width=&quot;500&quot; /&gt;&lt;/center&gt;
 (set:$portraitkey to true)
 (set:$bedroomtest to true)
 
@@ -2268,8 +2396,9 @@ Was this the key to the front door?!
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 &lt;center&gt;page 2/2&lt;/center&gt;[[Previous Page|TRUE]]
-
-[[Run to Foyer|Foyer2]]
+(if: $deal)[[[Run to Foyer|Foyer B]]]
+(else:)[
+[[Run to Foyer|Foyer2]] ]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="123" name="Foyer2" tags="" position="525,1875" size="100,100">As you traverse these spooky halls one last time, everything seems different. The haunted air seems lifted, and you see fleeting forms of ghosts dancing through the air in what you can only imagine as… celebration. There’s gleeful laughter all around you, and the spirits pay you no mind with a means to harm you this time around as you make your way to the foyer. 
 
 Naturally you and Tim are still leery and look to avoid eye contact. The ghosts can enjoy their party, but they could kindly leave you out of it! You’ve had enough of their company and were eager to escape through your deserved exit. You enter the foyer, and Tim produces that extravagant key from his bag. “Here goes nothing…” he breathes, and squints his eyes shut as he inserted the key… gives it a twist… and with a loud satisfying click, you eagerly try the handle. 
@@ -2317,18 +2446,29 @@ Time to go home.
     ]
 ]</tw-passagedata><tw-passagedata pid="125" name="Inventory" tags="footer" position="450,4550" size="100,100">(if: $showFooter)[
 &lt;center&gt;
-(text-style:&quot;underline&quot;)[ITEMS]
+&lt;div id=&quot;inventory-box&quot;&gt;
+&lt;h1&gt;ITEMS&lt;/h1&gt;
 &lt;ul id=&quot;items&quot;&gt;
 {
-&lt;li&gt;(if: $firepoker)[FIREPOKER]&lt;/li&gt;
-&lt;li&gt;(if: $portraitkey)[PORTRAIT KEY]&lt;/li&gt;
-&lt;li&gt;(if: $ornatekey)[ORNATE KEY]&lt;/li&gt;
-&lt;li&gt;(if: $cypher)[CYPHER]&lt;/li&gt;
-&lt;li&gt;(if: $sage)[SAGE]&lt;/li&gt;
-&lt;li&gt;(if: $shovel)[SHOVEL]&lt;/li&gt;
-&lt;li&gt;(if: $silverbridle)[SILVER BRIDLE]&lt;/li&gt;
+&lt;li&gt;(if: $firepoker)[&lt;img src=&quot;https://retro-dragon.com/calloway-manor/images/firepoker.png&quot; width=&quot;100&quot; /&gt;&lt;br /&gt;
+Fire Poker]&lt;/li&gt;
+&lt;li&gt;(if: $portraitkey)[&lt;img src=&quot;https://retro-dragon.com/calloway-manor/images/portraitkey.png&quot; width=&quot;100&quot; /&gt;&lt;br /&gt;
+Portrait Key]&lt;/li&gt;
+&lt;li&gt;(if: $ornatekey)[&lt;img src=&quot;https://retro-dragon.com/calloway-manor/images/ornatekey.png&quot; width=&quot;100&quot; /&gt;&lt;br /&gt;
+Ornate Key]&lt;/li&gt;
+&lt;li&gt;(if: $cypher)[&lt;img src=&quot;https://retro-dragon.com/calloway-manor/images/cypher.png&quot; width=&quot;100&quot; /&gt;&lt;br /&gt;
+Cypher]&lt;/li&gt;
+&lt;li&gt;(if: $sage)[&lt;img src=&quot;https://retro-dragon.com/calloway-manor/images/sage.png&quot; width=&quot;100&quot; /&gt;&lt;br /&gt;
+Sage]&lt;/li&gt;
+&lt;li&gt;(if: $shovel)[&lt;img src=&quot;https://retro-dragon.com/calloway-manor/images/shovel.png&quot; width=&quot;100&quot; /&gt;&lt;br /&gt;
+Shovel]&lt;/li&gt;
+&lt;li&gt;(if: $silverbridle)[&lt;img src=&quot;https://retro-dragon.com/calloway-manor/images/bridle.png&quot; width=&quot;100&quot; /&gt;&lt;br /&gt;
+Silver Bridle]&lt;/li&gt;
+&lt;li&gt;(if: $enchantment)[&lt;img src=&quot;https://retro-dragon.com/calloway-manor/images/enchantment.png&quot; width=&quot;100&quot; /&gt;&lt;br /&gt;
+Enchantment]&lt;/li&gt;
 }
 &lt;/ul&gt;
+&lt;/div&gt;
 &lt;/center&gt;
 ]</tw-passagedata><tw-passagedata pid="126" name="No Return" tags="" position="1950,5925" size="100,100">You recognize this door, and it quickly prompts a shiver to run down your spine. Even from where you stand, you hear the soft and eerie hums of the ghost wife that lingers inside. You barely managed to survive the encounter the first time. There’s no way in hell you’re going back in there! 
 
@@ -2385,14 +2525,14 @@ As you both approach however,  you hear the warning growl. Seeing a pair of gold
 Let Tim [[Approach]]
 Tell Tim to [[Stay Away]]
 Go back to the [[Garden]]
-&lt;/div&gt;]</tw-passagedata><tw-passagedata pid="132" name="Dig1" tags="" position="4025,2975" size="100,100">With a pirate like gusto, the tip of the shovel overturns the dirt and dried grass. Making a sizable hole that only reveals that of a chewed up… frisbee? “That,” Tim leans over and offers his finger in, pointing at the object. “Is not what we are looking for.”
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="132" name="Dig1" tags="" position="4025,2975" size="100,100">With a pirate like gusto, the tip of the shovel overturns the dirt and dried grass. Making a sizable hole that only reveals that of a chewed up… frisbee? “That,” Tim leans over and offers his finger in, pointing at the object. “Is not what we are looking for.”
 
 You thank Captain Obvious for his detective deducing and decide to try a different spot.
 
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Dig|Dig2]]
-&lt;/div&gt;]</tw-passagedata><tw-passagedata pid="133" name="Dig2" tags="" position="4175,2975" size="100,100">“Here, maybe (text-style:&quot;condense&quot;,&quot;tall&quot;)[//I’ll//] have better luck.” Tim elbows you after you’ve pretty much done the majority of the work here. Looking like the sort of construction foreman that takes credit for the rest of the crew’s efforts, you simply let go of the shovel. Holding hands up in a sarcastic surrender and step back. Waiting to see if Mister Luck is in fact that.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="133" name="Dig2" tags="" position="4175,2975" size="100,100">“Here, maybe (text-style:&quot;condense&quot;,&quot;tall&quot;)[//I’ll//] have better luck.” Tim elbows you after you’ve pretty much done the majority of the work here. Looking like the sort of construction foreman that takes credit for the rest of the crew’s efforts, you simply let go of the shovel. Holding hands up in a sarcastic surrender and step back. Waiting to see if Mister Luck is in fact that.
 
 Tim tosses a shovelful of dirt aside and then pauses. His nose wrinkles with obvious failure and you get the chance to lean over this time. Repeating the same pointing motion into the hole before saying his exact words from before. “Oh come on.” Tim grumbles while getting a taste of his own medicine. This hole has nothing more than petrified bread inside it. 
 
@@ -2409,11 +2549,9 @@ Guess you better start digging at a new spot. Again.
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="134" name="Dig3" tags="" position="4325,2975" size="100,100">You hack at the spot with your shovel, and a glimpse over your shoulder has you seeing Tim watching you with anticipation. It had to be the first time during your time here that he didn’t look afraid. Each thrust of the shovel into the ground dislodged more dirt, till you hear a satisfying ting! Yo ho ho, looks like you struck treasure!! 
 
 “Let me see!” Tim comes to the other side of the small hole, reaching down and scooping aside loose dirt before he grabs and pulls up a hefty looking bone that had been hiding beneath. He practically squeals, dusting as much of the dirt off as he could before he’s frolicking back toward the [[Doghouse]]. 
-
+&lt;center&gt;&lt;img src=&quot;https://retro-dragon.com/calloway-manor/images/bone.png&quot; width=&quot;500&quot; /&gt;&lt;/center&gt;
 (Set:$bone to true)
-</tw-passagedata><tw-passagedata pid="135" name="Holder Passage" tags="" position="3850,3725" size="100,100">&lt;div class=&quot;option-wrapper&quot;&gt;
-&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="136" name="Approach" tags="" position="4150,3350" size="100,100">(if: $bone is false)[
+</tw-passagedata><tw-passagedata pid="135" name="Approach" tags="" position="4150,3350" size="100,100">(if: $bone is false)[
 Tim has let you make your own decisions so far and everything has turned out relatively okay… despite the whole, being stuck in a creepy manor, thing. Certainly you can allow Tim to make one little decision? Crossing your arms, you give a nonchalant shrug as Tim looks back at you, appearing to want direction. A flutter of your hand for him to shoo; was all he needed for permission to get up and prance over to the doghouse. 
 
 “Come out little pupper, we won’t hurt you!” As everyone spoke to either babies or animals, Tim cooed at the hound as he leaned down to peer into the little doorway. 
@@ -2444,41 +2582,14 @@ It’s a dog tag, attached to a large collar. Perhaps it fell off the beast’s 
 Inside is a rolled up piece of paper. And scrawled upon it… is nothing you are familiar with. Just a bunch of lines that could resemble words that have no current relevance. Still, it seems important, and so you roll up the little paper to tuck back into its canister! Wisely pocketing it to decide that this is a very crucial item!
 
 Well, now that you’ve taken care of that, you still have to figure out where you are going to venture! You give Tim a bit more time with the ghost pup, hearing him laughing alongside the little yips and barks. It gives you a moment to contemplate that at this point you can only go back to the [[Garden]].
-
-(Set:$enchantment to true)]
-</tw-passagedata><tw-passagedata pid="137" name="Stay Away" tags="" position="4350,3350" size="100,100">You put a hand on Tim’s shoulder in front of you before he can take a step forward. You know he is the one usually saying how bad of an idea something is, but for once the tables are turned. You insist that he should stay back, giving him a disapproving look in turn. And explain loudly that he should know better than to approach a strange dog! At the very least, until you can find something to offer it so it doesn’t take his hand instead as a fleshy treat. 
+&lt;center&gt;&lt;img class=&quot;img-margin&quot; src=&quot;https://retro-dragon.com/calloway-manor/images/enchantment.png&quot; width=&quot;500&quot; /&gt;&lt;/center&gt;
+(set:$enchantment to true)]
+</tw-passagedata><tw-passagedata pid="136" name="Stay Away" tags="" position="4350,3350" size="100,100">You put a hand on Tim’s shoulder in front of you before he can take a step forward. You know he is the one usually saying how bad of an idea something is, but for once the tables are turned. You insist that he should stay back, giving him a disapproving look in turn. And explain loudly that he should know better than to approach a strange dog! At the very least, until you can find something to offer it so it doesn’t take his hand instead as a fleshy treat. 
 
 Tim pouts, but with a hefty drawn out sigh, he nods his head with compliance. “See? That is how to listen to your friend’s advice.” For now, he would leave the growling dog be. However, when they found a treat for it, Tim would be adamant to return!
 
 Since you’ve decided to let the dog be for now, it’s clear you need to readjust your bearings and decide to focus back on the [[Garden]]
-</tw-passagedata><tw-passagedata pid="138" name="Banquet Hall A" tags="" position="2950,3050" size="100,100">As you return to the hall, naturally your eyes gravitate to where you had seen that ghost in the mask. They haven’t returned. “So we can backtrack around the inside of the manor. I guess.” Tim sounds off trying to be helpful but his innate personality of being a bit of a worry wart is showing through. Fiddling nervously with the cuffs of his hoodie and idly bouncing foot to foot. Making his backpack shuffle audibly. 
-
-“Obviously, it would be &#39;&#39;nice&#39;&#39; to avoid anything or uh… anyone.” Reluctantly, you agree. Warranting Tim to give you a look that isn’t much too pleased. “Dude, you are starting to really worry me. At this rate, we’ll find an oujii board and you’ll tell me it’s a cheese platter.” The absurdity to such a statement is just enough to make you burst out laughing. Snorting and sniggering, going still blissfully unaware to the ghosts that were making this place their hang out zone. They were clearly part of the ambience and not something that overly cared about you two. 
-
-“So what are doing, $name?” 
-
-Once more you look to that same spot. Just, unfortunately for you, the ghost is present. Beckoning you to come closer, if you wish. Perfectly in time for Tim to also notice and audibly gasp. Sparing no remorse when his hand darts out and slaps you incredibly hard across the arm! “I swear to whatever greater being is out there, &#39;&#39;do not&#39;&#39; go to that uh… uhh? Ghost?” He isn’t certain but that’s hardly the point right now. In fact, Tim takes charge. Grabbing you by the arm as though you were a particularly unruly child in a supermarket and tugs you along. “Pick a way already that isn’t stupid. Or stupider than what has already been happening.”
-
-&lt;div class=&quot;option-wrapper&quot;&gt;
-Back to the [[Courtyard]]
-Towards the [[Dining Room]]
-Into the [[Kitchen]] once more
-Or, talk to the [[Ghost]]
-
-&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="139" name="Banquet Hall B" tags="" position="3150,4200" size="100,100">Once more the pair of you have come to the room where the party ghosts are present. Still blissfully unaware that either of you exist. Content to make merry with another while allowing Tim and yourself to be unhindered.
-
-Out of habit now, you cautiously steal a pick to that corner. Where the ghost had tried to make a deal with you. Thankfully, Jonathan hasn’t returned and you aren’t about to start crying over it. 
-
-“Well, it’s pretty much the same here. So let’s keep moving.” Tim insists with a point to the directions you both can go.
-
-&lt;div class=&quot;option-wrapper&quot;&gt;
-Out to the [[Courtyard]]
-To the [[Unusual Hallway|Hallway 1]]
-Towards the [[Dining Room]]
-Into the [[Kitchen]]
-&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="140" name="Ghost" tags="" position="2825,2800" size="100,100">If he was going to treat you like a child, then you were going to act like a child. “$name!” Tim squawks when you rip your arm away. Huffing noisily with a verbal suggestion that Tim really ought to try trusting your instincts more. So far, you’ve both made it through this house of horrors because of said instincts. 
+</tw-passagedata><tw-passagedata pid="137" name="Ghost" tags="" position="2825,2800" size="100,100">If he was going to treat you like a child, then you were going to act like a child. “$name!” Tim squawks when you rip your arm away. Huffing noisily with a verbal suggestion that Tim really ought to try trusting your instincts more. So far, you’ve both made it through this house of horrors because of said instincts. 
 
 “You’re a complete idiot.” Wow, talk about the vote of confidence. Actually in that case, you motion for Tim to stay right there. If he was going to be a human sized chihuahua, then he could stay right here and tremble. “$Name… just… ugh, just be careful. This isn’t a game, you know.” 
 
@@ -2502,7 +2613,7 @@ There is only one hand still outstretched that is human, and it is waiting for y
 [[Deal]]
 [[No Deal]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="141" name="Deal" tags="" position="2700,3000" size="100,100">Whether you are compelled or just incredibly twisted yourself, you take that hand. Finding that it appears to be gigantic to your own. Engulfing your entire arm rather than just your palm. Squeezing it tightly till you are overcome with great agony! Flaring through your chest, into your stomach and intestines. Making you double over with a guttural gasp. Knees hit the floor and you hear running feet approaching.
+</tw-passagedata><tw-passagedata pid="138" name="Deal" tags="" position="2700,3000" size="100,100">Whether you are compelled or just incredibly twisted yourself, you take that hand. Finding that it appears to be gigantic to your own. Engulfing your entire arm rather than just your palm. Squeezing it tightly till you are overcome with great agony! Flaring through your chest, into your stomach and intestines. Making you double over with a guttural gasp. Knees hit the floor and you hear running feet approaching.
 
 Hands grabbing you. “$name! $name, a-are you okay! Say something!” Tim shakes you, as if that is helping! Making your head swim to a point that you feel like you&#39;re about to vomit! Snatching his hand with a plea to stop! Tim lets out a strained whine before curling a fist and thumping it directly on your head. “Why are you (text-style:&quot;expand&quot;)[&#39;&#39;such&#39;&#39;] an idiot! What did you do!” 
 
@@ -2529,7 +2640,7 @@ To the [[Unusual Hallway|Hallway 1]]
 Towards the [[Dining Room]]
 Into the [[Kitchen]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="142" name="No Deal" tags="" position="3025,2775" size="100,100">How dumb does this corner hugging monstrosity think you are! Actually, you’re rather insulted by this, swatting the hand away with a sneer. Pointing out you would never be &#39;&#39;that&#39;&#39; desperate. 
+(set: $deal to true)</tw-passagedata><tw-passagedata pid="139" name="No Deal" tags="" position="3025,2775" size="100,100">How dumb does this corner hugging monstrosity think you are! Actually, you’re rather insulted by this, swatting the hand away with a sneer. Pointing out you would never be &#39;&#39;that&#39;&#39; desperate. 
 
 For a strained moment, the writhing freak simply stares at you. The tension was so thick it could be cut with a knife only to be shortly dispelled. “(text-style:&quot;smear&quot;)[//So be it. You will regret not taking my offer, child. But be it far from myself to offer my services to a fool. Maybe you’ll get lucky to escape this place. Even a blind pig finds a truffle once in a while//].” Jonathan gives you a haughty scoff as his body returns back to its somehow more appealing appearance. Impressed that you now find this more humanoid looking one just that.
 
@@ -2551,38 +2662,7 @@ To the [[Unusual Hallway|Hallway 1]]
 Towards the [[Dining Room]]
 Into the [[Kitchen]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="143" name="Dining Room A" tags="" position="2500,4425" size="100,100">Out of curiosity do you wander over to the arranged table. Trying to see if anything has changed or if there was suddenly a guest present. Waiting for whomever else to join.
-
-But, nothing has changed. It’s still the same dining hall you seen originally just now the sound of sharpening knife is blissfully absent. Something that Tim seems to also notice with an approving nod. Exhaling in such a relieved sound that it’s almost worth standing here to appreciate the remaining aroma. 
-
-“Which way, $name?” Seems Tim isn’t about to let you forget the mission of getting out of this nightmare house! Making an obvious look to each exit, in case you couldn’t remember. 
-
-To the [[Banquet Hall|Banquet Hall A]] If Player has not encountered ghost
-To the [[Banquet Hall|Banquet Hall B]] If Player has encountered ghost
-
-Through the [[Kitchen|KitchenA]]
-Back towards the [[Main Floor|Main Floor A]]
-Or up to the [[Attic Hallway|Hallway 2]]
-</tw-passagedata><tw-passagedata pid="144" name="Main Floor A" tags="" position="2300,5200" size="100,100">Out of curiosity to see if anything has altered, Tim lets out a breath of pure relief. Pressing a hand to his forehead, “I can’t believe I am glad this place hasn’t changed.” Actually everything is in fact the very same. Right down to the original details that you both noticed when you first came into this house of the damned. 
-
-It’s worth appreciating too. Knowing that something could have changed and maybe neither of you may have noticed, as if you were playing a game of Observation Duty. Just you could do without any rogue intruders appearing, or tables violently shaking.
-
-“So, come on. Pick a way.” Tim issues the desire to keep moving, “The sooner you pick, the sooner we can get out of here.” Well, that’s the hope anyway!
-
-Towards the [[Dining Room|Dining Room A]]
-Into [[Kitchen|KitchenA]]
-Back to the [[Foyer|Foyer A]]
-Or to the [[Chamber Hallway|Hallway 3]]
-</tw-passagedata><tw-passagedata pid="145" name="Foyer A" tags="" position="1350,4500" size="100,100">It is probably very unlikely to actually work but there was no harm in trying. Stomping on over to the front door, you try the handle. With a twist one way and the other in hopes it would be magically unlocked, it is still shut up tighter than Fort Knox! Once you enter this place, you weren’t allowed to leave!
-
-At least not without doing whatever sort of adventure quest this place and denizens wanted. Just why couldn’t it have been like being transported to some cool medieval fantasy town that you and Tim become epic knights! Not poorly trained, poorly equipped, not even qualified Ghost Busters! 
-
-Releasing the handle and looking at Tim&#39;s enthusiastic face, you shake your own head. Watching that child like hope melt off. Replaced with a saddened irritation. “I’d kick that door if I wasn’t afraid that the house might try to eat me.” Nervously he gave a swooping pass of eyes to the ceiling. Likely checking to make sure there weren’t any teeth growing in. “Well, where do we go next?”
-
-Into [[Foyer Hallway|Hallway 7]]
-Back to [[Main Floor|Main Floor A]]
-Go [[Upstairs]]
-</tw-passagedata><tw-passagedata pid="146" name="Foyer B" tags="" position="550,2025" size="100,100">As you run back to the foyer -making sure Tim is well in time with you-, the entire place seems different. The haunted air seems lifted, and you see fleeting forms of ghosts dancing through the air in what you can only imagine as acceptance. Freedom. Mentally telling yourself that it seems you and Tim weren’t the only one’s trying to get out of here. Rather than stay and check on those of the ghostly variety, the two of you waste little time getting into the actual foyer.
+</tw-passagedata><tw-passagedata pid="140" name="Foyer B" tags="" position="525,2000" size="100,100">As you run back to the foyer -making sure Tim is well in time with you-, the entire place seems different. The haunted air seems lifted, and you see fleeting forms of ghosts dancing through the air in what you can only imagine as acceptance. Freedom. Mentally telling yourself that it seems you and Tim weren’t the only one’s trying to get out of here. Rather than stay and check on those of the ghostly variety, the two of you waste little time getting into the actual foyer.
 
 Leaving Tim to produce the extravagant key from his bag. “Here goes nothing…” he breathes, and squints his eyes shut as he inserted the key… gives it a twist… and with a loud satisfying click, you eagerly try the handle. 
 

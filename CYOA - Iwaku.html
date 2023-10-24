@@ -757,7 +757,9 @@ Tim –in that moment you may have forgotten he even existed- let out a squeal. 
 Awkwardly you tilt your neck sideways and hunch your shoulders, wondering if you might need to crawl as there is only one way to really go. Which is towards [[Cellar Hallway-&gt;Hallway 6]] or you could go back and see if the ghouls in the (if: $dinnertest is true)[[[Kitchen|KitchenA]]] (else:)[[Kitchen]] will ignore you passing through again.
 </tw-passagedata><tw-passagedata pid="18" name="Hallway 6" tags="" position="4675,4550" size="100,100">Before you actually have to get on your hands and knees, you step into a far more normal sized hallway. Although it’s rather empty for a hallway. It only leads forward and you aren’t sure you want to go back to try the short hallway again! However the way before you is a pretty gnarly looking wooden door. Actually this door looks like it ought to be long on the outside of the house rather than the nice door that you noticed originally.
 
-Stepping forward, you can smell the dampness through the door. Making your nose curl with features twisting up in a displeased motion. Still, this is the only way forward. You can go back to [[Short Hallway-&gt;Hallway 5]] or you can go into the [[Cellar]]</tw-passagedata><tw-passagedata pid="19" name="Cellar" tags="" position="4650,5600" size="100,100">There is no resistance to the wooden door. Pulling it open with a noisy whine, Tim mimics the very sound. Whining over your shoulder as you both look down the stone steps.
+Stepping forward, you can smell the dampness through the door. Making your nose curl with features twisting up in a displeased motion. Still, this is the only way forward. You can go back to [[Short Hallway-&gt;Hallway 5]] or you can go into the [[Cellar]]</tw-passagedata><tw-passagedata pid="19" name="Cellar" tags="" position="4650,5600" size="100,100">(if: $ornatekey is false)[
+
+There is no resistance to the wooden door. Pulling it open with a noisy whine, Tim mimics the very sound. Whining over your shoulder as you both look down the stone steps.
 
 With the smell no longer vaguely covered by the door, your stomach twists with a real threat that if you aren’t careful, you’ll lose your lunch. Hastily grabbing your shirt collar to pull up over your nose. Holding it there while Tim copy’s you this time. Momentarily allowing you both to share a look that is unsure about this very thing. Just at this point, it’s clear that you have to find the right way out of this place. Leaping out the nearest window is not an option!
 
@@ -783,7 +785,18 @@ The choice is yours as Tim indicates with a swing of his hand. Either go back up
 [[Cellar Hallway|Hallway 6]] 
 [[Check the bottles|I SPY]]
 &lt;/div&gt;
-(track: &#39;water-drops&#39;, &#39;play&#39;)</tw-passagedata><tw-passagedata pid="20" name="Hallway 3" tags="" position="2175,5525" size="100,100">Immediately as you step down the narrow corridor, there is a portrait on either side of the wall. Looking at you with a strong discomfort that it truly is &#39;&#39;looking&#39;&#39; at you. “Why are paintings always creepy?” Tim asks rhetorically, “Pick a way okay, I don’t like how they are looking at us.”
+(track: &#39;water-drops&#39;, &#39;play&#39;)]
+
+(else:)[
+
+“Huh–” Tim hums behind you, noticeably stuffing his hands into his hoodie pocket. Eyeing the cellar once more, “You know, it’s kinda bad that the second time through //doesn’t// smell as bad.” Promptly you turn to look at him, “Does that mean we are adjusting or losing our sense of smell?” 
+
+That’s a good question. Actually, kind of a terrible one. If you start to consider becoming adjusted to the plethora of stinks you’ve come across here, then you might want to start trying to cleanse your nostrils!
+
+“Anyways, we don’t really need to stay down here do we. We’ve already found the key, so…” Tim gestures up to the only exit out of this place. “Away we go… (text-style:&quot;expand&quot;)[&#39;&#39;again&#39;&#39;]!”
+
+[[Cellar Hallway|Hallway 6A]]  ]
+</tw-passagedata><tw-passagedata pid="20" name="Hallway 3" tags="" position="2175,5525" size="100,100">Immediately as you step down the narrow corridor, there is a portrait on either side of the wall. Looking at you with a strong discomfort that it truly is &#39;&#39;looking&#39;&#39; at you. “Why are paintings always creepy?” Tim asks rhetorically, “Pick a way okay, I don’t like how they are looking at us.”
 
 You agree. You can go to the left (if: $hallway is false)[ [[Bedroom-&gt;Bedroom 1]] ] (else:) [ [[Bedroom-&gt;Bedroom 1 (END)]] ], to your right to another (if:$granny is false)[ [[Bedroom-&gt;Bedroom 2]] ](else:)[ [[Bedroom|Uninteresting]] ] or forward to the (if: $bedroomtest)[ [[Master Bedroom|No Return]] ](else:)[ [[Master Bedroom]] ]. Otherwise you might as well go back to the [[Main Floor]].
 
@@ -1910,7 +1923,8 @@ It’s clear that you aren’t able to go back that way seeing as there is no po
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Onwards|CellarB]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="91" name="CellarB" tags="" position="5475,3575" size="100,100">“&#39;&#39;(text-style:&quot;fidget&quot;)[//Ugh//]&#39;&#39;! We’re in some sort of old nasty cellar!” Tim points out as you notice the place around you has shelves, large whisky looking barrels and lots of glass bottles. Broken and intact. Whatever that smell is, you can guess it to be something rotting.
+</tw-passagedata><tw-passagedata pid="91" name="CellarB" tags="" position="5475,3575" size="100,100">(if: $ornatekey is false)[
+“&#39;&#39;(text-style:&quot;fidget&quot;)[//Ugh//]&#39;&#39;! We’re in some sort of old nasty cellar!” Tim points out as you notice the place around you has shelves, large whisky looking barrels and lots of glass bottles. Broken and intact. Whatever that smell is, you can guess it to be something rotting.
 
 While you are a little discombobulated that suddenly neither one of you are in the garden shed any longer, this place -minus the stench- is at least dry. And, inside. Though that last tidbit may not be a good thing.
 
@@ -1925,7 +1939,17 @@ The choice is yours as Tim indicates with a swing of his hand. Either go back up
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Cellar Hallway|Hallway 6B]]
 [[Check the bottles|I SPY]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="92" name="Hallway 6B" tags="" position="4675,4400" size="100,100">Immediately with a stern shake of your head, it is your turn to complain. Pointing out to Tim that if you stay down here a second longer, you were going to vomit. “I ain’t cleaning that up!” Promptly he turns around to a slippery climb the stairwell. “Hurry up,” Calling back at you with renewed impatience!
+&lt;/div&gt;]
+
+(else:)[
+
+“Huh–” Tim hums behind you, noticeably stuffing his hands into his hoodie pocket. Eyeing the cellar once more, “You know, it’s kinda bad that the second time through //doesn’t// smell as bad.” Promptly you turn to look at him, “Does that mean we are adjusting or losing our sense of smell?” 
+
+That’s a good question. Actually, kind of a terrible one. If you start to consider becoming adjusted to the plethora of stinks you’ve come across here, then you might want to start trying to cleanse your nostrils!
+
+“Anyways, we don’t really need to stay down here do we. We’ve already found the key, so…” Tim gestures up to the only exit out of this place. “Away we go… (text-style:&quot;expand&quot;)[&#39;&#39;again&#39;&#39;]!”
+
+[[Cellar Hallway|Hallway 6A]]  ]</tw-passagedata><tw-passagedata pid="92" name="Hallway 6B" tags="" position="4675,4400" size="100,100">Immediately with a stern shake of your head, it is your turn to complain. Pointing out to Tim that if you stay down here a second longer, you were going to vomit. “I ain’t cleaning that up!” Promptly he turns around to a slippery climb the stairwell. “Hurry up,” Calling back at you with renewed impatience!
 
 It takes just as long for you to find secure footing but you are successful in making your way upstairs. Though at this point when you shut the cellar door behind you, there’s only one path forward. Through a narrow hallway into the next room where you’ll have to go a different way!
 
@@ -1955,7 +1979,7 @@ Immediately you both drop down to hands and knees. Sharing a look of pure exaspe
 
 Eventually the two of you are able to stand up again. Rubbing your knees for the abuse they’ve suffered; Tim daringly peeks into the kitchen first. “Looks like they aren’t here right now!”
 
-Good! You promptly decide that you aren’t going to stay in the kitchen and make a choice ahead of time to go immediately to the next space!
+(text-style:&quot;expand&quot;)[Good]! You could use a little slack right now! So hurry through the kitchen before the ghouls come back.
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 Into the (if: $dinnertest is true)[[[Kitchen|KitchenA]]] (else:)[[Kitchen]]

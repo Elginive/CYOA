@@ -261,15 +261,13 @@ display:inline-block;
 ;!function(e){(jQuery.browser=jQuery.browser||{}).mobile=/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(e)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(e.substr(0,4))}(navigator.userAgent||navigator.vendor||window.opera),function(){"use strict";window.Fast={filter:function(e,t){for(var o=e.length,n=[],a=0;a<o;a++)t(e[a],a,e)&&n.push(e[a]);return n},forEach:function(e,t){for(var o=e.length,n=0;n<o;n++)t(e[n],n,e)},map:function(e,t){for(var o=e.length,n=new Array(o),a=0;a<o;a++)n[a]=t(e[a],a,e);return n},find:function(e,t){for(var o=e.length,n=0;n<o;n++)if(t(e[n],n,e))return e[n]},findIndex:function(e,t){for(var o=e.length,n=0;n<o;n++)if(t(e[n],n,e))return n;return-1},some:function(e,t){for(var o=e.length,n=0;n<o;n++)if(t(e[n],n,e))return!0;return!1}}}(),window.Chapel=window.Chapel||{},window.Chapel.options={preload:!0,loadDelay:0,muteOnBlur:!0,startingVol:.5,persistPrefs:!0,globalA:!0,showControls:!0,sidebarStartClosed:!0,volumeDisplay:!1,trackLoadLimit:500,totalLoadLimit:8e3,debug:!1},window.Chapel.debug=function(){Chapel.options.debug&&console.log.apply(null,arguments)},function(){"use strict";var n=$("tw-storydata"),o=/(.+?):(.+)/,t=/[\r\n]+/,a=/^["']/,r=/["']$/;function e(e){return Fast.map(Fast.filter(e.split(t),function(e){return e&&e.trim()&&e.includes(":")}),function(e){return e.trim()})}function i(e){return e.trim().replace(a,"").replace(r,"").trim()}function s(e){var t=e.match(o);return t instanceof Array?{key:i(t[1]),value:i(t[2])}:e}var u,l,c,p=n.find('tw-passagedata[name="hal.tracks"]'),d=null,p=(p.length&&(p=e(p.text()),u=[],l=[],Fast.forEach(p,function(e){var e=s(e);"string"==typeof e&&l.push(e),u.push([e.key,(e=e.value,Fast.map(e.split(","),i))])}),l.length&&console.error("Some track definitions could not be parsed:\n"+l.join("\n")+"\nPlease check these definitions and try again."),d=new Map(u)),n.find('tw-passagedata[name="hal.config"]')),m=null;function f(e){var t=n.attr("format-version");if(e)return t;var e=t.split("."),t=e[0],o=e[1],e=e[2],t=Number(t),o=Number(o);return[t=(t=Number.isNaN(t)?3:t)<1?3:t,o=Number.isNaN(o)?3:o,e=Number.isNaN(e)?0:e]}function h(){var e=f();return!(3<=e[0]&&3<=e[1])}function g(t){return function(){var e=[].slice.call(arguments).slice(1),e=t.apply(null,e);return"string"==typeof e||"boolean"==typeof e||"number"==typeof e?e:""}}p.length&&(p=e(p.text()),c={},Fast.forEach(Fast.map(p,function(e){return s(e)}),function(e){c[e.key]=e.value}),m=c),m&&Fast.forEach(Object.keys(m),function(e){var t=e,o=c[e],e=typeof Chapel.options[e];"boolean"==e?"true"===o?Chapel.options[t]=!0:"false"===o&&(Chapel.options[t]=!1):"number"==e?(o=Number(o),Number.isNaN(o)||(Chapel.options[t]=o)):"string"==e&&o&&(Chapel.options[t]=o)});var y=require("macros");if(window.Chapel=window.Chapel||{},window.Chapel.Macros={add:function(o){o&&"object"==typeof o&&Fast.forEach(Object.keys(o),function(e){var t;t=o[e=e],h()?y.add(e,g(t),y.TypeSignature.zeroOrMore(y.TypeSignature.Any)):y.add(e,"Any",g(t),y.TypeSignature.zeroOrMore(y.TypeSignature.Any))})}},window.Chapel.Get=Object.freeze({version:f(),isHarlowe3OrLater:3<=f()[0],storyTitle:n.attr("name"),IFID:n.attr("ifid"),useOldMacroAPI:h(),fromPassage:d}),Chapel.debug("Harlowe Version -> ",Chapel.Get.version.join(".")),Chapel.debug("Harlowe Major Version -> ",Chapel.Get.version[0]),Chapel.debug("Story Title -> ",Chapel.Get.storyTitle),Chapel.debug("Story IFID -> ",Chapel.Get.IFID),Chapel.Get.version[0]<2)throw new Error("The Harlowe Audio Library is only designed to work with Harlowe 2 and 3; you appear to be using Harlowe 1 or an otherwise invalid story format.","get.js -> initialization",176);Chapel.options.storagekey="%%hal-"+Chapel.Get.IFID+"-{"+Chapel.Get.storyTitle+"}",Chapel.debug("Storage Key -> ",Chapel.options.storagekey)}(),function(){"use strict";var t=Chapel.options,e=function(e,t){if(window.localStorage)try{e=""+e,"string"!=typeof t&&(t=JSON.stringify(t)),window.localStorage.setItem(e,t)}catch(e){console.error(e)}},o=function(e){if(window.localStorage)try{return e=""+e,window.localStorage.getItem(e)}catch(e){console.error(e)}},n=function(e){if(window.localStorage)try{e=""+e,window.localStorage.removeItem(e)}catch(e){console.error(e)}},a={loaded:[],classes:{},master:{volume:t.startingVol,mute:!1},groups:{playing:[],looping:[],custom:{}},mute:function(e){a.master.mute=!!e,$(document).trigger({type:":master-mute",mute:!!e})},isMuted:function(){return!!a.master.mute},volume:function(e){e=Number(e),Number.isNaN(e)||(1<e?e=1:e<0&&(e=0),a.master.volume=e),$(document).trigger({type:":master-volume",volume:e})},getVolume:function(){return a.master.volume},stopAll:function(){a.classes.Track&&Fast.forEach(a.classes.Track.list,function(e){e.stop()})},audioPlaying:function(){return!!a.groups.playing.length},savePrefs:function(){e(t.storagekey,a.master)},loadPrefs:function(){var e=o(t.storagekey);e&&"object"==typeof e&&e.hasOwnProperty("volume")&&"number"==typeof e.volume&&e.hasOwnProperty("mute")&&"boolean"==typeof e.volume&&(delete a.master,a.master=e)},clearPrefs:function(){n(t.storagekey)}},r={track:[":available",":loaded",":play",":stop",":mute",":volume"],master:[":master-mute",":master-volume"]};var i=r.track.concat(r.master);function s(e,t){if(!e||"string"!=typeof e||!e.trim())return null;e=Fast.filter(Fast.map(e.split(" "),function(e){return(e=":"!==(e=e.split(".")[0])[0]?":"+e:e)+".userland"}),function(e){return(t?i:r.track).includes(e)}).join(" ");return e&&e.trim()?e:null}a.data={parseEvent:s,bail:function(e){throw new Error(e,"audio.js -> bail()",140)}},a.on=function(e,t){t&&"function"==typeof t?(e=s(e,!0))&&$(document).on(e,t):console.error("Chapel.Audio.on() -> invalid callback")},a.one=function(e,t){t&&"function"==typeof t?(e=s(e,!0))&&$(document).one(e,t):console.error("Chapel.Audio.one() -> invalid callback")},a.off=function(e){(e=s(e,!0))&&$(document).off(e)},t.persistPrefs&&($(document).on(":master-mute",a.savePrefs),$(document).on(":master-volume",a.savePrefs)),$(document).on(":play",function(e){e.track.addToGroup("playing")}),$(document).on(":stop",function(e){e.track.removeFromGroup("playing")}),t.muteOnBlur&&$(window).on("blur",function(){a.isMuted()||(a.mute(!0),$(window).one("focus",function(){a.mute(!1)}))}),a.parseEvent=s,window.Chapel=window.Chapel||{},window.Chapel.Audio=a}(),function(){"use strict";var a=Chapel.Audio,o=a.data.pareEvent,r=a.data.bail,i=Chapel.options,t=$(document.createElement("div")).attr("id","audio-container").css("display","none").appendTo(document.body),s={aac:"audio/aac",caf:"audio/x-caf","x-caf":"audio/x-caf",mp3:'audio/mpeg; codecs="mp3"',mpeg:'audio/mpeg; codecs="mp3"',m4a:"audio/mp4",mp4:"audio/mp4","x-m4a":"audio/mp4","x-mp4":"audio/mp4",oga:"audio/ogg",ogg:"audio/ogg",opus:'audio/ogg; codecs="opus"',wav:"audio/wav",wave:"audio/wav",weba:"audio/webm",webm:"audio/webm"};function u(e,t,o){this instanceof u||r("Track: called without `new` operator"),e||r("Track: no id specified"),"string"!=typeof e&&r("Track: track id is not a string"),t&&(!Array.isArray(t)||t.length)||r("Track: no sources specified"),o?t=[].slice.call(arguments).slice(1):"string"==typeof t&&(t=[t]);var n=$(document.createElement("audio"));Fast.forEach(t,function(e){$(document.createElement("source")).attr({src:e,type:(e=(e=(e=(e=(e=e).split("."))[e.length-1]).includes("?")?e.split("?")[0]:e).toLowerCase().trim(),Object.keys(s).includes(e)||r('Track: unsupported file type "'+e+'"'),s[e])}).appendTo(n)}),n.attr({"data-track":"id","data-volume":1,"data-mute":!1}).one("canplaythrough.hal",function(){a.loaded.push(e)}),i.preload&&n.attr("preload","auto"),n[0].volume=+a.master.volume,this.id=e,this.$el=n,this.unwrap=n[0],this.sources=t}Object.assign(u,{list:[],is:function(e){return e instanceof u},has:function(t){return Fast.some(u.list,function(e){return e.id===t})},emit:function(e,t){$(document).trigger({type:e,track:t}),t.emit(e)},add:function(e,t,o){var n=new u(e,t=o?[].slice.call(arguments).slice(1):t);return u.list.push(n),n.$el.on("canplay",function(){u.emit(":available",n)}),n.$el.on("canplaythrough",function(){u.emit(":loaded",n)}),n.attach(),n},renew:function(){Fast.forEach(u.list,function(e){e.mute(e.isMuted()),e.volume(e.getVolume())})},getIdx:function(t){return Fast.findIndex(u.list,function(e){return e.id===t})},get:function(t){var e=Fast.find(u.list,function(e){return e.id===t});if(e)return e;throw new ReferenceError('There is no track with the id "'+t+'". Please check your spelling and capitalization.',"track.js -> Track.get()",155)},removeFromDOM:function(e){(e="string"==typeof e?u.get(e):e)&&u.is(e)?e.unattach():t.remove()},_runOnMultiple:function(e,t,o){e instanceof Array&&u.prototype.hasOwnProperty(t)&&Fast.forEach(e,function(e){(e=u.is(e)?e:u.get(e)||null)&&e[t].apply(e,o&&o instanceof Array?o:[])})}}),Object.assign(u.prototype,{constructor:u,emit:function(e){this.$el.trigger({type:e,track:this})},clone:function(){return new u(this.id,this.sources)},isAttached:function(){return $.contains(t[0],this.unwrap)},attach:function(){return this.isAttached()||this.$el.appendTo(t),this},unattach:function(){return this.isAttached()&&this.$el.remove(),this},isPlaying:function(){return!this.unwrap.paused},play:function(){var e=this;return this.unwrap.play(),u.emit(":play",this),this.$el.on("ended",function(){e.unwrap.loop||(e.unwrap.currentTime=0,u.emit(":stop",e))}),this},playWhenPossible:function(){var t=this;return this.unwrap.play().then(function(){u.emit(":play",t),t.$el.on("ended",function(){t.unwrap.loop||(t.unwrap.currentTime=0,u.emit(":stop",t))})},function(e){$(document).one("click mousedown keydown touchstart",function(){t.play()})}).catch(function(e){console.error(e)}),this},forcePlay:function(){var e=this,t=$(document.createElement("a")).css("display","none").appendTo(document.body).on("click",function(){e.play()});setTimeout(function(){t.trigger("click")},safeAudioStart)},pause:function(){return this.unwrap.pause(),u.emit(":pause",this),this},stop:function(){return this.unwrap.pause(),this.unwrap.currentTime=0,u.emit(":stop",this),this},mute:function(e){return this.$el.attr("data-mute",e=!!e),a.master.mute?this.unwrap.muted=!0:this.unwrap.muted=e,u.emit(":mute",this),this},isMuted:function(){var e=this.$el.attr("data-mute");return"boolean"==typeof e?e:"false"!==e},toggleMute:function(){return this.mute(!this.isMuted()),this},volume:function(e){return e=Number(e),Number.isNaN(e)||(1<e?e=1:e<0&&(e=0),this.$el.attr("data-volume",e),this.unwrap.volume=e*a.master.volume),u.emit(":volume",this),this},getVolume:function(){return Number(this.$el.attr("data-volume"))},addToGroup:function(e,t){var o=this,t=(t?a.groups.custom:a.groups)[e];return Fast.some(t,function(e){return o.id===e.id})||t.push(this),this},removeFromGroup:function(e,t){var o=this,t=(t?a.groups.custom:a.groups)[e],e=Fast.findIndex(t,function(e){return e.id&&e.id===o.id});return t.splice(e,1),this},loop:function(e){return this.unwrap.loop=!!e,this.unwrap.loop?this.addToGroup("looping"):this.removeFromGroup("looping"),this},isLooping:function(){return!!this.unwrap.loop},toggleLoop:function(){return this.loop(!this.isLooping()),this},seek:function(e){return e<0?e=this.unwrap.duration-e:e>this.unwrap.duration&&(e=this.unwrap.duration),this.unwrap.currentTime=e,this},fadeIn:function(e){var t=this,o=(e=e||1,this.getVolume());return this.volume(0),this.play(),this.$el.animate({volume:o*a.master.volume},1e3*e,function(){t.volume(o),u.emit(":volume",t),u.emit(":fade",t)}),this},fadeOut:function(e){e=e||1;var t=this,o=this.getVolume();return this.$el.animate({volume:0},1e3*e,function(){t.stop(),t.volume(o),u.emit(":volume",t),u.emit(":fade",t)}),this},fadeTo:function(e,t){var o=this;if(e=e||1,t=Number(t),!Number.isNaN(t))return 1<t?t=1:t<0&&(t=0),this.$el.animate({volume:t*a.master.volume},1e3*e,function(){o.volume(t),u.emit(":volume",o),u.emit(":fade",o)}),this;alert("ivalid volume level")},delay:function(e,t){var o=this;"function"==typeof t&&(e=Number(e),(Number.isNaN(e)||e<0)&&(e=0),setTimeout(function(){t.call(o,o,e)},e))},on:function(e,t){if(!t||"function"!=typeof t)return console.error("<track>.on() -> invalid callback"),this;(e=o(e))&&this.$el.on(e,t)},one:function(e,t){if(!t||"function"!=typeof t)return console.error("<track>.one() -> invalid callback"),this;(e=o(e))&&this.$el.one(e,t)},off:function(e){(e=o(e))&&this.$el.off(e)}}),a.classes.Track=u,a.newTrack=function(){try{return u.add.apply(null,arguments)}catch(e){console.error(e.message),alert("Error in A.newTrack() -> see the console for more information.")}},a.track=function(e){try{return u.get(e)}catch(e){console.error(e.message),alert("Error in A.track() -> see the console for more information.")}},$(document).on(":master-mute",u.renew),$(document).on(":master-volume",u.renew)}(),function(){"use strict";var n=Chapel.Audio,a=n.classes.Track,o=(n.data._extend,/(play)?list:(.+)/i);n.createGroup=function(e,t,o){o=o?[].slice.call(arguments).slice(1):t;t=e,(e=o)&&Array.isArray(e)||(e=[]),n.groups.custom[t]=Fast.map(e,function(e){return a.get(e)})},n.group=function(e){if(!(this instanceof n.group))return new n.group(e);if(Object.keys(n.groups.custom).includes(e))this.members=n.groups.custom[e];else{if(!(n.groups[e]&&n.groups[e]instanceof Array))throw new ReferenceError('There is no group with the id "'+id+'". Please check your spelling and capitalization.',"group.js -> A.group()",29);this.members=n.groups[e]}var t;o.test(e)&&(t=e.match(o)[2])&&t.trim()&&(this.members=n.playlist(t).tracks),Array.isArray(this.members)||(this.members=[],console.error('Could not find members for track group "'+e+'"!'))},Object.assign(n.group,{is:function(e){return this instanceof n.group},_runOnAll:function(e,t,o,n){null!=n?o=[].slice.call(arguments).slice(2):o instanceof Array||(o=[o]);n=[e.members,t,o];a._runOnMultiple.apply(null,n)}}),Object.assign(n.group.prototype,{constructor:n.group,_run:function(){n.group._runOnAll.apply(null,[this].concat([].slice.call(arguments)))},play:function(){return this._run("play"),this},pause:function(){return this._run("pause"),this},stop:function(){return this._run("stop"),this},mute:function(e){return this._run("mute",e),this},volume:function(e){return this._run("volume",e),this},loop:function(e){return this._run("loop",e),this}})}(),function(){"use strict";var e=Chapel.Audio,a=e.classes.Track;e.data._extend;function n(e,t){if(!(this instanceof n))return new n(e,t);this.id=e,this.tracks=t.map(function(e){return a.get(e)}),this.looping=!1,this.current="",this.playing=!1}Object.assign(n,{list:{},is:function(e){return e instanceof n},add:function(e,t,o){return o&&(t=[].slice.call(arguments).slice(1)),n.list[e]=new n(e,t),n.list[e]},_runOnAll:function(e,t,o,n){null!=n?o=[].slice.call(arguments).slice(2):o instanceof Array||(o=[o]);n=[e.tracks,t,o];a._runOnMultiple.apply(null,n)}}),Object.assign(n.prototype,{constructor:n,clone:function(){return new n(this.id,this.tracks.map(function(e){return e.id}))},_run:function(){n._runOnAll.apply(null,[this].concat([].slice.call(arguments)))},volume:function(e){return this._run("volume",e),this},mute:function(e){return this._run("mute",e),this},shuffle:function(){for(var e,t,o=this.tracks,n=o.length-1;0<n;n--)e=Math.floor(Math.random()*(n+1)),t=o[n],o[n]=o[e],o[e]=t;return this.tracks=o,this},random:function(){return this.tracks[Math.floor(Math.random()*this.tracks.length)]},isPlaying:function(){return this.playing},nowPlaying:function(){return a.get(this.current)},play:function(e){var t=this;if((e=e||(t.current?Fast.findIndex(t.tracks,function(e){return e.id===t.current}):0))>=t.tracks.length&&t.looping)e=0;else if(e>=t.tracks.length)return t.current="",void(t.playing=!1);var o=t.tracks[e],n=o.isLooping();return o.loop(!1),o.play(),t.playing=!0,setTimeout(function(){o.isPlaying()||(t.playing=!1)},20),t.current=o.id,o.$el.one("ended.playlist",function(){e++,o.loop(n),t.play(e)}),t},loop:function(e){return this.looping=!!e,this},isLooping:function(){return this.looping},stop:function(){var e;return this.current&&this.isPlaying()?(e=this.nowPlaying())&&(e.stop(),e.$el.off(".playlist")):this._run("stop"),this.current="",this.playing=!1,this},pause:function(){var e;return this.current&&this.isPlaying()&&((e=this.nowPlaying())&&e.pause()),this.playing=!1,this}}),e.classes.Playlist=n,e.createPlaylist=function(){try{n.add.apply(null,arguments)}catch(e){console.error(e.message),alert("Error in A.createPlaylist() -> see the console for more information.")}},e.playlist=function(e){try{var t=n.list[e]||null;if(t)return t;throw new ReferenceError('There is no playlist with the id "'+e+'". Please check your spelling and capitalization.',"list.js -> A.playlist()",171)}catch(e){console.error(e.message),alert("Error in A.createPlaylist() -> see the console for more information.")}}}(),function(){"use strict";var t=Chapel.Audio,o=t.classes.Track,n=t.classes.Playlist;function a(t,o){if("object"!=typeof o)throw new TypeError("Invalid extension.","extensions.js -> _extend()",8);Fast.forEach(Object.keys(o),function(e){if(void 0!==t[e])throw new Error('Invalid extension: cannot clobber existing property "'+e+'".',"extensions.js -> _extend()",8);t[e]=o[e]})}t.extend=function(e){a(Audio,e)},o.extend=function(e){a(o,e)},o.extendPrototype=function(e){a(o.prototype,e)},t.extendTrack=o.extend,t.extendTrackProto=o.extendPrototype,t.group.extend=function(e){a(t.group,e)},t.group.extendPrototype=function(e){a(t.group.prototype,e)},t.extendGroup=t.group.extend,t.extendGroupProto=t.group.extendPrototype,n.extend=function(e){a(n,e)},n.extendPrototype=function(e){a(n.prototype,e)},t.extendPlaylist=n.extend,t.extendPlaylistProto=n.extendPrototype}(),function(){"use strict";var e,t,o,n,a,r,i,s=Chapel.options;s.showControls&&(e=$(document.createElement("div")).attr("id","story-menu").css("display","none"),t=$(document.createElement("span")).attr("id","vol-title").append("Volume"),s.volumeDisplay||t.css("display","none"),o=$(document.createElement("input")).attr({id:"audio-volume",type:"range",min:1,max:99,step:1,title:"Volume"}).addClass("hal"),(a=Math.trunc(100*window.Chapel.Audio.master.volume))<0?a=0:100<a&&(a=100),o.attr("value",a),n=function(e){void 0===e&&(e=o.val()),t.empty().append("Volume "+e)},o.on("input",function(){window.Chapel.Audio.volume($(this).val()/100),n($(this).val())}),a=$(document.createElement("tw-link")).attr({id:"audio-mute",title:"Mute"}).append("Mute <span></span>").on("click",function(e){e.preventDefault(),$(this).toggleClass("muted"),Chapel.Audio.mute(!Chapel.Audio.isMuted())}),Chapel.Audio.isMuted()&&a.addClass("muted"),r=$(document.createElement("tw-link")).attr("id","audio-panel-toggle").on("click",function(e){e.preventDefault(),i.toggleClass("closed")}),i=$(document.createElement("div")).attr("id","audio-controls").append(e,t,o,a,r).appendTo(document.body),s.sidebarStartClosed&&i.addClass("closed"),window.Chapel=window.Chapel||{},window.Chapel.Audio=window.Chapel.Audio||{},window.Chapel.Audio.controls={$panel:i,$volume:o,$mute:a,$user:e,close:function(){i.addClass("closed")},open:function(){i.removeClass("closed")},toggle:function(){i.toggleClass("closed")},hide:function(){i.css("display","none")},show:function(){i.css("display","block")},updateVolume:n})}(),function(){"use strict";var s=Chapel.options,t=State,e=$(document.createElement("div")).attr("id","audio-overlay").css("display","none").appendTo(document.body);function o(){e.css("display","block").append('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>')}function u(){e.fadeOut(function(){e.empty()})}window.Chapel=window.Chapel||{},window.Chapel.Audio=window.Chapel.Audio||{},window.Chapel.Audio.loadScreen={show:o,dismiss:u,kill:function(){$("#audio-overlay").remove()}},window.Chapel.Audio.$overlay=e,window.Chapel.Audio.preload=function(){var a,e,r,i;Chapel.debug("This is a mobile browser -> ",$.browser.mobile),t.pastLength||t.futureLength||$.browser.mobile||($(document).ready(function(){o()}),a=100+s.loadDelay,e=Chapel.Audio.classes.Track.list,r=Chapel.Audio.loaded,e.length?(i=Fast.map(e,function(e){return e.id}),0<s.totalLoadLimit&&setTimeout(function(){u()},s.totalLoadLimit),function e(){var t,o,n;i.length?(t=i.shift(),r.includes(t)?e():(o=Chapel.Audio.classes.Track.get(t)).unwrap.readyState<2?(n=!1,o.$el.one("canplaythrough.hal",function(){e(),n=!0}),setTimeout(function(){n||(o.$el.off("canplaythrough.hal"),e())},s.trackLoadLimit)):(r.includes(t)||r.push(t),e())):setTimeout(u,a)}()):setTimeout(u,a))}}(),function(){"use strict";var e,t,o=Chapel.options.storagekey+"_hal_restart_",n=(Chapel.debug("HAL Session Key -> ",o),window.sessionStorage?(Chapel.debug("Session Storage Available"),e=function(e,t){window.sessionStorage.setItem(o+e,t)},t=function(e){return window.sessionStorage.getItem(o+e)}):(Chapel.debug("Session Storage Unavailable"),e=function(){},t=function(){},console.warn("Session storage is unavailable...")),{save:e,load:t});window.Chapel.Audio.state={_store:n,saveTracks:function(){var e;try{e=Fast.map(Chapel.Audio.classes.Track.list,function(e){return{id:e.id,sources:e.sources}}),Chapel.debug("Session Saved (Tracks) -> ",e),e=JSON.stringify(e),n.save("tracks",e)}catch(e){console.error(e.message)}},loadTracks:function(){var e;try{e=(e=n.load("tracks"))&&JSON.parse(e),Array.isArray(e)&&e.length&&(Chapel.debug("Session Loaded (Tracks) -> ",e),Fast.forEach(e,function(e){e.id&&e.sources&&!Chapel.Audio.classes.Track.has(e.id)?Chapel.Audio.newTrack.apply(null,[e.id].concat(e.sources)):Chapel.debug("Track reloading skipped.")}))}catch(e){console.error(e.message)}},savePlaylists:function(){try{var o=Chapel.Audio.classes.Playlist.list,e=Fast.map(Object.keys(o),function(e){var t={};return t.tracks=Fast.map(o[e].tracks,function(e){return e.id}),t.id=o[e].id,t});Chapel.debug("Session Saved (Playlists) -> ",e),e=JSON.stringify(e),n.save("playlists",e)}catch(e){console.error(e.message)}},loadPlaylists:function(){var e;try{(e=(e=n.load("playlists"))&&JSON.parse(e))&&Array.isArray(e)&&e.length&&(Chapel.debug("Session Loaded (Playlists) -> ",e),Fast.forEach(e,function(e){e.id&&e.tracks&&Chapel.Audio.createPlaylist(e.id,e.tracks)}))}catch(e){console.error(e.message)}},saveGroups:function(){var t;try{t={},Fast.forEach(Object.keys(Chapel.Audio.groups.custom),function(e){t[e]=Fast.map(Chapel.Audio.groups.custom[e],function(e){return"string"==typeof e?e:e.id})}),Chapel.debug("Session Saved (Groups) -> ",t),t=JSON.stringify(t),n.save("groups",t)}catch(e){console.error(e.message)}},loadGroups:function(){var t;try{(t=(t=n.load("groups"))&&JSON.parse(t))&&"object"==typeof t&&(Chapel.debug("Session Loaded (Groups) -> ",t),Fast.forEach(Object.keys(t),function(e){Fast.map(t[e],function(e){return Chapel.Audio.classes.Track.get(e)})}),Chapel.Audio.groups.custom=t)}catch(e){console.error(e.message)}}}}(),function(){"use strict";var e=Chapel.options;e.globalA&&void 0===window.A&&(Chapel.debug("Created global A interface."),window.A=window.Chapel.Audio),Chapel.Get.fromPassage&&(Chapel.debug("Loading tracks from track def special passage -> ",Chapel.Get.fromPassage),Chapel.Get.fromPassage.forEach(function(e,t){Chapel.Audio.newTrack.apply(null,[t].concat(e))})),$(document).on("unload",function(){Chapel.debug("User Prefs Saved"),window.Chapel.Audio.savePrefs()}),Chapel.Audio.classes.Track.renew(),Chapel.Audio.controls&&Chapel.Audio.controls.updateVolume(),Chapel.Get.isHarlowe3OrLater&&($(window).on("unload",function(){Chapel.debug("HAL State Saved"),Chapel.Audio.state.saveTracks(),Chapel.Audio.state.savePlaylists(),Chapel.Audio.state.saveGroups()}),Chapel.debug("HAL State Loaded"),Chapel.Audio.state.loadTracks(),Chapel.Audio.state.loadPlaylists(),Chapel.Audio.state.loadGroups()),e.persistPrefs&&(Chapel.debug("User Prefs Loaded"),Chapel.Audio.loadPrefs())}(),function(){"use strict";var i,s,e,u,t;Chapel.options.showControls&&(i=Engine,s=Chapel.Audio.controls.$user,e=function(){return"none"!==s.css("display")},u=function(){return e()||s.css("display","block"),s},t=function(){return e()&&s.css("display","none"),s},Chapel.Audio.menu={hide:t,show:u,isShown:e,links:{add:function(e,t,o){var n,a;if(!e||"string"!=typeof e)return r="undefined",alert(r),void console.error(r);o||"function"!=typeof t?(t&&"string"==typeof t&&(n=t),o&&"function"==typeof o&&(a=o)):(a=t,n=null);var r=$(document.createElement("tw-link")).append(e).attr({tabindex:"0",name:e.toLowerCase().trim()}).on("click",function(){n&&i.goToPassage(n),a&&a()}).addClass("story-menu").appendTo(s);return u(),r},clear:function(){return s.empty(),t()},hide:function(e){e=e.toLowerCase().trim(),$('tw-link.story-menu[name="'+e+'"]').addClass("hide")},show:function(e){e=e.toLowerCase().trim(),$('tw-link.story-menu[name="'+e+'"]').removeClass("hide")},toggle:function(e){e=e.toLowerCase().trim(),$('tw-link.story-menu[name="'+e+'"]').toggleClass("hide")},remove:function(e){e=e.toLowerCase().trim(),$('tw-link.story-menu[name="'+e+'"]').remove()}}})}(),function(){"use strict";var n=Chapel.Audio;function o(e){return e&&"function"==typeof e}function a(e,t){if(!e||"string"!=typeof e)return null;switch(e=e.toLowerCase().trim()){case"isplaying":e="isPlaying";break;case"playwhenpossible":e="playWhenPossible";break;case"ismuted":e="isAMuted";break;case"togglemute":e="toggleMute";break;case"getvolume":e="getVolume";break;case"islooping":e="isLooping";break;case"toggleloop":e="toggleLoop";break;case"fadein":e="fadeIn";break;case"fadeout":e="fadeOut";break;case"fadeto":e="fadeTo";break;case"stopall":e="stopAll"}if("isPlaying"===e&&"master"===t&&(e="audioPlaying"),"group"===t){if(o(n.group.prototype[e]))return e}else if("master"===t){if(o(n[e]))return e}else if(o(n.classes[t].prototype[e]))return e;throw new ReferenceError('Cannot run the command: "'+e+'" on the API "'+t+'". The command may be invalid, or this may be a bug in HAL.',"macros.js -> getCommand()",10)}window.Chapel.Macros.add({newtrack:function(){var e=[].slice.call(arguments);try{return n.newTrack.apply(null,e)}catch(e){alert("Error in the (newtrack:) macro: "+e.message)}},newplaylist:function(e,t){t=[].slice.call(arguments).slice(1);try{return n.createPlaylist(e,t)}catch(e){alert("Error in the (newplaylist:) macro: "+e.message)}},newgroup:function(e,t){t=[].slice.call(arguments).slice(1);try{return n.createGroup(e,t)}catch(e){alert("Error in the (newgroup:) macro: "+e.message)}},masteraudio:function(e){try{return e=a(e,"master"),n[e].apply(null,[].slice.call(arguments).slice(1))}catch(e){alert("Error in the (masteraudio:) macro: "+e.message)}},track:function(e,t){try{var o=n.track(e);return o[t=a(t,"Track")].apply(o,[].slice.call(arguments).slice(2))}catch(e){alert("Error in the (track:) macro: "+e.message)}},playlist:function(e,t){try{var o=n.playlist(e);return o[t=a(t,"Playlist")].apply(o,[].slice.call(arguments).slice(2))}catch(e){alert("Error in the (playlist:) macro: "+e.message)}},group:function(e,t){try{var o=n.group(e);return o[t=a(t,"group")].apply(o,[].slice.call(arguments).slice(2))}catch(e){alert("Error in the (group:) macro: "+e.message)}}})}();
 /** End of HAL code */</script><tw-tag name="holder" color="orange"></tw-tag><tw-tag name="Bedroom-4" color="yellow"></tw-tag><tw-tag name="Bd-1" color="red"></tw-tag><tw-tag name="Bd-3" color="purple"></tw-tag><tw-passagedata pid="1" name="Start" tags="black2" position="825,4300" size="100,100">&lt;div id=&quot;black-cover&quot;&gt;&lt;/div&gt;
 
-Heavy clouds rest low against the dark sky. Pregnant with rain yet not yet releasing its weight to drench the earth. Merely threatening while adding an all too cliché ambience to the looming presence of the house.
+Heavy clouds rest low against the dark sky. Pregnant with rain not yet releasing its weight to drench the earth. Merely threatening while adding an all too cliché ambience to the looming presence of the house.
 
 The notoriously old, legendarily creepy; Calloway house. Everyone in town knows all about it! Although to ask someone what the history of the place was, you&#39;d find out quickly that no one has the same tale to tell.
 
 Some say it’s just an old house that has yet to be commissioned to be torn down. More of an eye sore, in a large lot that would be better repurposed to be an apartment building. Others, however, don’t share the same sentiment.
 
-“I don’t like the look of this place.” Tim says, stating the obvious. “Why did //I// agree to come with you? This is &#39;&#39;such&#39;&#39; a bad idea.” The other teen was nothing much to look at.
-
-Tall with no real meat on his bones, close to scrawny really. Sporting no more than jeans with flecks of mud clung to the cuffs and sneakers of no discernible interest. The only thing that might be considered interesting was the bright purple hoodie and backpack he wore. Besides that, Tim was as plain Jane as anyone could be. Minus how he was currently tugging nervously on the necklace he wore. Scratching the pendant back and forth across the chain in a steadfast repeat. “This //always// happens. You say one thing, and then I get pulled in because I have to agree with you since best friends stick together! Yet, now instead of just jumping off the roof thinking our jackets held out like this—” Tim tugged his arms out making a figurative fist around said hoodie to mime having a cape, “We aren’t just guna walk away with a broken arm, $name! No, this time we are going to be dead. Dead, dead, &#39;&#39;dead&#39;&#39;!”
+“I don’t like the look of this place.” Tim says, stating the obvious. “Why did //I// agree to come with you? This is &#39;&#39;such&#39;&#39; a bad idea.” The other teen was nothing much to look at. Tall with no real meat on his bones, close to scrawny really. Sporting no more than jeans with flecks of mud clung to the cuffs and sneakers of no discernible interest. The only thing that might be considered interesting was the bright purple hoodie and backpack he wore. Besides that, Tim was as plain Jane as anyone could be. Minus how he was currently tugging nervously on the necklace he wore. Scratching the pendant back and forth across the chain in a steadfast repeat. “This //always// happens. You say one thing, and then I get pulled in because I have to agree with you since best friends stick together! Yet, now instead of just jumping off the roof with our jackets held out like this—” Tim tugged his arms out making a figurative fist around said hoodie to mime having a cape, “We aren’t just guna walk away with a broken arm, $name! No, this time we are going to be dead. Dead, dead, &#39;&#39;dead&#39;&#39;!”
 
 You scoff. Shrugging your shoulders. Giving Tim the look once more that merely said, //come on//. “This is a baaaad idea, $name. Bad indeed.”
 
@@ -309,7 +307,7 @@ Stepping forward to lay hands upon the stereotypical creaky iron gate that stand
 (set:$unremarkable to false)
 (set:$gardenvisit to false)
 (set:$landing to false)
-(set:$dolls to false)</tw-passagedata><tw-passagedata pid="2" name="Front Porch" tags="" position="1075,4300" size="100,100">The pathway towards the house is noticeably uneven. Stray stones that once lined a path forward, are now no more than pockmarked wannabe sidewalks. One misstep and you’d be twisting your ankle while Tim would have to drag you back by your jacket. Likely to complain the whole way. 
+(set:$dolls to false)</tw-passagedata><tw-passagedata pid="2" name="Front Porch" tags="" position="1050,4300" size="100,100">The pathway towards the house is noticeably uneven. Stray stones that once lined a path forward, are now no more than pockmarked wannabe sidewalks. One misstep and you’d be twisting your ankle while Tim would have to drag you back by your jacket. Likely to complain the whole way. 
 
 Along the sides leading upwards to the decrepit porch is nothing more than long tall grass. Yellowed from the late fall season. Likely a perfect hiding spot for stray animals and various thrown items that the older kids like to toss into the yard. You wouldn’t be surprised to find a wayward shopping cart here. 
 
@@ -317,11 +315,11 @@ Stealing a look towards your left while you lead this merry band of two along, y
 
 With each step forward, you mentally agree that this – was not your brightest idea. 
 
-Tim groans and moans with each swift turn. Eyeing up everything as if he were trying to memorize the outdoors because you both might not see such a place again! However, you could do without the ghostly reenactments. Promptly giving him a stern elbow to the ribs with a timed glare that ought to speak volumes about how you would like him to knock it off!  “Sorry. Sorry,” he mumbles, rubbing his side. Only to nearly leap out of his skin like some Scooby Doo character when each take that first squeaky step on the porch. He gasps, you hiss, and you both jump up the short distance to avoid falling through the rotten steps. 
+Tim groans and moans with each swift turn. Eyeing up everything as if he were trying to memorize the outdoors because you both might not see such a place again! However, you could do without the ghostly reenactments. Promptly giving him a stern elbow to the ribs with a timed glare that ought to speak volumes about how you would like him to knock it off!  “Sorry. Sorry,” he mumbles, rubbing his side. Only to nearly leap out of his skin like some Scooby Doo character when you both take that first squeaky step on the porch. He gasps, you hiss, and you both jump up the short distance to avoid falling through the rotten steps. 
 
 It’s impressive you are even standing on solid wood now. 
 
-Momentarily you take a look at the door. Noting how crappy this place looks, the door is unquestionably new. There is no paint peeling. No wood chipping. Even the handle you would think ought to be tarnished from years if not centuries of rain, snow and whatever else; that it is pristinely brass. Glimmering in the low light. You get a sense that someone had come to replace the door. However, there is no reason why they would. 
+Momentarily you take a look at the door. Noting how crappy this place looks, the door is unquestionably new. There is no paint peeling. No wood chipping. Even the handle, you would think to be tarnished from years if not centuries of rain, snow and whatever else; is pristinely brass. Glimmering in the low light. You get a sense that someone had come to replace the door. However, there is no reason why they would. 
 
 You pause. “Are we (text-style:&quot;expand&quot;)[//really//] going to do this?” Tim whines as he nervously wrings his hands. “Like do we have to prove anything?” 
 
@@ -334,7 +332,7 @@ Leave to [[Never Return]]
 &lt;/div&gt;
 
 (set:$showFooter to true)</tw-passagedata><tw-passagedata pid="3" name="Foyer" tags="" position="1275,4300" size="100,100">(if: $foyervisit is false)[
-As you both stand before the door –still questioning why it is so new looking compared to the rest of the place- your hand reaches out. Taking a firm grip of that cool metal handle with one final look at Tim. Whom is emphatically shaking his head (text-style:&quot;sway&quot;)[no] while aggressively pointing towards the gate. Taking a final moment to consider the choice merely to entertain the hopes of your friend. However, the door itself is pushed inwards.
+As you both stand before the door –still questioning why it is so new looking compared to the rest of the place- your hand reaches out. Taking a firm grip of that cool handle with one final look at Tim. Whom is emphatically shaking his head (text-style:&quot;sway&quot;)[no] while aggressively pointing towards the gate. Taking a final moment to consider the choice merely to entertain the hopes of your friend. However, the door itself is pushed inwards.
 
 Bearing witness to the drop of Tim’s face, you step inside. With a very loudly complaining Tim behind you.
 
@@ -342,15 +340,15 @@ The moment your grasp slides away from the door handle, it slams shut! “&#39;&
 
 In that very second you realize that this place is not what it seems.
 
-Swallowing hard, you leave Tim to keep trying his luck with opening the door. Allowing yourself to consider the foyer of the abandoned house only that as your stare flickers back and forth, there is an obvious realization. This place isn’t as broken down as it seems!
+Swallowing hard, you leave Tim to keep trying his luck with opening the door. Allowing yourself to consider the foyer of the abandoned house, only that as your stare flickers back and forth, there is an obvious realization. This place isn’t as broken down as it seems!
 
-A plush rug stands under your feet, dense with its pile. With walls of wainscoting looking rather new and wallpaper that seems to be fairing just fine. You estimate the age may be closer to a decade, but certainly not centuries. The sconces are already humming with the telltale buzz of electricity, brightening up the entryway. However, you know for a fact this place has no services running to it. So how in the world was it warm inside with power flowing readily through these old walls?
+A plush rug stands under your feet, dense with its pile. With walls of wainscoting looking rather new and wallpaper that seems to be fairing just fine. You estimate the age may be closer to a decade, but certainly not centuries. The sconces are already humming with the telltale buzz of electricity, brightening up the entryway. However, you know for a fact this place has no services running to it. So how in the world was it warm inside with power readily flowing through these old walls?
 
-Plaintively, Tim gives up his attempts to bargain with the only exit thus far.
+Plaintively, Tim gives up his attempts to bargain with the only exit, thus far.
 
-His cheeks are red from exhaustive efforts, but he rummages around in his pockets next till he finds his phone. Apparently he’s not giving up just yet on the idea of turning tail and running! But another irritated sound later and he’s nearly throwing his phone to the wooden planks in further exasperation. “No phone reception, (text-style:&quot;italic&quot;,&quot;condense&quot;)[seriously]?!” In defeat, he thrusts his phone back in his pocket. 
+His cheeks are red from exhaustive efforts, but he rummages around in his pockets till he finds his phone. Apparently he’s not giving up yet on the idea of turning tail and running! But another irritated sound later and he’s nearly throwing his phone to the wooden planks in further exasperation. “No phone reception, (text-style:&quot;italic&quot;,&quot;condense&quot;)[seriously]?!” In defeat, he thrusts his phone back into his pocket. 
 
-Dry wringing hands once more, he looks at you. His expression is a mix of irritation, fear and depressive hope. That last one seems to cut you a little deeper than you care to admit. “How do I let you get me into these things, $name! We are literally stuck in this place.” Tim seems to steal a glance away only to complete a double take. His mouth falls agape and his eyes widen, rounding around the room to take in the very same things you&#39;ve noticed. “H-how… what the f—” He stops. Clamping mouth shut with hands shortly rising to do much the same. Leaving only his gaze to zip back and forth in rising confusion!
+Dry wringing hands once more, he looks at you. His expression is a mix of irritation, fear and depressive hope. That last one seems to cut you a little deeper than you care to admit. “How do I let you get me into these things, $name! We are literally stuck in this place.” Tim seems to steal a glance away, only to complete a double take. His mouth falls agape and his eyes widen, rounding around the room to take in things you&#39;ve just noticed. “H-how… what the f—” He stops. Clamping mouth shut. Leaving only his gaze to zip back and forth in rising confusion!
 
 You decide to let Tim take it all in at his own leisure.
 
@@ -359,13 +357,11 @@ You decide to let Tim take it all in at his own leisure.
 &lt;/div&gt;
 ]
 (else:)[
-It is probably very unlikely to actually work but there was no harm in trying!
+Stomping on over to the front door, you try the handle. With a twist one way and then the other in hopes it would be magically unlocked, it is still shut up tighter than Fort Knox! Once you enter this place, you weren’t allowed to leave!
 
-Stomping on over to the front door, you try the handle. With a twist one way and the other in hopes it would be magically unlocked, it is still shut up tighter than Fort Knox! Once you enter this place, you weren’t allowed to leave!
+At least not without doing whatever adventuring quest this place, and denizens wanted. Still, why couldn’t you have been transported to some cool medieval fantasy town, that Tim and you could&#39;ve become epic knights! Instead of poorly trained, poorly equipped, not even qualified Ghost Busters! 
 
-At least not without doing whatever sort of adventuring quest this place and denizens wanted. Just why couldn’t it have been like, being transported to some cool medieval fantasy town that you and Tim become epic knights! Not poorly trained, poorly equipped, not even qualified Ghost Busters! 
-
-Releasing the handle and looking at Tim&#39;s enthusiastic face, you shake your own head. Watching that child like hope melt off. Replaced with a saddened irritation. “I’d kick that door if I wasn’t afraid that the house might try to eat me.” Nervously he gave a swooping pass of eyes to the ceiling. Likely checking to make sure there weren’t any teeth growing in. “Well, where do we go next?”
+Releasing the handle and looking at Tim&#39;s enthusiastic face, you shake your own head. Watching that child-like hope melt off. Replaced with saddened irritation. “I’d kick that door if I wasn’t afraid that the house might try to eat me.” Nervously he gave a swooping pass of eyes to the ceiling. Likely checking to make sure there weren’t any teeth growing in. “Well, where do we go next?”
 &lt;div class=&quot;option-wrapper&quot;&gt;
 Into [[Foyer Hallway|Hallway 7]]
 Back to [[Main Floor]]
@@ -373,13 +369,13 @@ Go [[Upstairs]]
 &lt;/div&gt;
 ]
 </tw-passagedata><tw-passagedata pid="4" name="Upstairs" tags="" position="2100,3800" size="100,100">(if: $overlook is false)[
-Once more, you consider your initial draw to the staircase. Still it beckons you. Perhaps the second level can give you a vantage point that you don’t have currently. Whatever your reasoning, you decide to take the staircase leading to the second floor. On par for an old creepy mansion, each step has the floor creaking beneath your weight, and you’re pretty sure you can feel Tim’s stuttering breath at your neck with how close he is tailing you. 
+Once more, you consider your initial draw to the staircase. Still it beckons you. Perhaps the second level can give you a vantage point that you don&#39;t currently have. Whatever your reasoning, you decide to take the staircase leading to the second floor. On par for a creepy old mansion, each step has the floor creaking beneath your weight. You’re pretty sure you can feel Tim’s stuttering breath on your neck with how close he is tailing you. 
 
 With a sigh, you continue. 
 
-Your fingers glide over the smooth wooden bannister, and you gain a temporary view of the spacious foyer before the stairs take a bend and you’re stepping through a grand archway into a stretch of hallway. In typical 90’s cartoon fashion, you and Tim peer through the archway to the left, then to the right. Nothing appears so out of place. Though you are beginning to understand how much of a maze this place could turn out to be. 
+Your fingers glide over the smooth wooden bannister, and you gain a temporary view of the spacious foyer before the stairs take a bend. You are stepping through a grand archway into the stretch of hallway. In typical 90’s cartoon fashion, you and Tim peer through the archway to the left, then to the right. Nothing appears out of place. Though you are beginning to understand how much of a maze this place could turn out to be. 
 
-To your left, all the way down the hallway makes a bend, cutting off your vision to see any further. Also immediately in front of you, there is a flickering light, casting shadows upon a door that seems… oddly out of place. Finally, to your right, a hallway continues downward past uninteresting wooden drawers, intricate vases, and random ornate looking chairs. That was popular in that era wasn’t it? Having random accent chairs in long stretches of hallway. 
+To your left, all the way down the hallway makes a bend, cutting off your vision to see any further. Also immediately in front of you, there is a flickering light, casting shadows upon a door that seems… oddly out of place. Finally, to your right, the hallway continues downward past uninteresting wooden drawers, intricate vases, and random ornate looking chairs. That was popular in that era wasn’t it? Having random accent chairs in long stretches of hallway. 
 
 You wonder if they were placed there in case the lord of the house grew tired from having to traverse their own home! It seemed as though it could take an hour to get anywhere in this house!
 
@@ -387,7 +383,7 @@ So, it looks like you have four options.
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 Go to the left into [[Stretching Hallway|Hallway 4]]
-Go to the right towards [[Unusual Hallway|Hallway 1]]
+Go to the right towards the [[Unusual Hallway|Hallway 1]]
 Towards the [[Door|Investigate the Creepy Ass Door]]
 Back Downstairs [[Foyer]]
 &lt;/div&gt;
@@ -395,9 +391,9 @@ Back Downstairs [[Foyer]]
 ]
 
 (else:)[
-Thankfully nothing has changed here. It&#39;s still the same and there are presently the same options as before! Going into the two hallways or checking out that creep door,if you are feeling bold.
+Thankfully nothing has changed here. It&#39;s still the same and there are presently the same options as before! Going into the two hallways or checking out that creepy door, if you are feeling bold.
 
-Still, you could just escape and go back downstairs too! 
+Still, you could just escape back downstairs too! 
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 Go to the left into [[Stretching Hallway|Hallway 4]]
@@ -488,7 +484,7 @@ Straight ahead to the (if:$portraittest)[ [[Portrait Room|Cover Your Eyes]] ](el
 
 (set: $overlook to true)
 
-</tw-passagedata><tw-passagedata pid="8" name="Bedroom 3" tags="Bd-3" position="1400,3225" size="100,100">You wrinkle your nose as a musty aroma filters out of this room, as though it hasn’t been opened for a good decade. Like ripping off a bandaid, you figure you’re better off thrusting the door open. Rather than add to the creepy ambience to open it with a slow creak! Tim squeaks behind you at the initial thud of the door against the wall, but then you’re both left staring in the threshold at what greets you within. 
+</tw-passagedata><tw-passagedata pid="8" name="Bedroom 3" tags="Bd-3" position="1400,3225" size="100,100">You wrinkle your nose as a musty aroma filters out of this room, as though it hasn’t been opened for a good decade. Like ripping off a bandaid, you figure you’re better off thrusting the door open. Rather than add to the creepy ambience by opening it with a slow creak! Tim squeaks behind you at the initial thud of the door against the wall, but then you’re both left staring in the threshold at what greets you. 
 
 Glassy glinting orbs sparkle at you in the darkness. Facial features frozen in time, and yet the wear and tear is plenty visible upon those faces of the many dolls that litter this room. You wish they weren’t! Many of the dolls are broken. Missing limbs… eyes… with the fragile material that was supposed to make their features so fair; cracking.
 
@@ -503,7 +499,7 @@ Go back to the [[Stretching Hallway-&gt;Hallway 4]]
 
 Merely to surmise that the room is in fact ordinary. Compared to the rest of this house, there is nothing here. Not even a mattress on the old iron bedframe. There’s no rugs, no curtains and the wallpaper is a questionable choice of pure ugly. In fact the peeling wallpaper may be the only thing doing justice for the entire space.
 
-Shaking your head, you leave the room. Crossing it off your list of things that don’t need to be investigated again. Unless you really want to check to see that it is in fact just a bedroom.
+Shaking your head, you leave the room. Crossing it off your list of things that don’t need to be investigated again. Unless you really want to check to see if it is, in fact, a bedroom.
 (set:$unremarkable to true)
 &lt;div class=&quot;option-wrapper&quot;&gt;
 Go Back to the [[Stretching Hallway-&gt;Hallway 4]]
@@ -526,9 +522,9 @@ Back to the [[Upstairs]]
 
 Sighing at his dramatics, you point out that the only way to leave this place was clearly figuring out the right exit. Or... something. Honestly you are just grasping at straws. Reminding Tim that you also want to get the hell out of this nuthouse but neither of  you would unless you exhausted all options. This doesn’t appease Tim but it does get him to shut up long enough for you to shove the key into the keyhole.
 
-Sharply twisting till the lock clicks and the door groans as it falls open. As if the only reason it was locked was because it wouldn’t stay closed itself. Either from weak hinges or the potential of something inviting you inside.
+Sharply twisting till the lock clicks and the door groans as it falls open. As if the only reason it was locked, was because it wouldn’t stay closed itself. Either from weak hinges or the potential of something inviting you inside.
 
-You leave the key inside the handle –seeing as this is literally the only place it can be used- and stare into the room. A growing unease sits in the back of your head telling you over and over, that this is probably a very bad idea but… you literally just said that you both had to exhaust all your options! This was one of those very things.
+You leave the key inside the handle –seeing as this is literally the only place it can be used- and stare into the room. A growing unease sits in the back of your head telling you over and over, that this is probably a very bad idea but… you literally just said, that you both had to exhaust all options! This was one of those very things.
 
 Pulling in a deep breath while reaching around to grab Tim by the wrist –as if he isn’t coming with you- the pair of you enter the room.
 
@@ -677,7 +673,7 @@ Resisting the desire to reach over and cuff him upside the head, you decide it i
 To the [[Banquet Hall]] 
 Towards the [[Gate|Creepy Gate]] 
 Walk to the [[Garden]]
-&lt;/div&gt;]</tw-passagedata><tw-passagedata pid="14" name="Garden" tags="" position="3750,3525" size="100,100">(set: $gardenvisit to false)[
+&lt;/div&gt;]</tw-passagedata><tw-passagedata pid="14" name="Garden" tags="" position="3750,3525" size="100,100">(if: $gardenvisit is false)[
 You’ve managed to ignore the lure of the gate, deciding that if you really want to you can always come back to check it out later. Instead, you walk out into a space that was probably once grand. You can visualize it now. Lush bushes of green and a sprinkling of color in Spring when the flowers were in bloom. Now, the area that was likely once teeming with life was full of death instead. Barren soil besides weeds that were abundantly growing within flowerbeds, grass, and crackling the stone path you were attempting to walk. Tall grass like you saw surrounding the house at the entrance was here as well, and you fathom you could get lost in that grass as though you were on a jungle safari rather than the remnants of someone’s backyard garden. 
 
 You give a look back to Tim. He looks nervous, but not as nervous as he’d been about that iron gate you left behind. That seemed like progress to you. Keeping to the stone path as much as possible, you begin to sift your way through to the other side of the garden, in hopes to find anything to aid in your escape.
@@ -690,12 +686,7 @@ You also see a sort of run down structure in the corner of the courtyard that co
 Check out [[Garden Shed]]
 Go towards [[Doghouse]]
 Walk back to [[Courtyard]]
-(if: $stabletest)
-(set:$gardenvisit to true)[
-Walk to the [[Stables|Wrangled Horses]]
-]
-(else:)[ Walk to the [[Stables]] ]
-&lt;/div&gt;]
+(if: $stabletest)[Walk to the [[Stables|Wrangled Horses]] ] (else:)[ Walk to the [[Stables]] ]&lt;/div&gt;(set:$gardenvisit to true)]
 
 (else:)[
 Returning to that of the gardens, you instinctively look around. At this point, it’s not a bad idea to be overly cautious. Who knew what sort of ghostie ghoul was just waiting for you both to drop your guards. 
@@ -726,7 +717,7 @@ The smell of dry hay, wet cement and horse feed is the first thing you notice. S
 
 When nothing greets you back –thank god- you take the lead. Stepping inside to where the sound of the horses are. Surprisingly, the horses are within their selected paddocks and seem to be rather alive. Their ears are upright and the three animals are currently looking at you both. “Oh wow… I… I didn’t expect,”
 
-“Didn’t expect wot?” A deep voice speaks up behind you both, instantly causing your legs to take on a mind of their own with how quickly you about turn! Looking at a man that is not as physical as you might like! Holding a shovel in one hand and a bucket in another. Staring at you both with a dull gaze as it’s a little hard to look at him when you can see the back of the barn door through him. “Mmm? What’s a pair of fleshy’s doin’ ‘ere?”
+“(text-colour:#4dabf7)[Didn’t expect wot]?” A deep voice speaks up behind you both, instantly causing your legs to take on a mind of their own with how quickly you about turn! Looking at a man that is not as physical as you might like! Holding a shovel in one hand and a bucket in another. Staring at you both with a dull gaze as it’s a little hard to look at him when you can see the back of the barn door through him. “(text-colour:#4dabf7)[Mmm? What’s a pair of fleshy’s doin’ ‘ere]?”
 
 “(text-style:&quot;shudder&quot;)[//U…ugh…. g-g//]…” Shakily does Tim point at the large figure floating above the ground trying to likely get the word ghost out. Just it fails and the stableman doesn’t look too enthused about being pointed at either.
 &lt;div class=&quot;option-wrapper&quot;&gt;
@@ -793,30 +784,30 @@ The choice is yours as Tim indicates with a swing of his hand. Either go back up
 
 You agree. You can go to the left (if: $hallway is false)[ [[Bedroom-&gt;Bedroom 1]] ] (else:) [ [[Bedroom-&gt;Bedroom 1 (END)]] ], to your right to another [[Bedroom-&gt;Bedroom 2]] or forward to the (if: $bedroomtest)[ [[Master Bedroom|No Return]] ](else:)[ [[Master Bedroom]] ]. Otherwise you might as well go back to the [[Main Floor]].
 
-</tw-passagedata><tw-passagedata pid="21" name="Bedroom 2" tags="" position="2375,5525" size="100,100">Pushing open the creaky door, cautiously you step into the room. Looking about and feeling an immense amount of relief wash over you. Daring a look back to Tim hot on your heels, you nod. Smiling to show that currently there is nothing to fear.
+</tw-passagedata><tw-passagedata pid="21" name="Bedroom 2" tags="" position="2375,5525" size="100,100">Pushing open the creaky door, cautiously you step into the room. Looking about and feeling an immense amount of relief wash over you. Daring a look back at Tim hot on your heels, you nod. Smiling to show that currently there is nothing to fear.
 
 The room is no more than a pretty average looking bedroom. Well for whatever time period this weird house was built in.
 
-It has a small rocking chair that has one side broken. Not a very good rocker but at this point that is not something you are going to be upset about. Just that you spend a moment looking around and feeling absolutely nothing. Though it doesn’t appear to be an exit either which means that you wasted the effort of coming in here at all. That little nugget of thought is enough to make you turn around quickly. Shooing Tim to back step into the hallway.
+It has a small rocking chair that has one side broken. Not a very good rocker but at this point that is not something you are going to be upset about. You spend a moment looking around and feeling absolutely nothing. This doesn’t appear to be an exit either which means that you wasted the time of coming in here at all. That little nugget of thought is enough to make you turn around quickly. Shooing Tim to back step into the hallway.
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 Go Back to the [[Chamber Hallway-&gt;Hallway 3]]
 &lt;/div&gt;
-(track: &#39;creakingdoor&#39;, &#39;play&#39;)</tw-passagedata><tw-passagedata pid="22" name="Master Bedroom" tags="" position="2175,5725" size="100,100">This door seems to be a bit more fancy than either one beside. The knob looks to be made of crystal, and it is a bit larger in size while the frame is rounded at the top rather than squared off. Cautiously you peer inside. It is a rinse and repeat action as it is quite obvious you will never be able to predict what is on the other side of any of these doors. Yet at first glance, it appears to be another bedroom.
+(track: &#39;creakingdoor&#39;, &#39;play&#39;)</tw-passagedata><tw-passagedata pid="22" name="Master Bedroom" tags="" position="2175,5725" size="100,100">This door seems to be a bit more fancy than either one beside. The knob looks to be made of crystal, and it is a bit larger in size while the frame is rounded at the top, rather than squared off. Cautiously you peer inside. It is a rinse n&#39; repeat action as you will never be able to predict what is on the other side of any of these doors. Yet at first glance, it appears to be another bedroom.
 
-And a mighty fanciful one at that. Inside, accommodations look to be close to stately in nature. As though a royal was once staying within! A large bed remains made with four posts and a wispy looking canopy that has long since turned ragged and dusty. In the corner there is a wooden table set as though there was to be a tea party in an hour. There were also cabinets of many treasures, hiding behind glass. China plates and cups, crystal vases, and porcelain statuettes. Your logical guess is that this is some bedroom meant for the masters of the house.
+And a mighty fanciful one at that. Accommodations look to be close to stately in nature. As though a royal was once staying within! Inside is a large bed with four posts and a wispy looking canopy, that has long since turned ragged and dusty. In the corner there is a wooden table set as though there was to be a tea party in an hour. There were also cabinets of many treasures, hiding behind glass. China plates and cups, crystal vases, and porcelain statuettes. Your logical guess is that this is a bedroom meant for the masters of the house.
 
-“This room is like… my entire house!” Tim blinks in astonishment as you both enter the room that so far seems deserted. Of spooks, that is. 
+“This room is like… my entire house!” Tim blinks in astonishment as you both enter the room that seems deserted. Of spooks, that is. 
 
-There is so much to look at in this room, you’re not sure where to start. Or if there’s anything of actual importance here. But your idea that this was the master bedroom would suggest that it ought to have special things inside that no one else had access to. Like a key to the front door, perhaps? 
+There is so much to look at in this room, that you’re not sure where to start. Or if there’s anything of actual importance here. However, your idea that this was the master bedroom would suggest it ought to have something special inside. Like a key to the front door, perhaps? 
 
-You and Tim tip-toe into the room, taking a careful look about, when Tim nearly knocks a vase as a sudden quiet haunting melody meeting your ears. It starts out as a hum, though it grows to a whisper of words that are no less creepy. 
+You and Tim tip-toe into the room, taking a careful look around, when Tim nearly knocks over a vase as a sudden quiet haunting melody meets your ears. It starts out as a hum, though it grows to a whisper of words that are no less creepy. 
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 &lt;center&gt;page 1/2&lt;/center&gt;[[Next Page|Master Pg2]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="Bedroom 1" tags="Bd-1" position="1975,5525" size="100,100">As you enter the room, Tim peeks cautiously over your shoulder. “Is it safe?” Looking back at him, you lightly pat his arm. Voicing that it was fine, and he was liable to have more wrinkles than a eighty year old woman with his ability to fret so nervously. “Ha,” Sarcastically he scoffs, “One of us has too! Cause, it’s clearly not you!” 
 
-He’s not wrong, but if it wasn’t for your need to explore, you’d both still be at the front foyer. Sitting on the floor waiting for a morning that may never come, beside a front door that wouldn’t open! So unless Tim had some sort of magical pixie dust in his backpack, you both had to look around to find a way out!
+He’s not wrong, but if it wasn’t for your need to explore, you’d both still be at the front foyer. Sitting on the floor waiting for a morning that may never come, beside a front door that wouldn’t open! So unless Tim had some sort of magical pixie dust in his backpack, you both have to look around to find a way out!
 
 Stepping into the room to scout out exactly what it is, you&#39;re a little surprised -and a little let down- to find that there is absolutely nothing in here. No furniture, no stored items. Not even a rug on the floor. The entire room is completely bare! The only other thing in here is a second door.
 
@@ -828,12 +819,12 @@ Thanking Tim for his generous acceptance, your feet quickly step over to the doo
 &lt;div class=&quot;option-wrapper&quot;&gt;
 &lt;center&gt;page 1/2&lt;/center&gt;[[Next Page|Bedroom 1 Pg2]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="24" name="Hallway 7" tags="" position="850,5225" size="100,100">Taking that immediate dip from the foyer into the hallway, it has a pungent smell of flowers in the air. Not fresh but that sort of dirty smell that comes from dried grass and leaves in the middle of fall. “//Ew//.” Seems your nervous companion also agrees that it is not something you enjoy smelling. Otherwise the hall is rather unimpressive. Looking very similar to the style choices of the foyer with its paneled walls and lack of pictures. The only notable difference is a singular sign that says what area&#39;s available here!
+</tw-passagedata><tw-passagedata pid="24" name="Hallway 7" tags="" position="850,5225" size="100,100">Taking that immediate dip from the foyer into the hallway, it has a pungent smell of flowers in the air. Not fresh. Rather the sort of dirty smell that comes from dead grass and leaves in the middle of fall. “//Ew//.” Seems your nervous companion also agrees that it is not something you enjoy smelling. Otherwise the hall is rather unimpressive. Looking very similar to the style choices of the foyer with its paneled walls and lack of pictures. The only notable difference is a singular sign that says what area&#39;s available here!
 
-Towards the [[Séance Room]] is where the of grimy flowers is far stronger. 
+Towards the [[Séance Room]] is where the of grimy flowery stench is far stronger. 
 
-Or perhaps straight towards the adjoining [[Library Hallway-&gt;Hallway 8]]. Although there is always going back to the [[Foyer]] as well.
-(set: $foyervisit to true)</tw-passagedata><tw-passagedata pid="25" name="Hallway 8" tags="" position="825,5525" size="100,100">As you enter, it&#39;s apparent that this hallway is not like any other one. Not only does it have four normal ways to go but there’s a corner here! With a door that looks like it is only one way! How does that even work?
+Or perhaps straight towards the adjoining [[Library Hallway-&gt;Hallway 8]]. Although there is always going back to the [[Foyer]].
+(set: $foyervisit to true)</tw-passagedata><tw-passagedata pid="25" name="Hallway 8" tags="" position="825,5525" size="100,100">As you enter, it&#39;s apparent that this hallway is not like any other. Not only does it have four normal ways to go but there’s a corner here! With a door that looks like it is only one way! How does that even work?
 
 And why are you even asking?
 
@@ -841,21 +832,21 @@ This place has already proven that it makes no sense! Less you want to make your
 
 Do you go to the [[Living Room]], or forward to the [[Foyer Hallway-&gt;Hallway 7]]? Maybe you try the door in that weird corner, the [[Mystery Door|Séance RoomA]]. However the other [[Bedroom-&gt;Bedroom 5]] looks just as interesting!
 
-</tw-passagedata><tw-passagedata pid="26" name="Séance Room" tags="" position="475,5250" size="100,100">Slowly you creep into the room that at first seems totally dark. The only shades of color being cast makes vague red shapes visible in the dark. Glimpsing toward the ceiling, the only light coming in is from a circular skylight that is covered in crimson tinted glass. That was… a creative choice from the architect. “Do you have leftover battery on your phone?” Tim asks in a hushed whisper, like there are ears around to disturb besides yours. 
+</tw-passagedata><tw-passagedata pid="26" name="Séance Room" tags="" position="475,5250" size="100,100">Slowly you creep into the room that at first seems totally dark. The only shades of colour being cast, makes vague red shapes visible in the dark. Glimpsing toward the ceiling, the only light coming in is from a circular skylight that is covered in crimson tinted glass. That was… a creative choice from the architect. “Do you have leftover battery on your phone?” Tim asks in a hushed whisper, like there are other ears around to disturb. 
 
 But that was a good idea. You pull out your phone and shine the light on the room, but at that immediate moment, candles upon the ground light by themselves. Tim shrieks, hopping backwards to hide behind you. At least he didn’t run straight out of the room to abandon you! 
 
-Still, other than the added eerie glow by candlelight, nothing else happens. Though you do gain an eyeful of what this room really was. The candles on the ground are quietly crackling, showcasing what they are surrounding.
+Still, other than the added eerie glow by candlelight, nothing else happens. Though you do gain an eyeful of what this room really is. The candles on the ground are quietly crackling, putting on display the features of the room.
 
 There’s a diagram on the floorboards… etched with white chalk. 
 
-It&#39;s a large pentagram surrounded by a circle, and upon each tip of the star is where one of those candles flicker. Finally, a large round table with an decorative tablecloth sits in the middle of the pentagram, awaiting those who’d like to partake in a ritual.  
+It&#39;s a large pentagram surrounded by a circle, and upon each tip of the star is where one of those candles flicker. Finally, a large round table with a decorative tablecloth sits in the middle of the pentagram, awaiting those who’d like to partake in a ritual.  
 
-Your stomach drops and it’s Tim’s brittle voice that speaks in your ear. “It’s… this is a Séance Room…” Clearly he had missed reading the sign out front! However, if someone told you this is where a ghost summoning would happen, you’d believe them. “Can we leave… please, $name..?” For once, you’re not feeling too curious yourself to scope out this room in detail, and oblige Tim’s request. 
+Your stomach drops and it’s Tim’s brittle voice that speaks in your ear. “It’s… This is a Séance Room…” Clearly he had missed reading the sign out front! However, if someone told you this is where a ghost summoning would happen, you’d believe them. “Can we leave… please, $name..?” For once, you’re not feeling too curious yourself to scope out this room in detail, and oblige Tim’s request. 
 
 A look around the room showcases the many possibilities of where you can go next. 
 
-There’s a large stretch of heavy fabric across the east wall. It makes you think of a theater stage. Could there possibly be something behind there? But there were two other doors you could investigate as well, while keeping the option of going back the way you came, open for discussion.
+There’s a large stretch of heavy fabric across the east wall. It makes you think of a theater stage. Could there possibly be something behind it? But there were two other doors you could investigate as well, while keeping the option of going back the way you came, open for discussion.
 
 The one entry is a set of double doors, large and embellished, housing intricate carved details and a gaudy pair of dramatic handles. The last door you nearly missed, but the light from your phone caught a glimmer of it in the dark. It’s hidden away in the corner. 
 
@@ -868,7 +859,7 @@ Check out the [[Door|Hallway 8]]
 Wander into the [[Living Room]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="Library" tags="" position="625,5375" size="100,100">As you give the door a cautionary push –peeking through the slowly widening crack- the smell of old parchment, stale ink and dry air assaults your nose. However, the smell itself is pleasant compared to some things you’ve smelt thus far.
 
-With no immediate need to slam the door closed in the means of safety, shortly the two of you are standing in a decently small library. Deciding it’s a library merely because two of the four walls are inset with shelves. Housing scrolls, tomes and books alike. A few glass domed ornaments with the pairing of tall standing –already lit- floor candelabra’s. Illuminating the room in a pale warm glow. Actually it’s surprisingly inviting!
+With no immediate need to slam the door shut in the means of safety, the two of you are standing in a decently small library. Deciding it’s a library merely because two of the four walls are inset with shelves. Housing scrolls, tomes and books alike. A few glass ornaments decorate the room with two tall standing –already lit- floor candelabra’s. Illuminating the room in a pale warm glow. Actually it’s surprisingly inviting!
 
 There are two large brown high-back chairs stationed in the direct middle of the room, a singular plush looking rug and a low stone fireplace that sits nestled in the southeast corner. Allowing you to see it regardless of whether you entered from the séance room or the hallway. “This—” Tim looks around pausing to make sure he didn’t speak too soon, “This isn’t bad. Do you think it’s actually safe here?”
 
@@ -878,7 +869,7 @@ Thankfully this doesn’t seem to deter Tim.
 
 Shutting the door behind you both –now that you’ve at least confirmed there was no immediate danger; Tim shuffles over to sit down. Sighing rather heavily like the entire weight of the world has been momentarily lifted from shoulders. “We should take a break. I think I might have something in my backpack to munch on?” He didn’t sound sure but you leave him be. Letting Tim shuffle through his bag is the least you can do if it means he doesn’t have to think about all of this.
 
-You, on the other hand, decide to go to the east wall. Starting from the end of the wooden inset shelf to look across the spines of the books. Pausing to notice the rolled up parchment paper is at the highest shelf, just out of your reach. It most likely has no use to you anyways, so there’s no sense to find a way to climb up there.
+You, on the other hand, decide to go to the east wall. Starting from the end of the wooden inset shelves to look across the spines of the books. Pausing to notice the rolled up parchment paper is at the highest shelf, just out of your reach. It most likely has no use to you anyways, so there’s no reason to find a way to climb up there.
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 &lt;center&gt;page 1/2&lt;/center&gt;[[Next Page|Library Pg2]]
@@ -886,17 +877,17 @@ You, on the other hand, decide to go to the east wall. Starting from the end of 
 
 With a double check towards the door, making sure the nothing has followed.
 
-Allowing a breath to be your cleanse while facing forward once more. Noticing rather immediately that straight ahead is open archway door. Even from here you can tell it is a long hallway but the details of any other directions that way are hard to see. Instead you find a sense of growing relief that at least there was an exit instead of strictly going backwards.
+Allowing a breath to be your cleanse, before facing forward. Noticing rather immediately that straight ahead is open archway. Even from here you can tell it is a long hallway, but the details of any other direction are hard to see. Instead you find a sense of growing relief that there was an exit instead of strictly going backwards.
 
-As such a thing is noted, and footsteps move off your left. Inviting you to watch as Tim hums with a jostle to his bag. Noticing that the room itself is strangely //okay//. That alone makes you somewhat uncomfortable. Nothing so far has been okay in this damn place. Nevertheless it’s wise that you both pay some attention to your surroundings. As of right now, the pair of you are seemingly standing in what is best described as a living room, at least for the era that you think this twisted house may have been from.
+As such a thing is noted, footsteps move off to your left. Inviting you to watch as Tim hums with a jostle to his bag. Noticing that the room itself is strangely //okay//. That alone makes you somewhat uncomfortable. Nothing so far has been okay in this damn place. Nevertheless it’s wise that you both pay some attention to your surroundings. As of right now, the pair of you are standing in what is best described as a living room, at least for the era that you think this twisted house may have been from.
 
-It’s rather small with a simple singular floral printed couch including clawed feet and a rounded side table that has three melted candles seemingly stuck to the surface. Their wicks are lit alongside the small chandelier that hangs from the strangely tall roof. For a room that isn’t very large, it’s odd that it has such a vaulted ceiling.
+It’s rather small with a simple floral printed couch including clawed feet and a rounded side table that has three melted candles seemingly stuck to the surface. Their wicks are lit alongside the small chandelier that hangs from the strangely tall roof. For a room that isn’t very large, it’s odd that it has such a vaulted ceiling.
 
-The floor is wood mostly except for where a threadbare rug makes its home. It’s rather dirty, obscuring any artistic rendering of a picture upon it.
+The floor is mostly wood, except for where a threadbare rug makes its home. It’s rather dirty, obscuring any artistic rendering of a picture upon it.
 
 As you step forward closer to Tim, he on the other hand isn’t really paying attention to the room itself. Rather, he’s currently messing with the fireplace caddy. “Here!” Barely waiting, Tim shoves a small metal broom in your hands, “I am trying to get—” Trailing off to leave you hanging on what he is trying to grab, Tim mumbles and huffs under his breath. Seemingly fighting with the caddy till you can no longer stand still. Putting down the ash broom to tap him on the shoulder. “What!” Whirling back to look at you, Tim gives you a rather quick once over. “Oh.” Cluing in that you aren’t following along to what he is doing. “You might want to wander around this place all willy-nilly but I want to at least feel like I can defend myself.”
 
-He gestures with an open palm at the two remaining pieces in the caddy. The log mover and the firepoker. For a long muted moment, you stare. Slowly raising your gaze to said friend in which he just blows a raspberry at your apparent lack of following along. “It’s iron, it’s unlikely to break. I’m taking the firepoker.”
+He gestures with an open palm at the two remaining pieces in the caddy. The log mover and the firepoker. For a long muted moment, you stare. Slowly raising your gaze to Tim, in which he just blows a raspberry at your apparent lack of understanding. “It’s iron, it’s unlikely to break. I’m taking the firepoker.”
 
 Brows furrow up as you simply decide to leave Tim to his madness. Declaring that he had better hurry up because you want to find the way out of this place. Now.
 
@@ -907,11 +898,9 @@ Leaving you the choice once more, do you go back or forward?
 &lt;div class=&quot;option-wrapper&quot;&gt;
 Towards the [[Library Hallway|Hallway 8]] 
 Enter the [[Séance Room]] 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="Never Return" tags="" position="425,4100" size="100,100">This may be your wisest choice yet. You agree with Tim and decide to turn back now. Honestly, you have nothing to prove nor should either of you risk your necks just to prove yourselves to some other goobers. 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="Never Return" tags="" position="425,4100" size="100,100">This may be your wisest choice yet. You agree with Tim and decide to turn back now. Honestly, you have nothing to prove, nor should either of you risk your necks just to prove yourselves to some goobers!
 
-You steal one look back at the house as you both walk back the way you came. 
-
-Considering your options once more before you feel a surge of confidence. Yes, this was the right choice!
+You steal a look back at the house. Considering your options once more before you feel a surge of confidence. Yes, leaving was the right choice!
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 (text-colour:#1a931a)[ &#39;&#39;CAN YOU SAY VAMONOS? End 1 of 17&#39;&#39;]
@@ -925,7 +914,7 @@ Unlike the way to the front of the house, here you are now Indiana Jones. Swatti
 
 Stomping and whooshing your hands through the air, you’re lucky enough to make it around the side with no incidents. And, no snakes either! Truly Indy would be proud. Just you haven’t begun the means of real investigation and it doesn’t seem you’ll be able to either. “That’s one (text-style:&quot;tall&quot;)[tall] wall.” Before you stands a wall that is unusually large. At least ten feet tall with only the upper portion of its craft starting to crumble. //Starting//, being a rather generous word.
 
-Along the top you can see it’s been aptly caked with more bird droppings than you care to think about. A few poor looking nests and while noting that this wall is just as wide as it was tall. 
+Along the top you can see it’s been aptly caked with more bird droppings than you care to think about. While noting that this wall is just as wide as it was tall. 
 
 Spanning the entire left side of the yard, it is clear. You aren’t coming in or out this way. Tim mumbles “Has this always been here?” A good question. One you can’t honestly answer. So in good favour, you shrug. But it’s clear you have two choices here. Go back to the front of the house or leave.
 
@@ -933,11 +922,11 @@ Spanning the entire left side of the yard, it is clear. You aren’t coming in o
 Walk back to [[Front Porch.]]
 Turn and [[Go Home]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="31" name="Front Porch." tags="" position="1100,3825" size="100,100">Turning to consider your singular ally at the moment, Tim similarly does the same. Looking hopeful for a moment till his face drops and brows crunch up beside another. “We &#39;&#39;aren’t &#39;&#39;going to go home now, are we?” You shake your head causing an explosive sigh to erupt from him. “$name! Seriously!” Offering your best apologetic look, you know after this night it will be likely that Tim will be making sure you owe him countless favours. Likely into the unforeseeable future.
+</tw-passagedata><tw-passagedata pid="31" name="Front Porch." tags="" position="1050,3800" size="100,100">Turning to consider your singular ally at the moment, Tim similarly does the same. Looking hopeful for a moment till his face drops and brows crunch up beside another. “We &#39;&#39;aren’t &#39;&#39;going to go home now, are we?” You shake your head causing an explosive sigh to erupt from him. “$name! Seriously!” Offering your best apologetic look, you know after this night it will be likely that Tim will be making sure you owe him countless favours. Likely into the unforeseeable future.
 
 Still if that’s the price to pay then you suppose there are worse things.
 
-Quickly with a head tip back to the front door, you lead that march back. Tromping down the grass rather than replaying your movie star dream. Stealing idle peeks up to the house with very little in response. Just that you notice that those heavy clouds seem all the more threatening. Ready to downpour and you aren’t wanting to get soaked tonight. Grunting to hustle Tim along, you both return back to the front porch.
+Gesturing with a head tip toward the front door, you lead that march back. Tromping down the grass rather than replaying your movie star dreams. Stealing idle peeks up to the house with very little in response. Just that you notice that those heavy clouds seem all the more threatening. Ready to downpour and you aren’t wanting to get soaked tonight. Grunting to hustle Tim along, you both return to the front porch.
 
 “Something tells me that if we go inside, we won’t be able to leave. Are you sure you want to do this?” The voice of reason, asked. Looking hopeful once more.
  
@@ -947,16 +936,16 @@ Quickly with a head tip back to the front door, you lead that march back. Trompi
  &lt;/div&gt;
  </tw-passagedata><tw-passagedata pid="32" name="Go Home" tags="" position="425,3950" size="100,100">With that detour sufficiently under your belt, you decide that maybe this isn’t such a good idea. Clearly with that large odd wall, you aren’t supposed to be here. And, momma didn’t raise no dummy! 
 
-Grabbing Tim’s shoulder with a bit of a shake, he stares at you for just a split second. Turning quickly to relief as he exhales loudly. “//Ooooh// thank god.” Putting a palm to his head, it only lasts a moment. Till he is madly sprinting while looking over his shoulder, “Hurry up would you!”
+Grabbing Tim’s shoulder with a bit of a shake, he stares at you for just a split second in concern. Quickly turning to relief as he exhales loudly. “//Ooooh// thank god.” Putting a palm to his head, it only lasts a moment. Till he is madly sprinting while looking over his shoulder, “Hurry up would you!”
 
 You both leave, safe and sound once more.
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 (text-colour:#1a931a)[ &#39;&#39;SNUG AS A BUG IN A RUG! END 2 of 16&#39;&#39;]
 (link: &quot;Restart&quot;)[(reload:)]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="33" name="Time to say toodles!" tags="" position="425,3800" size="100,100">You aren’t sure you can handle all Tim’s insistent whining all night long! Starting to think that out of this bet you made, he might be the thing that makes you lose it all. Only cause the constant griping and moaning is going to make it difficult to stay sane. And, you do not want to go to jail because you murdered your best friend due to their continued yammering! 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="33" name="Time to say toodles!" tags="" position="425,3800" size="100,100">You aren’t sure you can handle Tim’s insistent whining all night long! Considering this bet you made, Tim might be what makes you lose it all! Cause this constant griping and moaning is going to make it difficult to stay sane! And, you do not want to go to jail because you murdered your best friend due to their constant yammering! 
 
-In a sense of defeat, you agree. Motioning back from the way you had come that you guys can leave. Though you tell Tim that he has to tell everyone he is the reason you guys bailed out. Immediately he agrees, seemingly having no problem being called a chicken for the rest of your school career. Admirable but you are sure he is going to wish he hadn’t after a week! 
+In a sense of defeat, you agree. Motioning back the way you had come, you guys can leave. Though you tell Tim that he has to tell everyone he is the reason you guys bailed out. Immediately he agrees, seemingly having no problem being called a chicken for the rest of your school career. Admirable, but you are sure he is going to wish he hadn’t after a week! 
 
 Ah well, there’s always next year.
 
@@ -994,7 +983,7 @@ Aaand you’ve never seen a real life skeleton before… just the fake ones in s
 &lt;div class=&quot;option-wrapper&quot;&gt;
 Step towards the[[Coffin]]
 &lt;/div&gt;
-(track: &#39;walking&#39;, &#39;play&#39;)</tw-passagedata><tw-passagedata pid="36" name="Hallway 1" tags="" position="2475,3800" size="100,100">The walls are covered with paneling to fit the aesthetic of the entire house. The stretch of corridor leads only two ways. Towards the [[overlook]] or to the back towards the [[Upstairs Landing|Upstairs]]
+(track: &#39;walking&#39;, &#39;play&#39;)</tw-passagedata><tw-passagedata pid="36" name="Hallway 1" tags="" position="2300,3800" size="100,100">The walls are covered with paneling to fit the aesthetic of the entire house. The stretch of corridor leads only two ways. Towards the [[overlook]] or back to the [[Upstairs Landing|Upstairs]]
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="37" name="Hey, Captain Ugly!" tags="" position="3575,5200" size="100,100">The door is about to close and you aren’t even sure how this is going to work but instinctively you yell up. Calling one of them Captain Ugly –they could decide who it was! Honestly, why this works at all is beyond  you but is it worth looking a gifted horse in the mouth? Probably not.
@@ -1009,7 +998,7 @@ Allowing immense surprise to wash over next as the voice beside you speaks up. �
 
 They shared a look that turned into a scoffing laugh. Clearly they weren’t compelled by Tim’s speech. Although they weren’t closing the door  either. Giving you a moment to regain your wits. With a blaze of impassioned desire to live, again  you point upwards. Declaring noisily that if you guys can beat them at some sort of game, they will have to let you leave. But if you lose, well, you know what will happen. “Are you crazy, $name?” In pure horror, Timothy Cricket speaks up as your conscience. To be ignored, naturally!
 
-“A gaaaameee...” The sous chef slurs out as if the very ability to say that took all the effort within their entire body.
+“(text-colour:(hsl:83,0.7308,0.5922,0.6))[//A gaaaameee...//]” The sous chef slurs out as if the very ability to say that took all the effort within their entire body.
 
 The  head chef however doesn’t appear to be as slow. But there is something in their movements that says they are, in fact, intrigued. You just took a bet and it literally involves throwing down your lives but really at this moment, was it going to matter? Death had a high percentage of happening right now so you might as well go down swinging. Even in some theatrical attempt of re-enacting the Devil goes down to Georgia.
 
@@ -1321,23 +1310,23 @@ With that thought in mind, you open up the next door and take a peek inside. How
 
 “I ca-//(text-style:&quot;rumble&quot;)[aah]//…” Tim took a dramatic pause to rear back his head to let loose a sneeze! “... I can’t wait for this place to be demolished.” Tim was taking this a little personally now, apparently! You would have laughed at his dramatics, but a movement at the skirt of the bed caught your attention. Your eyes widen. You point your finger trying to speak in warning, but words are stuck in your throat! 
 
-Tim catches on immediately and jumps up, looking down at himself and swiping hands over his clothing as though you were pointing out a rogue spider crawling on him! Normally you’d condone the behavior for such a scare, but this was no spider. “What– (text-style:&quot;tall&quot;,&quot;rumble&quot;)[&#39;&#39;what&#39;&#39;]?! What is it?!” Tim shrills before he looks down, and sees a gnarled set of spindly white fingers unfurling to try and wrap around his ankle. 
+Tim catches on immediately and jumps up, looking down at himself and swiping hands over his clothing, as if you were pointing out a rogue spider crawling on him! Normally you’d condone the behavior for such a scare, but this was no spider! “What– (text-style:&quot;tall&quot;,&quot;rumble&quot;)[&#39;&#39;what&#39;&#39;]?! What is it?!” Tim shrills before he looks down, and sees a gnarled set of spindly white fingers unfurling. Trying to wrap around his ankle.. 
 
-Tim exits the room so fast you’re pretty sure you see an afterimage of him still standing by the bed. And you’re not far behind him as you promptly shut the door with your exit, cutting off a cackle of laughter from within that nearly has your hair standing on end. 
+Tim exits the room so fast you’re pretty sure you see an afterimage of him still standing by the bed. And you’re not far behind him as you promptly shut the door with your exit, cutting off a cackle of laughter from within that has your hair standing on end. 
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 Run to the [[Library Hallway-&gt;Hallway 8]]
 &lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="57" name="Foyer Pg 2" tags="" position="1375,4300" size="100,100">Stepping forward, you peer towards your left to a grand staircase that leads upstairs. As one would think a staircase would. It is covered with an ornate rug to protect the stairs itself from excessive foot traffic, while the wall leading upwards is adorned with paintings. Nothing too terrifying unless you considered a vase of roses frightening. Yet as you look up that way, you feel an unusual pulling - an invitation that you take those steps upward.
+</tw-passagedata><tw-passagedata pid="57" name="Foyer Pg 2" tags="" position="1375,4300" size="100,100">Stepping forward, you peer towards your left to a grand staircase that leads upstairs. As one would think a staircase would. It is covered with an ornate rug to protect the stairs itself from excessive foot traffic, while the wall leading upwards is adorned with paintings. Nothing too terrifying unless you considered a vase of roses frightening. Yet as you look up that way, you feel an unusual pulling - an invitation for you take those steps upward.
 
-Giving your head a shake in hopes to dismiss that feeling, eyes are drawn down to the path in front of you. The foyer opens up widely into an expansive floor space that seems like it would have been used to welcome guests, who were not standing at the door. The walls here appear to be wood paneling all the way to the roof. No paintings, portraits or any wall decorations are present. Only a small table adorning the left and right side. Clearly they were meant to mirror the other, for they were nearly identical. And seemingly of no importance either besides being another room.
+Giving your head a shake in hopes to dismiss that feeling, eyes are drawn forward to the path in front of you. The foyer opens up widely into an expansive floor space that seems like it would have been used to welcome guests, who were not standing at the door. The walls here appear to be wood paneling all the way to the roof. No paintings, portraits or any wall decorations are present. Only a small table adorning the left and right side. Clearly they were meant to mirror each other, for they were nearly identical. And, seemingly of no importance either besides being another room.
 
-Yet, you can see that on the tail end is a hallway that branches off in two other directions.
+Yet, you can see that on the tailend is a hallway that branches off in two directions.
 
 Considering this while Tim appears to be finally getting himself back into a functional fashion, your eyes tilt towards your right. To a singular hallway that looks as if it also separates into two ways, but from where you stand, it is impossible to tell where each direction may lead.
  
-At this point you take in a large breath.  Exhaling just as quickly as you motion the three options to Tim. In turn, he stares at you. “&#39;&#39;What&#39;&#39;? You think //I’m// going to choose where we go next? No way. You got us into this, you get us out.” Stubbornly he throws his arms over in a cross, looking more on par with an upset toddler than a teenager!
+At this point you take in a large breath.  Exhaling just as quickly as you motion three options to Tim. In turn, he stares at you. “&#39;&#39;What&#39;&#39;? You think //I’m// going to choose where we go next? No way. You got us into this, you get us out.” Stubbornly he throws his arms over in a cross, looking more on par with an upset toddler than a teenager!
 
 With some annoyance you consider your three options once more. Where do you go?
 &lt;div class=&quot;option-wrapper&quot;&gt;
@@ -1589,11 +1578,11 @@ A fitting punishment, you think, for being an awful friend.
 &lt;div class=&quot;option-wrapper&quot;&gt;
 (link: &quot;Restart&quot;)[(reload:)]
 &lt;/div&gt;
-(text-style:&quot;flat&quot;)[(align:&quot;&lt;==&quot;)[page 2]]</tw-passagedata><tw-passagedata pid="73" name="Attic" tags="" position="1150,2300" size="100,100">You ignore the cobwebs as much as possible on the climb upward, though it is not so easily done when you emerge through the little opening on the ceiling and into a larger room where the spiders have been particularly busy. It’s musty, and the dim lighting from the bulbous moon  coming through a couple skylights in the ceiling has you spooked of your own shadow. A hand was offered to Tim to help him up, and once he is on his feet he quickly dusts himself off and dances a little jig to knock off any nonexistent spiders on his body. 
+(text-style:&quot;flat&quot;)[(align:&quot;&lt;==&quot;)[page 2]]</tw-passagedata><tw-passagedata pid="73" name="Attic" tags="" position="1150,2300" size="100,100">You ignore the cobwebs as much as possible on the climb upward, though it is not so easily done when you emerge through the little opening on the ceiling, and into a larger room where the spiders have been particularly busy. It’s musty, and the dim lighting from the bulbous moon coming through a couple skylights in the ceiling, has you spooked of your own shadow. A hand was offered to Tim to help him up, and once he is on his feet he quickly dusts himself off and dances a little jig to knock off any nonexistent spiders on his body. 
 
 “You really think there’s a way to escape from the topmost floor??” Tim demands an answer to what may be your dumbest decision yet as he continues to brush himself off, even after all cobwebs had certainly been dislodged. You agree, this seemed like the unlikely place for your actual escape, but you had to see whether there could be anything of use up here. Any place that seemed to be locked up with the hope to be forgotten about seems suspicious to you. 
 
-But on part with what Tim has been uttering so far since entering this mansion, you have to admit that this attic in particular is very ominous. The room seems hazy, perhaps because each step you take is disturbing more dust and causing it to fly into the air around you. It makes both you and Tim nearly hack up a lung. “Someone– really needs to do some… cleaning up here.” That might help a little bit with the spook factor, but you doubt it would ever be gone completely. 
+But on par with what Tim has been uttering so far since entering this mansion, you have to admit that this attic in particular is very ominous. The room seems hazy, perhaps because each step you take is disturbing more dust and causing it to fly into the air around you. It makes both you and Tim nearly hack up a lung. “Someone– really needs to do some… cleaning up here.” That might help a little bit with the spooky factor, but you doubt it would ever be gone completely. 
 
 There’s furniture galore up in this attic, and it’s covered with white sheets as though that is going to protect it from anything. You bet your last dollar in your pocket it is just as dusty under there as it is everywhere else! And now you have to deal with each and every one of those white ambiguous shapes looking like spooks in your peripheral vision. But just as you were drawn up here in the first place, something is leading you around the littering of objects till you come to the back of the room. 
 
@@ -1601,7 +1590,7 @@ There’s furniture galore up in this attic, and it’s covered with white sheet
 &lt;center&gt;page 1/2&lt;/center&gt;[[Next Page|Attic 2]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="74" name="Séance RoomA" tags="" position="800,5725" size="100,100">You try to open the door but find that it will not budge. No matter how you jiggle and rattle the handle, this entry is not yeilding. It&#39;s firmly locked and has no other value that you can tell.
 
-Turning back to the rest of the hallway, you decide to try another way. Perhaps to that [[Bedroom-&gt;Bedroom 5]].
+Turning back to the rest of the hallway, you decide to try another way. Perhaps to the [[Bedroom-&gt;Bedroom 5]].
 
 &quot;What about going back through the [[Foyer hallway-&gt;Hallway 7]], $name?&quot; Tim points for clarity in case you missed that. &quot;Otherwise we might as well go to the [[Living Room]] or the [[Library]].&quot;</tw-passagedata><tw-passagedata pid="75" name="Step Towards the Coffin" tags="" position="3475,2075" size="100,100">You take one step… then two… so far so good. No curse of Tutankhamun has fallen upon you yet! But upon your third step, something doesn’t seem quite right. You feel a familiar tremor beneath your feet, and you can hear Tim’s brief muttering of defeat. He knows as well as you what is about to happen. 
 
@@ -1761,7 +1750,7 @@ This was the room of &#39;&#39;hell no&#39;&#39;! You just hope that thing can�
 Escape back to the [[Chamber Hallway-&gt;Hallway 3]]
 &lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="86" name="Bedroom 1 (END)" tags="Bd-1" position="1800,5525" size="100,100">Surely you know this is a bad idea and yet here you are. Re-opening the door you left. To find out quickly that your hunch of it being bad, was correct. Immediately as you open the door, you are snatched by whatever that thing’s hand is. Tugging you in and gulping you  down into the monster’s maw without even a pause. Left to hear no more than Tim’s screams as he promptly follows down after you!
+</tw-passagedata><tw-passagedata pid="86" name="Bedroom 1 (END)" tags="Bd-1" position="1800,5525" size="100,100">Surely you know this is a bad idea and yet here you are. Re-opening the door you left. To find out quickly that your hunch of it being bad, was correct. Immediately as you open the door, you are snatched by whatever that thing’s hand is. Tugging you in and gulping you down into the monster’s maw without even a pause. Left to hear no more than Tim’s screams as he promptly follows down after you!
 
 (text-colour:red)[&#39;&#39;YOU KNOW WHAT THEY SAY, CURIOSITY KILLED THE CAT! End 8 of 17&#39;&#39;]
 &lt;div class=&quot;option-wrapper&quot;&gt;
@@ -1813,24 +1802,24 @@ You were doomed the instant you stepped foot into that house. Cursed. There may 
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 &lt;center&gt;page 2/2&lt;/center&gt;[[Previous Page|Room 9]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="88" name="Library Pg2" tags="" position="625,5450" size="100,100">Sliding your finger across the various widths of old books, you notice that some have textures to their coverings. Some are smooth, some are damaged and other’s have a pleasant textile print to them. Just many of the spines are not like the books you are familiar with. There are no names them. If you want to know what type of book it is, you&#39;d have to pull it out.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="88" name="Library Pg2" tags="" position="625,5450" size="100,100">Sliding your finger across the various widths of old books, you notice that some have textures to their coverings. Some are smooth, some are damaged and other’s have a pleasant textile print to them. Many of the spines are not like the books you are familiar with. There are no names on them. If you want to know what type of book it is, you&#39;d have to pull it out.
 
 Just something tells you that it’s an effort you don’t really want to do. Instead continuing to walk along the shelves to pause in front of the fireplace. Shuddering slightly as the idea of a fire right now would actually be nice. Unsure if the chill you have is because of nerves, fatigue or cold. Regardless, the heat wouldn’t be un-welcomed. 
 
-Stealing a look over towards Tim, temporarily he looks at peace. Leaving you to feel securely enough to step by the fireplace towards the next row of books. Repeating the same process of looking at them, before stopping suddenly at the one that appears to be glaringly out of place.
+Stealing a look over towards Tim, temporarily he looks at peace. Leaving you to feel securely enough to step by the fireplace towards the next row of books. Repeating the same process of looking at them, before stopping suddenly at one that appears to be glaringly out of place.
 
-Its spine is decorated in fine silver filigree. Not so much painted but bound in metal. Fitted to be embedded in the book itself, with the cover being that of leather. Smooth, soft leather. After a moment of staring; you pull it out. Unlike any other tome here, this one is interesting. “What did you find, $name?” Hesitation is laden in Tim’s voice but he asks anyway. Prompting you to turn to hold out the book as a whole. Tapping it to notice that it doesn’t give you a solid sound. Rather, it&#39;s hollow.
+Its spine is decorated in fine silver filigree. Not so much painted but bound in metal. Fitted to be embedded in the book itself, with the cover being that of leather. Smooth, soft leather. After a moment of staring; you pull it out. Unlike any other tome here, this one is interesting. “What did you find, $name?” Hesitation is laden in Tim’s voice but he asks anyway. Prompting you to turn and hold out the book as a whole. Tapping it to notice that it doesn’t give you a solid sound. Rather, it&#39;s hollow.
 
-Taking in both hands to turn it over –noting it doesn’t appear to have a front or a back, but rather the metal filigree is branching from spine to text block. All connected together into a perfect lock. Something like a modern day diary, just this one is larger.
+Taking it in both hands to turn it over –noting it doesn’t appear to have a front or a back, but rather the metal filigree is branching from spine to text block. All connected together into a perfect lock. Something like a modern day diary, just this one is larger.
 
 In an attempt to see if you could pull the seemingly thin bits of metal apart, it refuses to move to your strength. Actually, it seems as if the book tenses in your grasp. Refusing to open without the obvious missing key.
 
-With a frown, but not without hope, you turn the text block around to show Tim. Watching as he squints at the obvious binding of a locked book.
+With a frown, but not without hope, you turn the text block around to show Tim. Watching as he squints at the obvious binding of the locked book.
 
 (if: $ornatekey is false)[
 Sharing a moment of silence till it becomes abundantly apparent to your friend, what you are trying to get across. His dark eyes widened. Mouth falling ajar for a bare second till it snaps up! “Oh no, we don’t need to find a key for that!”
 
-Quickly you retort. Pointing out that all the books here are similar. Inconsequential but this one is not like the others. Affixing your point with stating, who locks a book unless they have juicy things to hide. Tim, on the other hand, shakes his head sharply. “If there is one thing I know about diaries—” Assuming that is what it was, nevermind that it is hollow, “Whoever locked it, clearly doesn’t want someone in it. We should leave it alone! Put it back.”
+Quickly you retort. Pointing out that all the books here are similar. Inconsequential but this one is not like the others. Affixing your point with stating, who locks a book unless they have juicy things to hide. Tim, on the other hand, shakes his head sharply. “If there is one thing I know about diaries—” Assuming that is what it was, nevermind that it is hollow, “Whoever locked it, clearly doesn’t want anyone in it. We should leave it alone! Put it back.”
 
 You don’t want to agree with Tim and honestly, you don’t have to. As something is telling you that this book could be important but it is not critical either.
 
@@ -1843,17 +1832,17 @@ Walk to the [[Library Hallway|Hallway 8]]
 &lt;/div&gt;]
 
 (else-if: $ornatekey is true)[
-Tim stares in a sort of dull wonder at what you are showing him. Seemingly needing additional time for his brain to catch up to what you are silently implying. Just when his eyes pop and hands flail recklessly through the air. Looking like a bad impression of a wacky waving inflatable arm tube man! “The key! The key!” Repeating wildly like a spastic chant, Tim grabs his bag.
+Tim stares in a sort of dull wonder at what you are showing him. Seemingly needing additional time for his brain to catch up to what you are silently implying. Just then his eyes pop and hands flail recklessly through the air. Looking like a bad impression of a wacky waving inflatable arm tube man! “The key! The key!” Repeating wildly like a spastic chant, Tim grabs his bag.
 
-Digging inside till it seems he was successful in grabbing the key you found in the cellar! “Ah ha!” The ornate silver key was held up like some quest item from a video game, just without the fanfare.  Yet you are sure you can hear it in your head. Walking over the short distance to take the aloft item from Tim, there is a momentary hold of breath as the key head is fitted into the lock.
+Digging inside till he is successful in grabbing the key you found in the cellar! “Ah ha!” The ornate silver key was held up like some quest item from a video game, just without the fanfare.  Yet you are sure you can hear it in your head. Walking over the short distance to take the aloft item from Tim, there is a momentary hold of breath as the key head is fitted into the lock.
 
-A single twist and the metal lock relaxes. Releasing the binding as you open the book, something jingles within the hollowed out portion of pages. Looking like it was literally sawed through by some sort of knife to dig out a space that a leather and silver tangle of something was stashed instead. You aren’t sure what this is but set the book down on the chair, so you can pull it out.
+A single twist and the metal relaxes. Releasing the binding as you open the book, something jingles within the hollowed out portion of pages. Looking like it was literally sawed through by some sort of knife. Digging out a space where the leather and silver tangle is stashed. You aren’t sure what this is but set the book down on the chair, so you can pull it out.
 
-Long leather bands fall freely down to the ground while still being attached to a network of finely crafted silver pieces on more leather strips. “Hey, I know what that is.” Tim looks quizzically at the item but nods to prove he is sure of his answer. “It’s a bridle.” You stare a second at him, “For horses. It goes on their face, see here.” He points to a large chunk of metal with a few taps of fingers, “This goes into the horse’s mouth and these leather bits here,” Motioning to the strips that hang down onto the ground, “Are the reins. To steer.”
+Long leather bands fall freely down to the ground while still being attached to the network of finely crafted silver pieces on more leather strips. “Hey, I know what that is.” Tim looks quizzically at the item but nods to prove he is sure of his answer. “It’s a bridle.” You stare a second at him, “For horses. It goes on their face, see here.” He points to a large chunk of metal with a few taps of fingers, “This goes into the horse’s mouth and these leather bits here,” Motioning to the strips that hang down to the ground, “Are the reins. To steer.”
 
 After a moment, you see what he means. But that doesn’t answer the next question. “Why is there a bridle in a locked book?”
 
-Neither of you have a good answer for that but you loop around the reins into hand and hold out the very object out to Tim. Insisting that you may need it for something. “I guess. I don’t know why.” Again, you only shrug. You aren’t sure either but at this point it seems like you could do well with it.
+Neither of you have a good answer for that, but you loop the reins into your hand and hold out the very object out to Tim. Insisting that you may need it for something. “I guess. I don’t know why.” Again, you only shrug. You aren’t sure either but at this point you might as well keep it handy.
 &lt;center&gt;&lt;img class=&quot;img-margin&quot; src=&quot;https://retro-dragon.com/calloway-manor/images/bridle.png&quot; width=&quot;500&quot; /&gt;&lt;/center&gt;
 (set:$silverbridle to true)
 
@@ -1975,25 +1964,25 @@ Stealing a second to look backwards, &quot;Seeing as we don&#39;t need to go bac
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Dining Room]]
 [[Short Hallway|Hallway 5]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="96" name="Stables Pg2" tags="" position="5600,3975" size="100,100">“Put yer finger away. Less you wanna lose it, boy.” One of the horses stamp impatiently, “I’m comin, I’m comin!” Dumbly, you continue to stare in awe at this figure. “Yah kids may be a bit brain dead eh? Not wise steppin’ along here. Less yer lookin’ to be part of the scenery yerselves.” The ghost moved forward floating through them. Leaving you with an unpleasant frigid chill as the stableman sets down the two items he had. “But since yer here, guess you’ve come lookin’ for some help. Yer lucky… I might be the only one around here that isn’t wantin’ to make yer life hell.”
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="96" name="Stables Pg2" tags="" position="5600,3975" size="100,100">“(text-colour:#4dabf7)[Put yer finger away. Less you wanna lose it, boy.]” One of the horses stamp impatiently, “(text-colour:#4dabf7)[I’m comin, I’m comin]!” Dumbly, you continue to stare in awe at this figure. “(text-colour:#4dabf7)[Yah kids may be a bit brain dead eh? Not wise steppin’ along here. Less yer lookin’ to be part of the scenery yerselves].” The ghost moved forward floating through them. Leaving you with an unpleasant frigid chill as the stableman sets down the two items he had. “(text-colour:#4dabf7)[But since yer here, guess you’ve come lookin’ for some help. Yer lucky… I might be the only one around here that isn’t wantin’ to make yer life hell].”
 
-Slowly you come to realize that this ghost isn’t actually bad. “Though, I can’t exactly let yah leave now either. We’ve got a bit of a problem here. You’ve gotta do somethin’ for me. Part of them rules, yah know.”
+Slowly you come to realize that this ghost isn’t actually bad. “(text-colour:#4dabf7)[Though, I can’t exactly let yah leave now either. We’ve got a bit of a problem here. You’ve gotta do somethin’ for me. Part of them rules, yah know.]”
 
-Tim is still on the fritz so you decide to ask what he means. “Rules. Yah entered Calloway Manor, you’ve gotta join us here in eternal hell or figure out some way to calm them ragin’ moods of the manor owner themselves. Just well… I can’t tell yah how. Rules… hmm.” Taking a pitchfork seemingly out of thinair, the man starts hefting ghostly bits of straw into one of the horses&#39; stalls. Which you’re a little confused about because the horses look plenty alive to you!
+Tim is still on the fritz so you decide to ask what he means. “(text-colour:#4dabf7)[Rules. Yah entered Calloway Manor, you’ve gotta join us here in eternal hell or figure out some way to calm them ragin’ moods of the manor owner themselves. Just well… I can’t tell yah how. Rules… hmm].” Taking a pitchfork seemingly out of thin air, the man starts hefting ghostly bits of straw into one of the horses&#39; stalls. Which you’re a little confused about because the horses look plenty alive to you!
 
-“So what’s it guna be, kids?”
+“(text-colour:#4dabf7)[So what’s it guna be, kids]?”
 &lt;div class=&quot;option-wrapper&quot;&gt;
 &lt;center&gt;page 2/2&lt;/center&gt;[[Previous Page|Stables]]
 (if:$silverbridle)[[[Offer Silver Bridle|Silver Bridle]]](else:)[[[Play the Game|Horsing Around]]]
 [[Leave|Running is not an Option]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="97" name="Horsing Around" tags="" position="5600,4100" size="100,100">(set: $horsingCorrect to 0)
-[“We’ll make this quick. No one likes anticipation, hmm.” The man reaches up to pet the nose of the one horse. A dark chestnut colour with a long white stripe down its face. “You’ll just have to answer some questions for me, alright. If yah get the majority right, then yah can go. But if yah get them wrong—” He trailed off, looking over his shoulder at the pair of you. Having no reason to actually detail the fact that if you messed up, well… you’d be likely stuck here forever.
+[“(text-colour:#4dabf7)[We’ll make this quick. No one likes anticipation, hmm.]” The man reaches up to pet the nose of the one horse. A dark chestnut colour with a long white stripe down its face. “(text-colour:#4dabf7)[You’ll just have to answer some questions for me, alright. If yah get the majority right, then yah can go. But if yah get them wrong—]” He trailed off, looking over his shoulder at the pair of you. Having no reason to actually detail the fact that if you messed up, well… you’d be likely stuck here forever.
 
 It had no appeal to you. This place was hell and honestly, you want to leave sooner than later.
 
-“Let’s just get this started hmm.” Rolling shoulders and cracking fingers, the ghost turns towards you both. Inching a bit closer but makes no effort to suddenly grab you –if you were afraid of that.
+“(text-colour:#4dabf7)[Let’s just get this started hmm.]” Rolling shoulders and cracking fingers, the ghost turns towards you both. Inching a bit closer but makes no effort to suddenly grab you –if you were afraid of that.
 
-“This here is Lyrikai.” He pointed to the horse, “She wants to be groomed but I need a brush that has stiff bristles that will remove dead hair, dirt and whatever else sort of nonsense she has up in her coat. I want to know what the brush is called for that.” And he points to you, “Yer up, kid.”
+“(text-colour:#4dabf7)[This here is Lyrikai.]” He pointed to the horse, “(text-colour:#4dabf7)[She wants to be groomed but I need a brush that has stiff bristles that will remove dead hair, dirt and whatever else sort of nonsense she has up in her coat. I want to know what the brush is called for that.]” And he points to you, “(text-colour:#4dabf7)[Yer up, kid.]”
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [Dandy Brush]&lt;correctbrush|
 [Happy Brush]&lt;brush|
@@ -2003,7 +1992,7 @@ It had no appeal to you. This place was hell and honestly, you want to leave soo
 
 (click: ?correctbrush)[
 	(replace: ?question1)[
-[Without a pause, the master continues. Pointing to the next stall and horse inside. Noting that this equine seems to be splattered with paint. Favouring black and white with one eye that was rather blue. It’s a bit unnerving but the horse itself doesn’t seem to care. Just that it&#39;s impatient.  “Now with Astaroth here, I’ve gotta work on his hooves. But I need to shape them up real nice, so I need a specific tool for that. But it has a name, so what it is?”
+[Without a pause, the master continues. Pointing to the next stall and horse inside. Noting that this equine seems to be splattered with paint. Favouring black and white with one eye that was rather blue. It’s a bit unnerving but the horse itself doesn’t seem to care. Just that it&#39;s impatient.  “(text-colour:#4dabf7)[Now with Astaroth here, I’ve gotta work on his hooves. But I need to shape them up real nice, so I need a specific tool for that. But it has a name, so what it is?]”
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [Horse Wasp]&lt;tool|
 [Horse Rasp]&lt;correcttool|
@@ -2016,7 +2005,7 @@ It had no appeal to you. This place was hell and honestly, you want to leave soo
   
 (click: ?brush)[
 	(replace: ?question1)[
-[Without a pause, the master continues. Pointing to the next stall and horse inside. Noting that this equine seems to be splattered with paint. Favouring black and white with one eye that was rather blue. It’s a bit unnerving but the horse itself doesn’t seem to care. Just that it&#39;s impatient.  “Now with Astaroth here, I’ve gotta work on his hooves. But I need to shape them up real nice, so I need a specific tool for that. But it has a name, so what it is?”
+[Without a pause, the master continues. Pointing to the next stall and horse inside. Noting that this equine seems to be splattered with paint. Favouring black and white with one eye that was rather blue. It’s a bit unnerving but the horse itself doesn’t seem to care. Just that it&#39;s impatient.  “(text-colour:#4dabf7)[Now with Astaroth here, I’ve gotta work on his hooves. But I need to shape them up real nice, so I need a specific tool for that. But it has a name, so what it is?]”
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [Horse Wasp]&lt;tool|
 [Horse Rasp]&lt;correcttool|
@@ -2030,7 +2019,7 @@ It had no appeal to you. This place was hell and honestly, you want to leave soo
 	(replace: ?question2)[
 [The man seems to consider your response but shrugs. Not exactly showing if you are right or wrong. Which seems to make Tim grumble under his breath. Saying that this seemed rigged. Still, the ghost hasn’t done anything bad to either of you, so you’re holding on that you have answered correctly so far.
 
-As he outstretches his hand to reach and scratch at the ear of a palomino. It was taller than the rest but seemed to be the one that favoured attention the most. “Kroyote loves to go trotting about the yard with its tact all on. Fanciest stuff yah may ever see and they favour the western style saddle. But I need to do up one more strap, that goes over their belly near the back of the saddle. Do yah know what strap needs to be tightened to finish their tact?”
+As he outstretches his hand to reach and scratch at the ear of a palomino. It was taller than the rest but seemed to be the one that favoured attention the most. “(text-colour:#4dabf7)[Kroyote loves to go trotting about the yard with its tact all on. Fanciest stuff yah may ever see and they favour the western style saddle. But I need to do up one more strap, that goes over their belly near the back of the saddle. Do yah know what strap needs to be tightened to finish their tact?]”
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [Back Billet]&lt;strap|
 [Flank Billet]&lt;strap|
@@ -2046,7 +2035,7 @@ As he outstretches his hand to reach and scratch at the ear of a palomino. It wa
 	(replace: ?question2)[
 The man seems to consider your response but shrugs. Not exactly showing if you are right or wrong. Which seems to make Tim grumble under his breath. Saying that this seemed rigged. Still, the ghost hasn’t done anything bad to either of you, so you’re holding on that you have answered correctly so far.
 
-As he outstretches his hand to reach and scratch at the ear of a palomino. It was taller than the rest but seemed to be the one that favoured attention the most. “Kroyote loves to go trotting about the yard with its tact all on. Fanciest stuff yah may ever see and they favour the western style saddle. But I need to do up one more strap, that goes over their belly near the back of the saddle. Do yah know what strap needs to be tightened to finish their tact?”
+As he outstretches his hand to reach and scratch at the ear of a palomino. It was taller than the rest but seemed to be the one that favoured attention the most. “(text-colour:#4dabf7)[Kroyote loves to go trotting about the yard with its tact all on. Fanciest stuff yah may ever see and they favour the western style saddle. But I need to do up one more strap, that goes over their belly near the back of the saddle. Do yah know what strap needs to be tightened to finish their tact?]”
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [Back Billet]&lt;strap|
 [Flank Billet]&lt;strap|
@@ -2076,13 +2065,13 @@ As he outstretches his hand to reach and scratch at the ear of a palomino. It wa
 ]
 </tw-passagedata><tw-passagedata pid="98" name="Running is not an Option" tags="" position="5925,4050" size="100,100">Immediately features draw up into a tight scowl. Crossing arms over another as you decide to stand your ground! At this point, you’re both tired. Cranky and want to leave this place! Stating rather loudly that it would just be easier for this ghost to simply let you guys out! Evidently no one wants trouble but you’re also at your wits end. Being badgered, harassed and tormented seemingly all night long, really does make people irritable!
 
-Slowly the stablemaster turns to look at you both. Brows are knitted together with cautionary glint in his eye. “I beg yer pardon?” His tone suggests that what you just said, wasn’t the right answer. Still, you aren’t about to relent. Knuckling down to express a bit louder that you and Tim want to go home.
+Slowly the stablemaster turns to look at you both. Brows are knitted together with cautionary glint in his eye. “(text-colour:#4dabf7)[I beg yer pardon?]” His tone suggests that what you just said, wasn’t the right answer. Still, you aren’t about to relent. Knuckling down to express a bit louder that you and Tim want to go home.
 
 (text-style:&quot;emboss&quot;)[&#39;&#39;Now&#39;&#39;].
 
 The stables go eerily quiet at that  moment. As if telling you that you’ve made a mistake. One that was going to be quite costly.
 
-The ghost who had been so pleasant thus far turns sharply upon you. A face no longer genteel but tired, is present. Rather the stableman has two glowing red spots for where his eyes ought to be. Consumed by shadows of darkness as he moves ungodly fast upon you. Even before you can scream, pain blooms in your belly. “Ain’t yer momma teach yah any manners, kid?” The spirit hisses as the beasts of burden start to surround the man’s flanks. Manes of flame and eyes of embers upon withered skulls, Tim begins to panic. While you feel the twist of insides being bent around the tings of the pitchfork the ghost stabbed you with. “Seems like the two of yah outta be taught some.”
+The ghost who had been so pleasant thus far turns sharply upon you. A face no longer genteel but tired, is present. Rather the stableman has two glowing red spots for where his eyes ought to be. Consumed by shadows of darkness as he moves ungodly fast upon you. Even before you can scream, pain blooms in your belly. “(text-colour:#4dabf7)[Ain’t yer momma teach yah any manners, kid?]” The spirit hisses as the beasts of burden start to surround the man’s flanks. Manes of flame and eyes of embers upon withered skulls, Tim begins to panic. While you feel the twist of insides being bent around the tings of the pitchfork the ghost stabbed you with. “(text-colour:#4dabf7)[Seems like the two of yah outta be taught some.]”
 
 In a manner of seconds, Tim’s screams are silent as the sound of gray matter squishes under galloping hooves. While you are thrown down to the floor to watch in your last seconds the plunge of pitchfork spearing into your eyes.
 
@@ -2095,13 +2084,13 @@ Just the seconds tick on agonizingly slow before the man of a ghostly appearance
 
 “You did it?” Tim is clearly shocked, “You… You did it $name!? I.. I can’t believe you did it!” Without any chill, Tim grabs you by both shoulders. Shaking you as he bounces around wildly with a hoot and a holler that you’ve managed to answer the questions correctly enough to avoid certain death!
 
-“Well now that yah done proven yerself, take that shovel. It’s yer reward. Plus,” The man taps his head, “Yer guna need it.” It seems he is trying to tell you something important about the shovel though you aren’t exactly sure why. Yet, are you really going to concern  yourself over such semantics? “Go on now, don’t be standing there wide eyed and tongue hangin’. Yah wanna get out of this place, dontcha? Well…” he makes a motion with his hand to insist that you best be taking the shovel. Never mind the fact that you are a little confused to how a ghostly shovel will be of use. However, you aren’t in the mood to start asking questions when it feels like this could tip suddenly over into bad territory.
+“(text-colour:#4dabf7)[Well now that yah done proven yerself, take that shovel. It’s yer reward. Plus,]” The man taps his head, “(text-colour:#4dabf7)[Yer guna need it.]” It seems he is trying to tell you something important about the shovel though you aren’t exactly sure why. Yet, are you really going to concern  yourself over such semantics? “(text-colour:#4dabf7)[Go on now, don’t be standing there wide eyed and tongue hangin’. Yah wanna get out of this place, dontcha? Well…]” he makes a motion with his hand to insist that you best be taking the shovel. Never mind the fact that you are a little confused to how a ghostly shovel will be of use. However, you aren’t in the mood to start asking questions when it feels like this could tip suddenly over into bad territory.
 
 So you nod. Stepping over to where the item stood against the side of the stall and find that immediately when you touch it, the shovel becomes solid.
 
 “Whooooa.”  This was certainly no shoddy parlour tick. “Oh man, are we going to have to lug this thing around.” Tim suddenly realizes that he isn’t a fan of carrying the shovel, but it seems to invite the ghost to speak up once more.
 
-“Keep yer eyes open. Where you need that is pretty close by.” He taps his head then as if to imply that its use is near and not required to carry around.
+“(text-colour:#4dabf7)[Keep yer eyes open. Where you need that is pretty close by.]” He taps his head then as if to imply that its use is near and not required to carry around.
 
 Actually that’s a really good thing to note and you thank the ghost for his insight. Watching as he gives you a rather content nod before pointing out the door. Indicating that it was time to leave. Which you both decide it’s probably smart to take! With a quick wave and a trot to the open door of the barn with your new item, Tim sighs. “Guess we gotta go back the way we came.”
 
@@ -2112,11 +2101,11 @@ It would seem so.
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Garden]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="100" name="Stable Failure" tags="" position="5775,4250" size="100,100">A strong pause is given as you feel you’ve accomplished all the answers rather successfully. That is until the stablemaster starts clicking his tongue. Shaking his head in a slow back and forth, “Maybe it may have been better for the pair of yah to do some scroungin’ around inside first before comin’ here.” What the hell was that supposed to mean!? “I’m sorry kids. I truly am.”
+</tw-passagedata><tw-passagedata pid="100" name="Stable Failure" tags="" position="5775,4250" size="100,100">A strong pause is given as you feel you’ve accomplished all the answers rather successfully. That is until the stablemaster starts clicking his tongue. Shaking his head in a slow back and forth, “(text-colour:#4dabf7)[Maybe it may have been better for the pair of yah to do some scroungin’ around inside first before comin’ here.]” What the hell was that supposed to mean!? “(text-colour:#4dabf7)[I’m sorry kids. I truly am.]”
 
-He looks at you both with a deep sense of remorse and you feel your stomach turn to liquid. Not because of the stablemaster but because the horses no longer look like horses. Long faces begin to melt into grisly shapes of skulls. Eye sockets illuminated with flares of haunting red as bodies move through the boards that are intended to keep them in their stocks. “W-what is happening?” Tim stumbles trying to backpedal. “Did… did we answer wrong?”
+He looks at you both with a deep sense of remorse and you feel your stomach turn to liquid. Not because of the stablemaster but because the horses no longer look like horses. Long faces begin to melt into grisly shapes of skulls. Eye sockets illuminated with flares of haunting red as bodies move through the boards that are intended to keep them in their stocks. “(text-colour:#4dabf7)[W-what is happening?]” Tim stumbles trying to backpedal. “(text-colour:#4dabf7)[Did… did we answer wrong?]”
 
-“I’m sorry.” The master speaks again before you try to turn around to make a mad run to the barn door! Grabbing feebly at Tim’s hand when he offers it only that you are swarmed promptly by the monstrous creatures that once were fair equine’s. Now turned into ghastly renderings of their former selves, Tim screams as one stomps down with bone hooves. Crushing back under its weight as you stumble and sprawl across the concrete floor. Barely turning over to see a hoof come down to crush that of your skull.
+“(text-colour:#4dabf7)[I’m sorry.]” The master speaks again before you try to turn around to make a mad run to the barn door! Grabbing feebly at Tim’s hand when he offers it only that you are swarmed promptly by the monstrous creatures that once were fair equine’s. Now turned into ghastly renderings of their former selves, Tim screams as one stomps down with bone hooves. Crushing back under its weight as you stumble and sprawl across the concrete floor. Barely turning over to see a hoof come down to crush that of your skull.
 
 You may have answered the questions wrong. Just a hunch.
 
@@ -2128,22 +2117,25 @@ You may have answered the questions wrong. Just a hunch.
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="101" name="Silver Bridle" tags="" position="5925,4250" size="100,100">(if: $silverbridle is true)[
 A thought comes back to you. Suddenly dancing in one spot as you recklessly ramble on about something entirely nonsense, causing the ghost to give you a questionable look and Tim just sort of gawping at you like you sprouted hours. Flaring frustration to step behind Tim to open the backpack! “H-hey!”
 
-Without pause, you rifle around before grabbing the silver bridle that you both found in the Library! Tugging it out to hold up to the stable master. Watching as his ghostly image stares hard one moment and softens next. “Well I’ll be,” His vaporous pitchfork is released to disappear into thin air again, making a motion that he wants you to give him the bridle. Momentarily you hug it close, narrowing your eyes. Pointing out you aren’t that willing to give it up unless he is willing to let you guys out of here! The whole manor, you insist. Not just the barn.
-“I can’t give yah the passage out. Just not in them cards. But… I can give yah my shovel. And tell yah it’s important for yah. If you want to get out that is. Alive.”
+Without pause, you rifle around before grabbing the silver bridle that you both found in the Library! Tugging it out to hold up to the stable master. Watching as his ghostly image stares hard one moment and softens next. “(text-colour:#4dabf7)[Well I’ll be,]” His vaporous pitchfork is released to disappear into thin air again, making a motion that he wants you to give him the bridle. Momentarily you hug it close, narrowing your eyes. Pointing out you aren’t that willing to give it up unless he is willing to let you guys out of here! The whole manor, you insist. Not just the barn.
+
+“(text-colour:#4dabf7)[I can’t give yah the passage out. Just not in them cards. But… I can give yah my shovel. And tell yah it’s important for yah. If you want to get out that is. Alive.]”
 
 With time to think, Tim managed to find his voice again. “What do you mean, it’s important. It’s a shovel.”
 
-See through fingers inch to insist he wants the bridle, “If yah give me the bridle, I’ll give you the shovel. No tests or games necessary. And even tell yah, that yer not far from where the shovel would be useful. So, how’s that for a deal?”
+See through fingers inch to insist he wants the bridle, “(text-colour:#4dabf7)[If yah give me the bridle, I’ll give you the shovel. No tests or games necessary. And even tell yah, that yer not far from where the shovel would be useful. So, how’s that for a deal?]”
 
-You aren’t sure about this. But at this point, what are you sure about? So you ask. Can he guarantee that you’ll be able to get out of here at all? Deciding to push your luck seeing as the stablemaster hasn’t been aggressive towards you both. With a thought, do you really want to see whether or not he is going to switch that mentality. Still, he is thinking. Rubbing his chin for a long moment before shrugging. “If yah can find the important bits throughout the whole manor and yard, you’ll get out. But yah need more than just a few things. It’s all I can tell yah. Wish I could help yah out more but rules.”
+You aren’t sure about this. But at this point, what are you sure about? So you ask. Can he guarantee that you’ll be able to get out of here at all? Deciding to push your luck seeing as the stablemaster hasn’t been aggressive towards you both. With a thought, do you really want to see whether or not he is going to switch that mentality. Still, he is thinking. Rubbing his chin for a long moment before shrugging. “(text-colour:#4dabf7)[If yah can find the important bits throughout the whole manor and yard, you’ll get out. But yah need more than just a few things. It’s all I can tell yah. Wish I could help yah out more but rules].”
 
 Rules, rules…
 
-You sigh with a low fine, before giving the man the bridle. Watching it turn from something physical to ethereal. Mentally messing with your brain a moment, but consider how the man looks at the bridle. Smiling softly with a sense of nostalgia. “Right.” He clears his throat to pick up the shovel. Offering it to you with a few insistent shakes of hand. “Yah both best be careful. Make sure yah be usin’ the shovel first before yah get too ambitious now. Go on, less I have to change my mind and do some thing’s none of us guna like.”
+You sigh with a low fine, before giving the man the bridle. Watching it turn from something physical to ethereal. Mentally messing with your brain a moment, but consider how the man looks at the bridle. Smiling softly with a sense of nostalgia. 
+
+“(text-colour:#4dabf7)[Right].” He clears his throat to pick up the shovel. Offering it to you with a few insistent shakes of hand. “(text-colour:#4dabf7)[Yah both best be careful. Make sure yah be usin’ the shovel first before yah get too ambitious now. Go on, less I have to change my mind and do some thing’s none of us guna like.]”
 
 “I think we should go.” Tim insists that it might be best to lean on whatever generosity this was! So you take the shovel, once more watching it change from ghostly to physical in your hand. Momentarily in awe before the stablemaster shoo’s at you.
 
-“Be safe now.”
+“(text-colour:#4dabf7)[Be safe now.]”
 
 What a weird thing for a ghost to say!
 &lt;center&gt;&lt;img class=&quot;img-margin&quot; src=&quot;https://retro-dragon.com/calloway-manor/images/shovel.png&quot; width=&quot;500&quot; /&gt;&lt;/center&gt;
@@ -2208,13 +2200,13 @@ Gesturing for this faceless freak to get this stupid game started!
 
 
 &lt;center&gt;page 2/2&lt;/center&gt;[[Previous Page|Trade Places]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="104" name="Wrong - Tim" tags="" position="625,3200" size="100,100">There is a falter in your confidence as you answer. Nervously raising your eyes up to the portraits as they loom ever more within their frames. They aren’t laughing now. Rather they seem to be waiting in tense excitement as the specter&#39;s head suddenly begins to twitch. Subtle motions at first but then start violently jangling back and forth! Convulsing with a splutter of pain erupting from its crooked mouth as a face… (text-style:&quot;tall&quot;)[a face] begins to form on its surface.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="104" name="Wrong - Tim" tags="" position="625,3200" size="100,100">There is a falter in your confidence as you answer. Nervously raising your eyes up to the portraits as they loom ever more within their frames. They aren’t laughing now. Rather they seem to be waiting in tense excitement as the specter&#39;s head suddenly begins to twitch. Subtle motions at first but then start violently jangling back and forth! Convulsing with a splutter of pain erupting from its crooked mouth as… (text-style:&quot;tall&quot;)[a face] begins to form on its surface.
 
 And you are left with a glaring horror that the image that appears, is Tim’s exact copy. His eyes have been plucked from his head, stretching the skin from sockets to droop into a gaping hole. “$name…” It cries out in a slow sigh as you feel a hand crawling up your arm.
 
-A cold sweat puckers as you try to will make yourself look towards where the real Tim had been standing. Unable to do so, left to watch the gradual rendering of your best friend&#39;s face upon the specter&#39;s skull. Eyes of vermillion stare at you with irises far too small to be considered human as the mouth is splitting the whole of his head in half. Jaw cracking as you let out a shrill scream as this thing lunges at you!
+A cold sweat puckers as you try to will yourself to look towards where the real Tim had been standing. Unable to do so, left to watch the gradual rendering of your best friend&#39;s face upon the specter&#39;s skull. Eyes of vermillion stare at you with irises far too small to be considered human as the mouth  splits the whole of his head in half. Jaw cracking as you let out a shrill scream as this thing lunges at you!
 
-Taking you both to the floor where pain erupts and red explodes into your vision. Feeling teeth gnawing at your own skull as the portraits resume their hellish giggling and the tortured creature that traded places with Tim, screams out for you.
+Taking you both to the floor where pain erupts and red explodes into your vision. Feeling teeth gnawing at your skull as the portraits resume their hellish giggling and the tortured creature that traded places with Tim, screams out for you.
 
 (text-colour:red)[&#39;&#39;SMILE FOR THE CAMERA! END 12 of 17&#39;&#39;]
 &lt;div class=&quot;option-wrapper&quot;&gt;
@@ -2226,13 +2218,13 @@ A little too late for that, now wasn’t it!
 
 Arms droop a little on your nasty looking host before its entire head becomes a vicious grin. Offering no cackling –leaving that to the damn portraits seeing as they were having a grand time!
 
-As you try to think of some way to correct this mistake, a sharp pain bursts into your head. Forcing you to grab at your skull as it might split open like an egg at any second. Grunting and hissing through teeth as you stumble backwards to flop over onto the floor, a momentary peek through squinted eyes has you staring at Tim’s face. Fading out of sight before a blink has you looking at the back of his head. Just… just he is still leaning over you.
+As you try to think of some way to correct this mistake, a sharp pain bursts into your head. Forcing you to grab at your skull as if it might split open like an egg at any second. Grunting and hissing through teeth as you stumble backwards to flop onto the floor, a momentary peek through squinted eyes has you staring at Tim’s face. Fading out of sight before a blink has you looking at the back of his head. Just… just he is still leaning over you.
 
 Watching your body convulse, he’s screaming your name over and over. Leaving you with a horrible dread that you can’t seem to speak! Only that when it feels like you have a voice, a bloody scream tears through the room!
 
 (text-style:&quot;expand&quot;)[All you can do is watch!]
 
-Watch as your own body leaps forward. Biting onto Tim’s face with an inhuman spread of mouth as the dawning disgust and morbid terror comes to realization. You’ve traded places with the specter and now… it was going to live in your body! Using your best friend as a snack before it did what? Escaped this manor to eat others!
+Watch as your own body leaps forward. Biting onto Tim’s face with an inhuman spread of mouth as the dawning disgust and morbid terror comes to realization. You’ve traded places with the specter and now… it was going to live in your body! Using your best friend as a snack before it did what? Escaped this manor to eat others?!
 
 What did you do!
 
@@ -2243,7 +2235,7 @@ What did you do!
 
 Stealing a peek upwards at the damn council of haunting portraits, you’re suddenly grabbing Tim by the arm. Hastily tugging with a point upwards. Bidding him to look up and see that, “They’re gone.” Breathlessly Tim points out that the portraits are no longer housing cackling hyena’s. Every single one of them is entirely black. No faces, no eyes, no grins! As if someone had painted over them.
 
-You may have wanted to breathe a sigh of relief but the wight itself is still present. Its mouth is narrowed almost into a pout. It didn’t even really have shoulders but its cloth looked as though it was drooped in disappointment.
+You may have wanted to breathe a sigh of relief but the wight is still present. Its mouth is narrowed almost into a pout. It didn’t even really have shoulders but its cloth looked as though it was drooped in disappointment.
 
 It makes a gesture at you that opens the door behind and something falls down from the ceiling. Where it came from you aren’t sure, but it seems that the book that flopped on the ground might be useful.
 
@@ -2303,13 +2295,13 @@ You are its prisoners now, and you don’t think there’s anyone coming to resc
 (track: &#39;heartbeat&#39;, &#39;play&#39;)</tw-passagedata><tw-passagedata pid="109" name="Master Pg2" tags="" position="2275,5725" size="100,100">
 (text-style:&quot;smear&quot;)[(text-style:&quot;sway&quot;)[//Hush little baby don’t say a word… Momma’s gonna buy you a mockingbird…//] ]
 
-Tim’s face turns stark white, and with shaking finger he points to a specter across the room that you swear wasn’t there a moment ago. It’s clearly female, and in slow languid motion it brushes through long unbound hair that hides her face from view. Again, it sings. 
+Tim’s face turns stark white, and with a shaking finger he points to a specter across the room that you swear wasn’t there a moment ago. It’s clearly female, and in slow languid motions, it brushes through long unbound hair that hides her face from view. Again, it sings. 
 
 (text-style:&quot;smear&quot;,&quot;sway&quot;)[//And if that mockingbird don’t sing… Momma’s gonna squeeze it till it’s head goes, spring.//] 
 
-A soft little cackle makes your blood run cold. Any hope that this might be a nice ghost goes flying right out the nearest window… along with that poor mockingbird’s head! Tim and you creep toward the nearest table to hide beneath, keeping you out of sight for the time being. However, as Tim tries to crawl under there with you, his head smacks against the wood, and a book bounces and hits the ground with a unnecessarily loud flop.
+A soft little cackle makes your blood run cold. Any hope that this might be a nice ghost goes flying right out the nearest window… along with that poor mockingbird’s head! Tim and you creep toward the nearest table to hide beneath, keeping you out of sight for the time being. However, as Tim tries to crawl under there with you, his head smacks against the wood, and a book bounces hitting the ground with a unnecessarily loud flop.
 
-The ghost’s head jerks around. Fully around. Twisting upon its neck like she’s more owl than human! “(text-style:&quot;subscript&quot;)[(text-style:&quot;superscript&quot;)[Oh god oh god oh god, oh god]]–!” Tim whispers under his breath as you take a glimpse down at that book just beyond the safety of the little table cloth aiding to conceal you. 
+The ghost’s head jerks around. Fully around. Twisting upon its neck like she’s more owl than human! “(text-style:&quot;subscript&quot;)[(text-style:&quot;superscript&quot;)[Oh god oh god oh god, oh god]]–!” Tim whispers under his breath as you take a glimpse at that book just beyond the safety of the little tablecloth aiding to conceal you. 
 
 &lt;center&gt;page 2/2&lt;/center&gt;[[Previous Page|Master Bedroom]]
 
@@ -2348,7 +2340,7 @@ The table you are hiding beneath is suddenly lobbed and crashes into the ground!
 &lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="112" name="Forward" tags="" position="2075,6050" size="100,100">The ghost giggles wholesomely, backing up a bit to give you a little breathing room, but still the way her eyes are stuck on you makes your heart pound– and not in a good way!! 
 
-“(text-style:&quot;smear&quot;,&quot;sway&quot;)[Then perhaps you may be pleasant company,]” she fathoms and releases a hand behind her back to fluff her unruly hair over a shoulder, as one might do to assure their appearance was comely for one they admired. “(text-style:&quot;smear&quot;,&quot;sway&quot;)[So humor me for awhile longer, won’t you]?” You don’t think you have any room to disagree, and hear Tim gulp loudly beside you. With a mere motion made by her hand, three chairs are summoned. They float and settle on the rug, and by no movement of your own, both you and Tim are settled upon the seat while the ghost lady perches daintily upon the edge of her own. 
+“(text-style:&quot;smear&quot;,&quot;sway&quot;)[Then perhaps you may be pleasant company,]” She fathoms and releases a hand behind her back to fluff her unruly hair over a shoulder, as one might do to assure their appearance was comely for one they admired. “(text-style:&quot;smear&quot;,&quot;sway&quot;)[So humor me for awhile longer, won’t you]?” You don’t think you have any room to disagree, and hear Tim gulp loudly beside you. With a mere motion made by her hand, three chairs are summoned. They float and settle on the rug, and by no movement of your own, both you and Tim are settled upon the seat while the ghost lady perches daintily upon the edge of her own. 
 
 “(text-style:&quot;smear&quot;,&quot;sway&quot;)[Now tell me, if you were to take me somewhere nice, where would it be]?” She gives you a couple options to choose from at the very least. 
 &lt;div class=&quot;option-wrapper&quot;&gt;
@@ -2365,7 +2357,7 @@ The table you are hiding beneath is suddenly lobbed and crashes into the ground!
 
 [[A sunflower|END]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="114" name="Forward2" tags="" position="2075,6300" size="100,100">Once more there are tinkling giggles in the air, and you breathe out a sigh of relief that you’ve managed to at least make her happy rather than vengeful! “(text-style:&quot;smear&quot;,&quot;sway&quot;)[Such a sweet thing you are! But I do believe I’ve taken enough of your time. Just one final question then].” Awww man, you thought you were done!! “(text-style:&quot;smear&quot;,&quot;sway&quot;)[If you were to write me a sweet letter to win my heart, how would you prepare it]?” Oh, um… well, this was an easy one! You would simply: 
+</tw-passagedata><tw-passagedata pid="114" name="Forward2" tags="" position="2075,6300" size="100,100">Once more there are tinkling giggles in the air, and you breathe out a sigh of relief that you’ve managed to make her happy rather than vengeful! “(text-style:&quot;smear&quot;,&quot;sway&quot;)[Such a sweet thing you are! But I do believe I’ve taken enough of your time. Just one final question then].” Awww man, you thought you were done!! “(text-style:&quot;smear&quot;,&quot;sway&quot;)[If you were to write me a love letter to win my heart, how would you prepare it]?” Oh, um… well, this was an easy one! You would simply: 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 [[Use ornamented paper, write in red ink, and pack it in an envelope sealed with black wax.|END]]
 
@@ -2373,9 +2365,9 @@ The table you are hiding beneath is suddenly lobbed and crashes into the ground!
 
 [[Use plain paper, write in pretty red ink, and pack it in an envelope with a red wax seal.|END]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="115" name="Forward3" tags="" position="2075,6425" size="100,100">“(text-style:&quot;smear&quot;,&quot;sway&quot;)[//Oh if I weren’t already married,//]” the feminine specter laments, but gives you both a broad smile. “(text-style:&quot;sway&quot;)[//Truly I am grateful to have had your company. And even more glad I didn’t have to make a mess of my floor with &#39;&#39;this&#39;&#39;//].” She waves her hand in the air, summoning a wicked looking axe to hover beside her!! Tim nearly faints in his chair, leaving you to watch as she unceremoniously tosses it at the floor between you. The sharp head of the axe thunks into the wood, sticking the landing to leave it standing there in the middle. It’s a grim reminder that you best tread carefully till you are plenty far away from this psycho love-sick ghost!! 
+</tw-passagedata><tw-passagedata pid="115" name="Forward3" tags="" position="2075,6425" size="100,100">“(text-style:&quot;smear&quot;,&quot;sway&quot;)[//Oh if I weren’t already married,//]” the feminine specter laments, but gives you both a broad smile. “(text-style:&quot;smear&quot;)[(text-style:&quot;sway&quot;)[//Truly I am grateful to have had your company. And even more glad I didn’t have to make a mess of my floor with &#39;&#39;this&#39;&#39;//]].” She waves her hand in the air, summoning a wicked looking axe to hover beside her!! Tim nearly faints in his chair, leaving you to watch as she unceremoniously tosses it at the floor between you. The sharp head of the axe thunks into the wood, sticking the landing to leave it standing there in the middle. It’s a grim reminder that you best tread carefully till you are plenty far away from this psycho love-sick ghost!! 
 
-“(text-style:&quot;sway&quot;)[//Wait one moment, I’ve something for you both//].” You and Tim look beside yourselves, wondering if this is the moment you cut and run! But as soon as the ghost drifts off, she comes back toting a little iron key, floating above her fingers. “(text-style:&quot;smear&quot;,&quot;sway&quot;)[You may not know its use now, but believe when I say, it may help with your endeavors here.]” She drops the heavy iron key into your open palm, then flutters her fingers at the both of you. (text-style:&quot;smear&quot;,&quot;sway&quot;)[//“Now off you go. I doubt you would wish to be here when my husband arrives… &#39;&#39;(text-style:&quot;expand&quot;)[when I sever his head from his shoulders]&#39;&#39;!!”  //]
+“(text-style:&quot;smear&quot;)[(text-style:&quot;sway&quot;)[//Wait one moment, I’ve something for you both//].]” You and Tim look beside yourselves, wondering if this is the moment you cut and run! But as soon as the ghost drifts off, she comes back toting a little iron key, floating above her fingers. “(text-style:&quot;smear&quot;,&quot;sway&quot;)[You may not know its use now, but believe when I say, it may help with your endeavors here.]” She drops the heavy iron key into your open palm, then flutters her fingers at the both of you. (text-style:&quot;smear&quot;,&quot;sway&quot;)[//“Now off you go. I doubt you would wish to be here when my husband arrives… &#39;&#39;(text-style:&quot;expand&quot;)[when I sever his head from his shoulders]&#39;&#39;!!”  //]
 
 Her once pleasant visage turns horrific as her speech morphs into a demonic pitch. Her eye sockets are suddenly black pits, and her mouth unnaturally stretches into a broad malevolent smile full of sharp teeth!! You and Tim scream as you bolt from your chairs, and you hear the maniacal laughter fading as the door slams shut behind you.   
 
@@ -2392,20 +2384,20 @@ To the Left [[Bedroom|Bedroom 2]]
 Back to [[Main Floor]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="116" name="END" tags="" position="2275,6025" size="100,100">The ghost’s features drastically dip, and her eyes grow sharply pinched as though you’ve insulted her and her mother! She hovers swiftly up from her chair while you and Tim cower within yours. As though her pleasant features were a trick of the light, you now see the monster beneath, with black pits for eyes and a rabid mouth dribbling a dark liquid as her once porcelain skin cracks into dark webbed lines!! She snarls, and behind her dark lips are rows of demonic sharp teeth. 
 
-“(text-style:&quot;smear&quot;,&quot;tall&quot;,&quot;sway&quot;)[//&#39;&#39;HOW DARE YOU&#39;&#39;//]-!!” She roars, petrifying you and Tim with fright and stark confusion of how you managed to insult the spirit in such a way! “(text-style:&quot;smear&quot;,&quot;tall&quot;,&quot;sway&quot;)[&#39;&#39;Unworthy swine!!! I’ll teach you&#39;&#39;]!!!” She practically shrills like a banshee, rendering your vision blurry for a moment in time till it clears and you’re face to face with a vision from hell. The woman’s features turn into a wicked smile showing off the sharp teeth with a shiny wetness that looks like oil spilling from the corners. But a bit more pressing is the fact that she now has control of a vicious looking axe, reared back for a swing. 
+“(text-style:&quot;smear&quot;,&quot;tall&quot;,&quot;sway&quot;)[//&#39;&#39;HOW DARE YOU&#39;&#39;//]-!!” She roars, petrifying you and Tim with fright and stark confusion of how you managed to insult the spirit in such a way! “(text-style:&quot;smear&quot;,&quot;tall&quot;,&quot;sway&quot;)[&#39;&#39;Unworthy swine!!! I’ll teach you&#39;&#39;]!!!” She practically shrills like a banshee, rendering your vision blurry for a moment till it clears and you’re face to face with a vision from hell. The woman’s features turn into a wicked smile, showing off the sharp teeth housing a shiny wetness looking like oil spilling from the corners of her mouth. But a bit more pressing is the fact that she now has control of a vicious looking axe, reared back for a swing. 
 
-Perhaps you ought to count your blessings and that as the axe follows through; your heads to drop to the ground with a grand thunk, you’re no longer conscious. Not to bear witness to the dizzying roll of your heads onto the carpet or to see your own headless bodies still sitting in their chairs. Soon to slump and join your heads on the floor where your blood colors the once ornate rug, (text-colour:#c92a2a)[red]. 
+Perhaps you ought to count your blessings, that as the axe follows through and your heads drop to the ground with a grand thunk; you’re no longer conscious. Not to bear witness to the dizzying roll of your heads onto the carpet or to see your own headless bodies still sitting in their chairs. Soon to slump and join your heads on the floor where your blood colours the once ornate rug, (text-colour:#c92a2a)[red]. 
 
 (text-colour:red)[&#39;&#39;THIS AIN’T 1820, NO PUMPKIN HEAD FOR YOU! End 17 of 17_&#39;&#39;]
 &lt;div class=&quot;option-wrapper&quot;&gt;
 (link: &quot;Restart&quot;)[(reload:)]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="117" name="Attic 2" tags="" position="1150,2200" size="100,100">Then you feel your whole body pulse and suddenly it feels like it is below freezing in here! Tim feels it too and is suddenly brushing his hands over his sweatshirt sleeves for an entirely different reason now as he shivers and chatters his teeth. “Is this an attic or a freezer?!” You huff out a breath that turns white in the air, but no words come out of your mouth as you stare at one object in particular. 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="117" name="Attic 2" tags="" position="1150,2200" size="100,100">Then you feel your whole body pulse and suddenly it feels like it is below freezing in here! Tim feels it too and is suddenly brushing his hands over his sweatshirt sleeves for an entirely different reason. “Is this an attic or a freezer?!” You huff out a breath that turns white in the air, but no words come out of your mouth as you stare at one object in particular. 
 
-A long rectangular form sits propped against the wall, taller than you by a good couple feet. It calls to you. $name… It actually calls to you-!! You hear it in your head… it’s all around… it wants you to take off the sheet… 
+A long rectangular form sits propped against the wall, taller than you by a good couple feet. It calls to you. (text-colour:red)[(text-style:&quot;smear&quot;,&quot;buoy&quot;)[$name]]… It actually calls to you-!! You hear it in your head… it’s all around… it wants you to take off the sheet… 
 
-“$name… are you alright?” Tim’s voice snaps you out of whatever weird stupor you were in - and the voice seemed to have stopped too. Now it’s your turn to admit that you have a very bad feeling about this place. As though evil incarnate is lingering just behind that sheet. Your breath comes out in white little wisps as you try and wrap your brain around your next course of action. 
+“$name… are you alright?” Tim’s voice snaps you out of whatever weird stupor you were in - and the voice seemed to have stopped too. Now it’s your turn to admit that you have a very bad feeling about this place. As though evil incarnate is lingering just behind that sheet. Your breath comes out in little wisps as you try and wrap your brain around your next course of action. 
 
-You can leave right now while you still can and go back to the dining room or you can take off that sheet to see what lies beyond. 
+You can leave right now while you still can and go back to the attic hallway or you can take off that sheet to see what lies beyond. 
 &lt;div class=&quot;option-wrapper&quot;&gt;
 &lt;center&gt;page 2/2&lt;/center&gt;[[Previous Page|Attic]]
 
@@ -2460,7 +2452,7 @@ What horror did you unleash… and what could you have done to stop it.
 (text-colour:red)[&#39;&#39;NIGHTMARE ON CALLOWAY STREET! END 16 of 17&#39;&#39;]
 (link: &quot;Restart&quot;)[(reload:)]
 (track: &#39;evillaugh&#39;, &#39;play&#39;)
-&lt;center&gt;page 2/2&lt;/center&gt;[[Previous Page|Sheet]]</tw-passagedata><tw-passagedata pid="120" name="TRUE" tags="" position="1275,1700" size="100,100">You feel uneasy, but there’s also a valiance rising in your chest that is telling you this must be done! Something important lies beyond, and while you have no concrete evidence that this will aid in your escape… you feel like this is the right thing to do. Your hand rips off the sheet in a dramatic flurry of dust, and what rests beyond is a tall stretch of silvery glass. You stare into it. At your reflection and Tim standing behind you. His mouth moves. You can’t hear him. All you hear is a soft beckon that is pulling you toward the glass like the opposite sides to a magnetic. 
+&lt;center&gt;page 2/2&lt;/center&gt;[[Previous Page|Sheet]]</tw-passagedata><tw-passagedata pid="120" name="TRUE" tags="" position="1275,1700" size="100,100">You feel uneasy, but there’s also a valiance rising in your chest that is telling you this must be done! Something important lies beyond, and while you have no concrete evidence that this will aid in your escape… you feel like this is the right thing to do. Your hand rips off the sheet in a dramatic flurry of dust, and what rests beyond is a tall stretch of silvery glass. You stare into it. At your reflection and Tim standing behind you. His mouth moves. You can’t hear him. All you hear is a soft beckon that is pulling you toward the glass like the opposite sides of a magnetic. 
 
 (text-colour:red)[(text-style:&quot;smear&quot;,&quot;buoy&quot;)[//&quot;(text-style:&quot;subscript&quot;)[(text-style:&quot;superscript&quot;)[$name]]…$name. No need to be afraid. Come closer…&quot;//]]
 
@@ -2483,7 +2475,7 @@ Not a chance. You drift the smoking sage in front of both you and Tim to keep yo
 &lt;center&gt;page 1/2&lt;/center&gt;[[Next Page|True2]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="121" name="True2" tags="" position="1125,1700" size="100,100">“Master Harland Calloway, now is the time for eternal rest. Ashes to ashes, dust to dust. May the wind blow you, wandering ghost! Clear the world of the living. Return to where you belong!” 
 
-You urge Tim to continue. Whatever he’s doing, it seems to be working!! The ghost, deemed Master of this manor, is stricken. Ever so slowly, he is being pulled outward from the mirror like a stubborn cat with claws stuck on the furniture. Resistant, but it is a futile means! 
+You urge Tim to continue. Whatever he’s doing, it seems to be working!! The ghost, deemed Master of this manor, is stricken. Ever so slowly, he is being pulled outward from the mirror like a stubborn cat with claws stuck in the furniture. Resistant, but it is a futile means! 
 
 (text-colour:red)[(text-style:&quot;rumble&quot;)[(text-style:&quot;smear&quot;,&quot;tall&quot;,&quot;buoy&quot;)[//(text-style:&quot;expand&quot;)[&#39;&#39;NO&#39;&#39;]-!! It wasn’t supposed to end this way… Give me one of your bodies, I &#39;&#39;demand&#39;&#39; it!! I am to walk among the living once more!!!//]]]
 
@@ -2495,7 +2487,7 @@ Whatever its plan was, you seem to have foiled it. You and Tim step back as the 
 
 The ghost… disappears. Slowly it fades further and further from view until only the wail of its voice is left. But then that dies out too, and you’re left with silence. Did you do it..? Was… this nightmare finally over? Tim seems to think so as he drops the book and gives you a big suffocating hug while jumping up and down. “We did it!! I don’t really know what we did but we did it!!” At the very least, Tim’s elation brightens your mood. He did good with that book. It was quick thinking on his part. Not to mention, if you would’ve touched that glass you imagine things would have turned out much differently.  
 
-A crash of tinkling glass has you both jumping apart, and you peer back at the mirror that appears to have shattered. But it’s an object within that has you abundantly curious in moments. Tim waltzes forward, reaching into the now empty frame to dislodge a ridiculously large silver key, adorned with sparkling jewels. By nelly, it was &#39;&#39;heavy&#39;&#39; too! If you tried to put it in your pocket you’re quite sure it would take your pants down to your ankles! 
+A crash of tinkling glass has you both jumping apart, and you peer back at the mirror that appears to have shattered. There&#39;s an object within that has you abundantly curious. Tim waltzes forward, reaching into the now empty frame to dislodge a ridiculously large silver key, adorned with sparkling jewels. By nelly, it was &#39;&#39;heavy&#39;&#39; too! If you tried to put it in your pocket you’re quite sure it would take your pants down to your ankles! 
 
 “Are you thinking what I’m thinking?” Tim asks with a brightness lingering in his eyes. It takes you a moment to catch up to speed. Could it be..? 
 
@@ -2510,19 +2502,19 @@ Was this the key to the front door?!
 [[Run to Foyer|Foyer2]] ]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="122" name="Foyer2" tags="" position="525,1875" size="100,100">As you traverse these spooky halls one last time, everything seems different. The haunted air seems lifted, and you see fleeting forms of ghosts dancing through the air in what you can only imagine as… celebration. There’s gleeful laughter all around you, and the spirits pay you no mind with a means to harm you this time around as you make your way to the foyer. 
 
-Naturally you and Tim are still leery and look to avoid eye contact. The ghosts can enjoy their party, but they could kindly leave you out of it! You’ve had enough of their company and were eager to escape through your deserved exit. You enter the foyer, and Tim produces that extravagant key from his bag. “Here goes nothing…” he breathes, and squints his eyes shut as he inserted the key… gives it a twist… and with a loud satisfying click, you eagerly try the handle. 
+Naturally you and Tim are still leery and look to avoid eye contact. The ghosts can enjoy their party, but they could kindly leave you out of it! You’ve had enough of their company and were eager to escape through your deserved exit. You enter the foyer, and Tim produces that extravagant key from his bag. “Here goes nothing…” he breathes, and squints his eyes shut as he inserts the key… gives it a twist… and you hear a loud satisfying click. Eagerly, you try the handle. 
 
 The large doors creak open with fresh air from the night quick to enter your lungs. 
 
 Finally, you’ve escaped. 
 
-Tim starts jumping for joy, creaking the wood of the porch as he dances about. You’re about to join him when you feel a rush of cold through your body. Tim must have felt the same. Both of you whip around to see a suddenly empty dusty mansion. No more ghosts. But you do hear a whisper on the wind that makes you hair stand on end. 
+Tim starts jumping for joy, creaking the wood of the porch as he dances. You’re about to join him when you feel a rush of cold through your body. Tim must have felt the same. Both of you whip around to see a suddenly empty dusty mansion. No more ghosts. But you do hear a whisper on the wind that makes your hair stand on end. 
 
 (text-style:&quot;sway&quot;)[(text-colour:#e6f098)[(text-style:&quot;smear&quot;,&quot;fade-in-out&quot;)[//Thaank yooou. //]]]
 
-Tim immediately thrusts the doors shut, and even goes into the effort of locking the front door for good measure as though with the hope that the ghosts will stay locked within! You decide to believe this as well to give you peace of mind while Tim throws the silver key into his bag and a look between you has you sharing the same thought. 
+Tim immediately pulls the door shut, and even goes into the effort of locking it for good measure. As though with the hope that the ghosts will stay within! You decide to believe this, to give yourself a peace of mind, while Tim throws the silver key into his bag. A look between has you sharing the same thought. 
 
-Time to go home. 
+(text-colour:lime)[&#39;&#39;Time to go home.&#39;&#39;] 
 
 (text-colour:green)[&#39;&#39;ALL’S WELL THAT ENDS WELL! TRUE ENDING&#39;&#39;]
 &lt;div class=&quot;option-wrapper&quot;&gt;
@@ -2791,29 +2783,29 @@ The large doors creak to wash your faces in fresh, crisp clean air.
 
 You’ve… finally escaped!
 
-Tim starts jumping for joy, creaking the wood of the porch as he dances about. You’re about to join him when you feel something moving through your body. Making your guts turn over themselves, forcing you down. Knees striking against the wood of the front porch. Hands spread wide as you pant laborious for air. “$name!” Tim cries rushing back to you. “W-what’s wrong? If… if this is a joke, it’s not funny!” You wish you could say it was! 
+Tim starts jumping for joy, creaking the wood of the porch as he dances. You’re about to join him when you feel something moving through your body. Making your guts turn over themselves, forcing you down. Knees striking against the wood of the front porch. Hands spread wide as you pant laborious for air. “$name!” Tim cries rushing back to you. “W-what’s wrong? If… if this is a joke, it’s not funny!” You wish you could say it was! 
 
 Unfortunately you can’t even muster up the effort of speaking. For the fear you might vomit in Tim’s lap. “$name?” His voice is frail, tiny. Scared. “You’re… you //are// okay… right?”
 
-A voice not your own, giggles. Smooth and posh as it had been the first time you interacted with the being. (text-colour:#868e96)[(text-style:&quot;smear&quot;)[//Don’t tell me you’ve forgotten our deal now, child? You couldn’t have possibly forgotten about (text-style:&quot;expand&quot;)[&#39;&#39;me&#39;&#39;].//]]
+A voice not your own, giggles. Smooth and posh as it was the first time you interacted with the being. (text-colour:#868e96)[(text-style:&quot;smear&quot;)[//Don’t tell me you’ve forgotten our deal now, child? You couldn’t have possibly forgotten about (text-style:&quot;expand&quot;)[&#39;&#39;me&#39;&#39;].//]]
 
 Honestly, you may have actually forgotten about Jonathan. Having been a little more preoccupied with getting out of the house. Getting out of the attic, &#39;&#39;alive&#39;&#39;!
 
-Groaning painfully as you thump your head into the wood next, Tim is starting to shake you once more. Pleading, begging. Asking you to say something but you just… &#39;&#39;can’t&#39;&#39;. You can’t even think of something to maybe say back to Jonathan inside your skull. 
+Groaning painfully as you thump your head into the wood, Tim is starting to shake you once more. Pleading, begging. Asking you to say something but you just… &#39;&#39;can’t&#39;&#39;. You can’t even think of something to say back. As Jonathan lingers inside your skull. 
 
 All you know is disgusting discomfort. 
 
 And you realize in that moment that while you’ve escaped from the house… you’ve just bought something far more dangerous out as well. This thought is clearly heard by the unwanted guest inside you. (text-colour:#868e96)[(text-style:&quot;smear&quot;)[//We are going to have &#39;&#39;so much fun together&#39;&#39;. You… and I… will accomplish &#39;&#39;many (text-style:&quot;expand&quot;)[great] and (text-style:&quot;expand&quot;)[terrible] things&#39;&#39;.//]]
 
-Weakly you laugh, and admit in that moment that you’ve made a grave mistake. His face drops as you explain the deal you made with the banquet hall ghost. His voice trembles, “What… have you done $name? What… have you done?”
+Weakly you laugh, and admit in that moment that you’ve made a grave mistake. Tim&#39;s face drops as you explain the deal you made with the banquet hall ghost. His voice trembles, “What… have you done $name? What… have you done?”
 
 &#39;&#39;(text-style:&quot;expand&quot;)[(text-colour:#868e96)[(text-style:&quot;smear&quot;)[//What have you done, indeed!//]]]&#39;&#39; Jonathan cackles inside your mind and you realize then and there, that this ghost was going to be with you. Forever. You… were now his meat puppet.
 
 (text-colour:red)[&#39;&#39;A STRONG GAMBLE FOR NO PROFIT! TRUE END?&#39;&#39;]
-</tw-passagedata><tw-passagedata pid="140" name="overlook" tags="" position="2800,3800" size="100,100">(set: $overlook to false)[
+</tw-passagedata><tw-passagedata pid="140" name="overlook" tags="" position="2600,3800" size="100,100">(set: $overlook to false)[
 You come to a dead end. Kinda of.
 
-The hallway itself leads to a sort of overlook. Framed by tall railing to avoid anyone crawling over to make a plummet down into a large hall. It appears to be some sort of banquet hall. At this vantage point, you can&#39;t really tell what&#39;s going on. Just that the room itself its large, and gives you a strange feeling. As if you are being watched.
+The hallway itself leads to a sort of overlook. Framed by a tall railing to avoid anyone crawling over to make a plummet down into the large hall. It appears to be some sort of banquet hall. At this vantage point, you can&#39;t really tell what&#39;s going on. Just that the room itself its large, and gives you a strange feeling. As if you are being watched.
 
 Tim gives a shuddering sigh, &quot;Guess we have to go back. I&#39;m not crazy enough to jump off the railing and neither are you.&quot; As if to stop any intrusive thoughts you may have had. Pointing back the way you came. &quot;Come on $name. Let&#39;s go back to the [[Upstairs Landing|Upstairs]]
 &lt;div class=&quot;option-wrapper&quot;&gt;
@@ -2824,11 +2816,13 @@ Tim gives a shuddering sigh, &quot;Guess we have to go back. I&#39;m not crazy e
 
 
 
-</tw-passagedata><tw-passagedata pid="141" name="holder" tags="holder" position="4000,3775" size="100,200">(if: $ is false)[
+</tw-passagedata><tw-passagedata pid="141" name="holder" tags="holder" position="3500,3500" size="100,200">(if: $ is false)[
 (set:$gardenvisit to true)
 (else:)
 
-(track: &#39;water-drops&#39;, &#39;play&#39;)</tw-passagedata><tw-passagedata pid="142" name="Unremarkable" tags="Bedroom-4" position="1475,3575" size="100,100">Curiosity gets the better of you in this case! Daring you to peek back inside to see if the room has altered.
+(track: &#39;water-drops&#39;, &#39;play&#39;)
+
+83,0.7308,0.5922,0.6</tw-passagedata><tw-passagedata pid="142" name="Unremarkable" tags="Bedroom-4" position="1475,3575" size="100,100">Curiosity gets the better of you in this case! Daring you to peek back inside to see if the room has altered.
 
 (text-style:&quot;expand&quot;,&quot;sway&quot;)[(text-colour:#f783ac)[//Ta daaa~//]]
 
@@ -2837,9 +2831,9 @@ Nothing has changed. It&#39;s still the exact same as before. And a total waste 
 &quot;I&#39;m starting to wonder if I should start making the choices from here.&quot; You hear Tim comment as you shut the door, entering back to the [[Stretching Hallway|Hallway 4]]
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="143" name="Dolls" tags="Bd-3" position="1525,3225" size="100,100">&quot;We &#39;&#39;are not&#39;&#39; going back in there! I already said I draw the line at creepy dolls!&quot; Tim striking you upside the head! &quot;$name, stop it. Let go of the handle and pick a different way!&quot;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="143" name="Dolls" tags="Bd-3" position="1525,3225" size="100,100">&quot;We &#39;&#39;are not&#39;&#39; going back in there! I already said I draw the line at creepy dolls!&quot; Tim swats you upside the head! &quot;$name, stop it. Let go of the handle and pick a different way!&quot;
 
-You relent, immediately. Offering your best hangdog expression in hopes it might soften Tim&#39;s ire. &quot;Don&#39;t even try it.&quot; He glares at you, eell you aren&#39;t winning Tim over right now, so you might as well go back to the [[Stretching Hallway|Hallway 4]].
+You relent, immediately. Offering your best hangdog expression in hopes it might soften Tim&#39;s ire. &quot;Don&#39;t even try it.&quot; He glares at you. You aren&#39;t winning Tim over right now, so you might as well go back to the [[Stretching Hallway|Hallway 4]].
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
  &lt;/div&gt;

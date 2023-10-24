@@ -607,7 +607,7 @@ Just; they aren’t there to be seen. Giving you a strictly uncomfortable feelin
 The choice is yours once more!
 
 &lt;div class=&quot;option-wrapper&quot;&gt;
-Go to the [[Kitchen]]
+(if: $dinnertest is true)[Walk into the [[Kitchen|KitchenA]]] (else:)[Walk into the [[Kitchen]] ]
 Walk to the [[Dining Room]]
 Enter the [[Courtyard]]
 
@@ -626,7 +626,7 @@ Once more you look to that same spot. Just, regrettably for you, the ghost is pr
 &lt;div class=&quot;option-wrapper&quot;&gt;
 Back to the [[Courtyard]]
 Towards the [[Dining Room]]
-Into the [[Kitchen]] once more
+(if: $dinnertest is true)[Walk into the [[Kitchen|KitchenA]]] (else:)[Walk into the [[Kitchen]] ]
 Or, talk to the [[Ghost]]
 
 &lt;/div&gt;
@@ -642,7 +642,7 @@ Out of habit now, you cautiously steal a peek to that corner. Where the ghost ha
 &lt;div class=&quot;option-wrapper&quot;&gt;
 Out to the [[Courtyard]]
 Towards the [[Dining Room]]
-Into the [[Kitchen]]
+(if: $dinnertest is true)[Walk into the [[Kitchen|KitchenA]]] (else:)[Walk into the [[Kitchen]] ]
 &lt;/div&gt;
 ]</tw-passagedata><tw-passagedata pid="13" name="Courtyard" tags="" position="3175,3000" size="100,100">(if: $courtyard is false)[
 The heavy doors creak open with a grating push, creating an intense draft that blows at your hair and teases your cheeks. You realize, for the first time since entering this nightmare, the air is fresh. “It’s about time!” Tim nearly bolts past you to excitedly explore the courtyard that the pair of you come to find yourselves in. The stone pathways have long since been overgrown with green. Grasses, moss, and rogue growing plants litter the ground and cover the walls. Swiftly agreeing with Tim, that out of all the places visited so far in this manor, this one takes the cake!. 
@@ -1607,7 +1607,7 @@ There’s furniture galore up in this attic, and it’s covered with white sheet
 &lt;center&gt;page 1/2&lt;/center&gt;[[Next Page|Attic 2]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="74" name="Séance RoomA" tags="" position="800,5725" size="100,100">You try to open the door but find that it will not budge. No matter how you jiggle and rattle the handle, this entry is not yeilding. It&#39;s firmly locked and has no other value that you can tell.
 
-Turning back to the rest of the hallway, you decide to try another way. Perhaps to the [[Bedroom-&gt;Bedroom 5]].
+Turning back to the rest of the hallway, you decide to try another way. Perhaps to the (if:$stop is false)[ [[Bedroom-&gt;Bedroom 5]] ](else:)[ [[Bedroom|Stop!]] ].
 
 &quot;What about going back through the [[Foyer hallway-&gt;Hallway 7]], $name?&quot; Tim points for clarity in case you missed that. &quot;Otherwise we might as well go to the [[Living Room]] or the [[Library]].&quot;</tw-passagedata><tw-passagedata pid="75" name="Step Towards the Coffin" tags="" position="3475,2075" size="100,100">You take one step… then two… so far so good. No curse of Tutankhamun has fallen upon you yet! But upon your third step, something doesn’t seem quite right. You feel a familiar tremor beneath your feet, and you can hear Tim’s brief muttering of defeat. He knows as well as you what is about to happen. 
 
@@ -2596,6 +2596,8 @@ Shovel]&lt;/li&gt;
 Silver Bridle]&lt;/li&gt;
 &lt;li&gt;(if: $enchantment)[&lt;img src=&quot;https://retro-dragon.com/calloway-manor/images/enchantment.png&quot; width=&quot;100&quot; /&gt;&lt;br /&gt;
 Enchantment]&lt;/li&gt;
+&lt;li&gt;(if: $bone)[&lt;img src=&quot;https://retro-dragon.com/calloway-manor/images/bone.png&quot; width=&quot;100&quot; /&gt;&lt;br /&gt;
+Bone]&lt;/li&gt;
 }
 &lt;/ul&gt;
 &lt;/div&gt;

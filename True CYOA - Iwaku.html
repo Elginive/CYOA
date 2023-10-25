@@ -218,7 +218,7 @@ display:inline-block;
   height: 150%;
   background-color:#000;
   z-index:10;
-  animation: fade-out 10s ease-out forwards;
+  animation: fade-out 8s ease-out forwards;
 }
 
 @keyframes fade-out {
@@ -230,10 +230,15 @@ display:inline-block;
   }
   80% {
     z-index:0;
+    opacity: 0;
+    height: 150%;
   }
   100% {
     opacity: 0;
     display: none;
+    background-color: none;
+    z-index:-1;
+    height: 0;
   }
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">$(function(){
   var $jittery = $('.jittery'),
@@ -2957,8 +2962,6 @@ Coding: Elginive and Manna Beast
 Playtesters: Wolfiethehybrid123, MajorMooser &amp; Squiddyboi
 
 (text-style:&quot;buoy&quot;)[(text-colour:(hsl:210,0.0708,0.5569,0.95))[&#39;&#39;(text-style:&quot;tall&quot;)[Thank you for playing]&#39;&#39;]]!]]&lt;/center&gt;
-
-(link: &quot;Restart&quot;)[(reload:)
 </tw-passagedata><tw-passagedata pid="140" name="overlook" tags="" position="2600,3800" size="100,100">(text-colour:#495057)[(text-style:&quot;superscript&quot;)[(text-style:&quot;underline&quot;)[&lt;left&gt;Overlook&lt;/left&gt;]]]
 
 (set: $overlook to false)[
